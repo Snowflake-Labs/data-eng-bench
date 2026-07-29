@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: raw_pos
+    description: |
+      Point of Sale (POS) raw data source.
+      Data is loaded from store systems into the RAW_POS schema.
+    schema: RAW_POS
+
+    tables:
+      - name: coupon_usage
+      - name: coupon_usage_hist
+      - name: coupons
+      - name: coupons_hist
+      - name: discounts
+      - name: discounts_hist
+      - name: loyalty_accts
+      - name: loyalty_accts_hist
+      - name: loyalty_trans
+      - name: loyalty_trans_hist
+      - name: promotions
+      - name: promotions_hist
+      - name: refunds
+      - name: refunds_hist
+      - name: return_lines
+      - name: return_lines_hist
+      - name: returns
+      - name: returns_hist
+      - name: tax_lines
+      - name: tax_lines_hist
+      - name: tenders
+      - name: tenders_hist
+      - name: trans_lines
+      - name: trans_lines_hist
+      - name: trans_status
+      - name: trans_status_hist
+      - name: transactions
+      - name: transactions_hist

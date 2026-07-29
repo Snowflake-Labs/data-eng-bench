@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: procurement
+    description: Purchasing and supplier management
+    schema: PROCUREMENT
+
+    tables:
+      - name: LANDED_COST_COMPONENTS
+      - name: PRODUCT_COSTS
+      - name: PURCHASE_CONTRACTS
+      - name: PURCHASE_CONTRACT_ITEMS
+      - name: PURCHASE_ORDERS
+      - name: PURCHASE_ORDER_LINES
+      - name: PURCHASE_ORDER_RECEIPTS
+      - name: PURCHASE_ORDER_RECEIPT_LINES
+      - name: SUPPLIERS
+      - name: SUPPLIER_ADDRESSES
+      - name: SUPPLIER_CERTIFICATIONS
+      - name: SUPPLIER_CONTACTS
+      - name: SUPPLIER_INVOICES
+      - name: SUPPLIER_INVOICE_LINES
+      - name: SUPPLIER_PERFORMANCE_SCORES
+
+      - name: VENDCAT
+      - name: VENDCAT_HIST
+      - name: VENDITEM
+      - name: VENDITEM_HIST
+      - name: VENDMST
+      - name: VENDMST_HIST

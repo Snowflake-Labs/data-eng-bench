@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: marketing
+    description: Marketing campaigns and promotions
+    schema: MARKETING
+
+    tables:
+      - name: CAMPAIGN_AUDIENCES
+      - name: CAMPAIGN_CHANNELS
+      - name: CAMPAIGN_PERFORMANCE
+      - name: COUPONS
+      - name: COUPON_REDEMPTIONS
+      - name: GIFT_CARDS
+      - name: GIFT_CARD_TRANSACTIONS
+      - name: LOYALTY_POINTS_TRANSACTIONS
+      - name: LOYALTY_PROGRAMS
+      - name: MARKETING_CAMPAIGNS
+      - name: PROMOTIONS
+      - name: PROMOTION_PRODUCTS
+      - name: PROMOTION_REDEMPTIONS
+      - name: PROMOTION_RULES
+
+      - name: ADS_CAMPAIGNS
+      - name: ADS_CAMPAIGNS_HIST
+      - name: ADS_CAMPAIGNS_STG
+      - name: ADS_CLICKS
+      - name: ADS_CLICKS_HIST
+      - name: ADS_CLICKS_STG
+      - name: ADS_IMPRESSIONS
+      - name: ADS_IMPRESSIONS_HIST
+      - name: ADS_IMPRESSIONS_STG
+      - name: AUDIENCES
+      - name: AUDIENCES_HIST
+      - name: AUDIENCES_STG
+      - name: CAMPAIGNS_STG
+      - name: EMAIL_CLICKS
+      - name: EMAIL_CLICKS_HIST
+      - name: EMAIL_CLICKS_STG

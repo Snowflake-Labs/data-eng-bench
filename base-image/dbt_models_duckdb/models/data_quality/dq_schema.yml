@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: dq_duplicate_customers
+    description: |
+      Identifies potential duplicate customer records using email, phone, and name matching.
+      Used by MDM team for customer data quality management.
+    config:
+      tags: ['data-quality', 'customers']
+    columns:
+      - name: customer_id_1
+        description: First customer in the duplicate pair
+      - name: customer_id_2
+        description: Second customer in the duplicate pair
+      - name: match_type
+        description: Type of match (EMAIL_MATCH, PHONE_MATCH, NAME_MATCH)
+      - name: match_score
+        description: Confidence score (0-100)
+      - name: recommended_action
+        description: Suggested action (AUTO_MERGE, MANUAL_REVIEW, INVESTIGATE)
+
+  - name: dq_late_arriving_facts
+    description: |
+      Detects fact records that arrived significantly after their business date.
+      Helps identify integration delays and data freshness issues.
+    config:
+      tags: ['data-quality', 'timeliness']
+    columns:
+      - name: fact_type
+        description: Type of fact (ORDER, SHIPMENT, etc.)
+      - name: severity
+        description: Severity level (MINOR, WARNING, CRITICAL, SEVERE)
+      - name: hours_late
+        description: Hours between business timestamp and load timestamp
+      - name: days_late
+        description: Days between business timestamp and load timestamp
+
+  - name: dq_orphaned_records
+    description: |
+      Identifies fact records with foreign keys that don't exist in dimension tables.
+      Critical for referential integrity monitoring.
+    config:
+      tags: ['data-quality', 'referential-integrity']
+    columns:
+      - name: source_table
+        description: The fact table containing the orphan
+      - name: orphan_column
+        description: The column with the missing reference
+      - name: expected_dimension
+        description: The dimension table that should contain the key
+      - name: severity
+        description: Severity based on recency (HIGH, MEDIUM, LOW)

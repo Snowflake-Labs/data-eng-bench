@@ -1,0 +1,320 @@
+version: 2
+
+sources:
+  - name: sfdc
+    description: |
+      Salesforce CRM - customer relationship management including accounts, contacts, and opportunities
+
+      This source contains raw data extracted from the SFDC system.
+      Data is loaded via ELT processes and stored in the RAW_SFDC schema.
+
+    schema: RAW_SFDC
+
+    # Source freshness checks
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    # Metadata for all tables
+    meta:
+      owner: "data-engineering@company.com"
+      source_system: "sfdc"
+
+    tables:
+      - name: ACCOUNT_DIM
+        description: |
+          Dimension table containing descriptive attributes from SFDC
+          Entity type: dimension
+        meta:
+          entity_type: "dimension"
+        loaded_at_field: _LOADED_AT
+
+      - name: ACCOUNT_RELATIONS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ACCOUNT_SCORES
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ACCOUNT_TIERS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ACTIVITIES
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ADDRESSES
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: APPROVALS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ATTACHMENTS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: AUDIT_LOG
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CAMPAIGNS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CAMPAIGN_MEMBERS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CAMPAIGN_RESPONSES
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CONSENTS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CONTACTS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: EMAIL_CAMPAIGNS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: EMAIL_EVENTS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: EMAIL_SENDS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: EXPORT_LOG
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: FEEDBACK
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: LIFECYCLE_STAGES
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: LISTS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: LOGIN_HISTORY
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: LOYALTY
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: MKT_FACT
+        description: |
+          Fact table containing transactional or measurement data from SFDC
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: ORDER_NOTES
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: PREFERENCES
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: QUOTES
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: QUOTE_LINES
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SEGMENTS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SUBSCRIPTIONS
+        description: |
+          Source table from SFDC
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+
+  - name: raw_sfdc
+    description: Raw SFDC data (alias for sfdc source with alternate naming)
+    schema: RAW_SFDC
+    tables:
+      - name: account_relations
+      - name: account_relations_hist
+      - name: account_scores
+      - name: account_scores_hist
+      - name: account_tiers
+      - name: account_tiers_hist
+      - name: activities
+      - name: activities_hist
+      - name: addresses
+      - name: addresses_hist
+      - name: approvals
+      - name: approvals_hist
+      - name: attachments
+      - name: attachments_hist
+      - name: audit_log
+      - name: audit_log_hist
+      - name: campaign_members
+      - name: campaign_members_hist
+      - name: campaign_responses
+      - name: campaign_responses_hist
+      - name: campaigns
+      - name: campaigns_hist
+      - name: consents
+      - name: consents_hist
+      - name: contacts
+      - name: contacts_hist
+      - name: email_campaigns
+      - name: email_campaigns_hist
+      - name: email_events
+      - name: email_events_hist
+      - name: email_sends
+      - name: email_sends_hist
+      - name: feedback
+      - name: feedback_hist
+      - name: lifecycle_stages
+      - name: lifecycle_stages_hist
+      - name: lists
+      - name: lists_hist
+      - name: loyalty
+      - name: loyalty_hist
+      - name: order_notes
+      - name: order_notes_hist
+      - name: preferences
+      - name: preferences_hist
+      - name: quote_lines
+      - name: quote_lines_hist
+      - name: quotes
+      - name: quotes_hist
+      - name: segments
+      - name: segments_hist
+      - name: subscriptions
+      - name: subscriptions_hist

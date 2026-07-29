@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: digital
+    description: Digital commerce and web platform data
+    schema: DIGITAL
+
+    tables:
+      - name: CHANNEL_CONFIGURATIONS
+      - name: MARKETPLACE_LISTINGS
+      - name: SALES_CHANNELS
+      - name: SHOPPING_CARTS
+      - name: SHOPPING_CART_ITEMS
+      - name: WEB_EVENTS
+      - name: WEB_PAGE_VIEWS
+      - name: WEB_SESSIONS
+      - name: WISHLISTS
+      - name: WISHLIST_ITEMS
+
+      - name: ABANDONED_CARTS
+      - name: ABANDONED_CARTS_HIST
+      - name: ABANDONED_CARTS_STG
+      - name: CARTS
+      - name: CARTS_HIST
+      - name: CARTS_STG
+      - name: CART_ITEMS
+      - name: CART_ITEMS_HIST
+      - name: CART_ITEMS_STG
+      - name: ECOM_TRANS
+      - name: ECOM_TRANS_HIST
+      - name: ECOM_TRANS_STG
+      - name: RATINGS
+      - name: RATINGS_HIST
+      - name: RATINGS_STG
+      - name: RECOMMENDATIONS
+      - name: RECOMMENDATIONS_HIST
+      - name: RECOMMENDATIONS_STG
+      - name: REVIEWS
+      - name: REVIEWS_HIST
+      - name: REVIEWS_STG
+      - name: WISHLISTS_HIST
+      - name: WISHLISTS_STG

@@ -1,0 +1,35 @@
+# dbt-bench — DuckDB (hermetic) — Cortex Code
+#
+# Zero Snowflake account required for the DATABASE (retail.duckdb is baked into
+# the image). Cortex Code is Snowflake's coding agent; point the harness at a
+# Cortex-served model. If your Harbor install does not ship a native
+# `cortex-code` agent, run the model through the universal `terminus-2` harness
+# (shown as the commented alternative below) — the task set and verifiers are
+# identical either way.
+#
+# Run:
+#   harbor run --config configs/dbt-bench-duckdb.cortex-code.yaml \
+#     --path tasks -m anthropic/claude-opus-4-8 --ak reasoning_effort=high
+
+name: dbt-bench-duckdb
+
+n_attempts: 3          # leaderboard requires >= 3 trials per task
+n_concurrent_trials: 4
+quiet: true
+
+environment:
+  type: docker         # builds each task's environment/Dockerfile (FROM dbt-bench-base)
+  env:
+    - DB_TYPE=duckdb
+
+agents:
+  - name: cortex-code
+    model_name: anthropic/claude-opus-4-8
+    kwargs:
+      reasoning_effort: high
+
+  # Portable fallback if your Harbor build has no native `cortex-code` agent:
+  # - name: terminus-2
+  #   model_name: anthropic/claude-opus-4-8
+  #   kwargs:
+  #     reasoning_effort: high

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use dbt-bench in your research, please cite it as below."
+title: "dbt-bench: a data-engineering benchmark for coding agents"
+abstract: >-
+  103 realistic dbt data-engineering tasks (analytics models, dimensional
+  modeling, incremental models, and bug-fixes) for evaluating AI coding agents,
+  runnable hermetically on DuckDB or against Snowflake.
+authors:
+  - name: "Snowflake Inc."
+repository-code: "https://github.com/snowflakedb/dbt-bench"
+license: Apache-2.0
+version: "1.0.0"
+date-released: "2026-07-29"
+keywords:
+  - benchmark
+  - coding-agents
+  - dbt
+  - data-engineering
+  - snowflake
+  - duckdb

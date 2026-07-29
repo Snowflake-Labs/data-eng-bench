@@ -1,0 +1,47 @@
+{{
+    config(
+        materialized='view',
+        unique_key='contact_id',
+        tags=['staging', 'raw_sfdc', 'scaled']
+    )
+}}
+
+WITH source AS (
+    SELECT * FROM {{ source('enterprise_db', 'CONTACTS_HIST') }}
+    
+),
+
+deduplicated AS (
+    SELECT *,
+        ROW_NUMBER() OVER (PARTITION BY CONTACT_ID ORDER BY updated_at DESC, created_at DESC) AS row_num
+    FROM source
+),
+
+cleaned AS (
+    SELECT * EXCLUDE (row_num) FROM deduplicated WHERE row_num = 1
+),
+
+renamed AS (
+    SELECT
+        TRIM(CONTACT_ID) AS contact_id,
+        TRIM(CUSTOMER_ID) AS customer_id,
+        TRIM(CONTACT_TYPE) AS contact_type,
+        TRIM(CONTACT_SUBTYPE) AS contact_subtype,
+        TRIM(CONTACT_VALUE) AS contact_value,
+        IS_PRIMARY AS is_primary,
+        IS_VERIFIED AS is_verified,
+        VERIFIED_AT AS verified_at,
+        IS_ACTIVE AS is_active,
+        CREATED_AT AS created_at,
+        UPDATED_AT AS updated_at,
+        _LOADED_AT AS _loaded_at,
+        TRIM(_SOURCE_SYSTEM) AS _source_system,
+        TRIM(_BATCH_ID) AS _batch_id,
+        TRIM(_ROW_NUMBER) AS _row_number,
+        TRIM(_ROW_HASH) AS _row_hash,
+        _archived_at AS _archived_at
+    FROM cleaned
+    WHERE CONTACT_ID IS NOT NULL
+)
+
+SELECT * FROM renamed

@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: payments
+    description: |
+      Payment processing system - transaction and subscription data from Stripe
+
+      This source contains raw data extracted from the PAYMENTS system.
+      Data is loaded via ELT processes and stored in the RAW_PAYMENTS schema.
+
+    schema: RAW_PAYMENTS
+
+    # Source freshness checks
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    # Metadata for all tables
+    meta:
+      owner: "data-engineering@company.com"
+      source_system: "payments"
+
+    tables:
+      - name: CHARGES
+        description: |
+          Source table from PAYMENTS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CURRENCIES
+        description: |
+          Source table from PAYMENTS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: PAYOUTS
+        description: |
+          Source table from PAYMENTS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: REFUNDS
+        description: |
+          Source table from PAYMENTS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SUBSCRIPTIONS
+        description: |
+          Source table from PAYMENTS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+
+  - name: raw_payments
+    description: Raw payment data (lowercase table names)
+    schema: RAW_PAYMENTS
+    tables:
+      - name: charges
+      - name: charges_hist
+      - name: currencies_hist
+      - name: payouts
+      - name: payouts_hist
+      - name: refunds
+      - name: refunds_hist
+      - name: subscriptions
+      - name: subscriptions_hist

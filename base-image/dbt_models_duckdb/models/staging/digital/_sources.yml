@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: digital
+    description: Digital commerce and web platform data
+    schema: DIGITAL
+
+    tables:
+      - name: CHANNEL_CONFIGURATIONS
+      - name: MARKETPLACE_LISTINGS
+      - name: SALES_CHANNELS
+      - name: SHOPPING_CARTS
+      - name: SHOPPING_CART_ITEMS
+      - name: WEB_EVENTS
+      - name: WEB_PAGE_VIEWS
+      - name: WEB_SESSIONS
+      - name: WISHLISTS
+      - name: WISHLIST_ITEMS

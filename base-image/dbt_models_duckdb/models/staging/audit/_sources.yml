@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: audit
+    description: Audit logs and compliance tracking
+    schema: AUDIT
+
+    tables:
+      - name: AUDIT_LOGS
+      - name: COMPLIANCE_RULES
+      - name: COMPLIANCE_VIOLATIONS
+      - name: CONSENT_PREFERENCES
+      - name: DATA_CHANGE_HISTORY
+      - name: DATA_MASKING_RULES
+      - name: DATA_RETENTION_POLICIES
+      - name: USER_ACCESS_LOGS

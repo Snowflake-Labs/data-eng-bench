@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: audit
+    description: Audit and compliance source tables from AUDIT schema
+    database: RETAIL_V2
+    schema: AUDIT
+    tables:
+      - name: AUDIT_LOGS
+        identifier: AUDIT_LOGS
+      - name: USER_ACCESS_LOGS
+        identifier: USER_ACCESS_LOGS
+      - name: AUDIT_LOGS_STAGING
+        identifier: AUDIT_LOGS_STAGING
+      - name: CONSENT_PREFERENCES
+        identifier: CONSENT_PREFERENCES
+      - name: DATA_CHANGE_HISTORY
+        identifier: DATA_CHANGE_HISTORY
+      - name: COMPLIANCE_RULES
+        identifier: COMPLIANCE_RULES
+      - name: COMPLIANCE_VIOLATIONS
+        identifier: COMPLIANCE_VIOLATIONS
+      - name: DATA_MASKING_RULES
+        identifier: DATA_MASKING_RULES
+      - name: DATA_RETENTION_POLICIES
+        identifier: DATA_RETENTION_POLICIES
+
+      - name: ACCESS_LOG_STG

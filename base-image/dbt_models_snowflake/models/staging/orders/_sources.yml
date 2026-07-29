@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: orders
+    description: Order management and fulfillment
+    schema: ORDERS
+
+    tables:
+      - name: CHANNELS
+      - name: CHARGES
+      - name: CHARGES_HIST
+      - name: ORDERS
+      - name: ORDER_CANCELLATIONS
+      - name: ORDER_FRAUD_SCORES
+      - name: ORDER_HOLDS
+      - name: ORDER_LINES
+      - name: ORDER_LINE_DISCOUNTS
+      - name: ORDER_MODIFICATIONS
+      - name: ORDER_NOTES
+      - name: ORDER_PAYMENTS
+      - name: ORDER_STATUS_HISTORY
+      - name: RETURNS
+      - name: RETURN_LINES
+      - name: RETURN_REASONS
+      - name: SHIPMENTS
+      - name: SHIPMENT_LINES
+      - name: SHIPMENT_PACKAGES
+      - name: SHIPMENT_TRACKING
+      - name: SHIPPING_METHODS

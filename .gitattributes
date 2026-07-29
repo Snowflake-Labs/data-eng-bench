@@ -1,0 +1,1 @@
+base-image/database/*.duckdb filter=lfs diff=lfs merge=lfs -text

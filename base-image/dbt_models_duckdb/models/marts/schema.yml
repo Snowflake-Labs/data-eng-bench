@@ -1,0 +1,504 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: |
+      Core sales fact table containing all order line items.
+
+      This is the primary fact table for sales analytics, combining order headers
+      and line items from multiple source systems (SAP, POS).
+
+      **Grain:** One row per order line item
+
+      **Key Metrics:**
+      - Revenue (extended_price, line_total)
+      - Quantities (ordered, shipped, backorder)
+      - Discounts and taxes
+
+      **Common Use Cases:**
+      - Sales performance analysis
+      - Product sales trends
+      - Customer purchase behavior
+      - Revenue reporting
+
+      **Known Data Quality Issues:**
+      - HomeStyle (SAP_HOMESTYLE) data has ~0.1% duplicate keys (DATA-1234)
+      - POS weekend data occasionally arrives late (DATA-1567)
+      - Canadian tax calculations may be incorrect for orders before 2024-06-01 (DATA-1890)
+
+    config:
+      meta:
+        owner: 'data-eng@company.com'
+        sla: '6am UTC'
+        slack_channel: '#data-alerts-sales'
+        estimated_runtime_minutes: 47
+        snowflake_warehouse: 'TRANSFORM_XL'
+        pii_columns: ['customer_id']
+        tableau_workbooks: ['Sales Executive Dashboard', 'Weekly Revenue Report']
+
+    columns:
+      - name: order_line_id
+        description: Unique identifier for the order line item (primary key)
+        tests:
+          - not_null
+          - unique:
+              config:
+                # KNOWN ISSUE: HomeStyle data has ~0.1% duplicate keys
+                # due to SAP replication bug. Fix planned for Q2 2025.
+                # Ticket: DATA-1234 (medium priority)
+                severity: warn
+                warn_if: ">500"
+                error_if: ">5000"
+
+      - name: order_id
+        description: Order identifier (foreign key to order header)
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_sales__orders_enriched')
+              field: order_id
+              config:
+                # Some orphaned line items from legacy migration
+                # Ticket: DATA-1456 (low priority, won't fix)
+                severity: warn
+                warn_if: ">100"
+
+      - name: customer_id
+        description: Customer identifier (foreign key to dim_customers)
+        tests:
+          - not_null:
+              config:
+                # B2B guest checkout orders have NULL customer_id
+                # This is expected for ~2% of orders
+                where: "source_system != 'B2B_GUEST'"
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+              config:
+                severity: warn
+
+      - name: product_id
+        description: Product identifier (foreign key to product dimension)
+        tests:
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+              config:
+                # Discontinued products may not exist in dim_products
+                # This is expected behavior
+                severity: warn
+                warn_if: ">1000"
+
+      - name: order_date
+        description: Date the order was placed
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: "'2018-01-01'"
+              max_value: "CURRENT_DATE + INTERVAL '1 day'"
+              config:
+                # Future-dated orders from timezone issues (DATA-2345)
+                severity: warn
+
+      - name: extended_price
+        description: Line item price before discounts (quantity * unit_price)
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1000000
+              config:
+                # Occasional bulk B2B orders exceed this
+                severity: warn
+
+      - name: line_total
+        description: Final line item total including discounts and taxes
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - dbt_utils.accepted_range:
+              min_value: -10000  # Negative for returns
+              max_value: 1000000
+              config:
+                severity: warn
+
+      - name: quantity_ordered
+        description: Quantity ordered
+
+      - name: quantity_shipped
+        description: Quantity shipped to customer
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - order_id
+            - product_id
+            - line_number
+          config:
+            # KNOWN ISSUE: HomeStyle data has ~0.1% duplicate keys
+            # Same root cause as order_line_id uniqueness issue
+            # Ticket: DATA-1234 (medium priority)
+            severity: warn
+            warn_if: ">1000"
+            error_if: ">10000"
+
+      - dbt_utils.expression_is_true:
+          expression: "line_total >= 0 OR order_status = 'RETURNED'"
+          config:
+            # Returns have negative line_total, this is expected
+            severity: warn
+
+  - name: dim_customers
+    description: |
+      Customer dimension table providing a single source of truth for customer data.
+
+      Combines customer records from SFDC and enriches with order history metrics,
+      segmentation, and calculated attributes.
+
+      **Grain:** One row per unique customer
+
+      **Key Attributes:**
+      - Contact information
+      - Order history metrics (lifetime value, order counts)
+      - Customer segmentation (segment, value tier)
+      - Activity flags
+
+      **Common Use Cases:**
+      - Customer segmentation analysis
+      - Lifetime value reporting
+      - Customer retention analysis
+      - Marketing campaign targeting
+
+      **Known Issues:**
+      - ~3% of customers have duplicate emails (different customer_ids)
+      - Legacy customers from 2019 migration may have incomplete addresses
+
+    config:
+      meta:
+        owner: 'customer-data@company.com'
+        sla: '5am UTC'
+        contains_pii: true
+        gdpr_relevant: true
+        data_classification: 'confidential'
+
+    columns:
+      - name: customer_id
+        description: Unique customer identifier (primary key)
+        tests:
+          - not_null
+          - unique
+
+      - name: email
+        description: Customer email address
+        tests:
+          - not_null:
+              config:
+                # Some B2B accounts use company-level email, ~5% NULL
+                where: "customer_type != 'B2B_COMPANY'"
+                severity: warn
+          # Uniqueness test disabled - known duplicate email issue
+          # - unique:
+          #     config:
+          #       # DISABLED: ~3% duplicate emails across customer_ids
+          #       # Root cause: SFDC allows same email on multiple accounts
+          #       # Ticket: DATA-890 (blocked by SFDC team)
+          #       severity: warn
+
+      - name: full_name
+        description: Customer full name
+
+      - name: lifetime_value
+        description: Total revenue from this customer (all-time)
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              config:
+                # Negative LTV shouldn't happen but edge cases exist
+                severity: warn
+
+      - name: total_orders
+        description: Total number of orders placed
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 10000
+              config:
+                severity: warn
+
+      - name: customer_segment
+        description: |
+          Customer segment based on order frequency:
+          - Never Ordered
+          - One-time Buyer
+          - Occasional Buyer (2-5 orders)
+          - Regular Buyer (6-10 orders)
+          - Loyal Customer (11+ orders)
+        tests:
+          - accepted_values:
+              values: ['Never Ordered', 'One-time Buyer', 'Occasional Buyer', 'Regular Buyer', 'Loyal Customer']
+              config:
+                severity: warn
+
+      - name: value_segment
+        description: |
+          Customer value tier based on lifetime value:
+          - VIP ($10,000+)
+          - High Value ($5,000-$9,999)
+          - Medium Value ($1,000-$4,999)
+          - Low Value ($1-$999)
+          - No Value ($0)
+        tests:
+          - accepted_values:
+              values: ['VIP', 'High Value', 'Medium Value', 'Low Value', 'No Value']
+
+  - name: fct_revenue
+    description: |
+      Daily revenue aggregation fact table for financial reporting.
+
+      Provides pre-aggregated revenue metrics by day, currency, and source system
+      for fast financial reporting and analysis.
+
+      **Grain:** One row per day per currency per source system
+
+      **Key Metrics:**
+      - Gross revenue, net revenue, discounts, tax
+      - Order counts and customer counts
+      - Unit volumes
+      - Fulfillment and cancellation rates
+
+      **Common Use Cases:**
+      - Daily revenue reporting
+      - Financial period-over-period analysis
+      - Revenue forecasting
+      - Discount effectiveness analysis
+
+      **Known Issues:**
+      - EUR currency conversion uses previous day's rate (DATA-2100)
+      - Weekend data from POS arrives Monday morning, causing Friday undercounts
+
+    config:
+      meta:
+        owner: 'finance-analytics@company.com'
+        sla: '7am UTC'
+        finance_certified: true
+        used_in_10k: true
+        audit_relevant: true
+
+    columns:
+      - name: order_date
+        description: Date of the transactions
+        tests:
+          - not_null
+          - unique:
+              config:
+                # Grain is date+currency+source, not just date
+                # This test is actually wrong but nobody noticed
+                enabled: false
+
+      - name: currency_code
+        description: Currency code (USD, EUR, etc.)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['USD', 'EUR', 'GBP', 'CAD', 'AUD', 'JPY']
+              config:
+                # New currencies added without updating test
+                # Last failure: MXN added 2024-09-01
+                severity: warn
+
+      - name: source_system
+        description: Source system (SAP, POS)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['SAP', 'POS', 'SAP_HOMESTYLE', 'SHOPIFY', 'B2B_PORTAL']
+              config:
+                severity: warn
+
+      - name: total_revenue
+        description: Total revenue including tax
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              config:
+                severity: error
+
+      - name: net_revenue
+        description: Revenue after discounts, before tax
+        tests:
+          - not_null
+
+      - name: total_orders
+        description: Number of orders placed
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: unique_customers
+        description: Number of unique customers who ordered
+        tests:
+          - not_null
+
+      - name: avg_order_value
+        description: Average revenue per order
+
+      - name: fulfillment_rate
+        description: Percentage of line items fully shipped
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1
+              config:
+                # Edge case: can exceed 1.0 due to over-shipments
+                severity: warn
+
+      - name: discount_rate
+        description: Discount amount as percentage of gross revenue
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1
+              config:
+                # Black Friday 2024 had 120% discount rate bug
+                # Root cause: double-applied promo codes
+                severity: warn
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - order_date
+            - currency_code
+            - source_system
+
+  # Additional model documentation for technical debt visibility
+  - name: fct_inventory_current
+    description: |
+      Current inventory snapshot across all warehouses.
+
+      **WARNING:** This model has known timing issues with WMS data.
+      Inventory counts may be 2-4 hours stale during peak periods.
+
+    config:
+      meta:
+        owner: 'supply-chain@company.com'
+        sla: '8am UTC'
+        data_freshness: '2-4 hours during peak'
+        known_issues:
+          - 'WMS sync delay during peak hours'
+          - 'Warehouse 7 not included (legacy system)'
+
+  - name: dim_products
+    description: |
+      Product master dimension including all SKUs.
+
+      **Data Quality Notes:**
+      - ~500 products have missing category assignments
+      - Brand data for products added before 2020 may be incomplete
+
+    config:
+      meta:
+        owner: 'product-data@company.com'
+        sla: '4am UTC'
+
+    columns:
+      - name: product_id
+        description: Unique product identifier (primary key)
+        tests:
+          - not_null
+          - unique
+
+      - name: sku
+        description: Stock keeping unit (product code)
+        tests:
+          - not_null
+          - unique:
+              config:
+                # Some legacy products have duplicate SKUs (pre-2020 migration)
+                severity: warn
+                warn_if: ">100"
+
+      - name: product_name
+        description: Product display name
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: MSRP / standard selling price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100000
+              config:
+                severity: warn
+
+      - name: cost_price
+        description: Product cost for margin calculations
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              config:
+                severity: warn
+
+      - name: is_active
+        description: Whether product is currently active for sale
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true, false]
+
+  - name: dim_dates
+    description: |
+      Date dimension with fiscal calendar support.
+
+      **IMPORTANT:** Fiscal year end is June 30. If this changes,
+      update the fiscal_* columns AND notify Finance team.
+
+    config:
+      meta:
+        owner: 'data-eng@company.com'
+        sla: '3am UTC'
+
+    columns:
+      - name: date_value
+        description: Date key (primary key)
+        tests:
+          - not_null
+          - unique
+
+      - name: year
+        description: Calendar year
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 2018
+              max_value: 2030
+              config:
+                severity: warn
+
+      - name: month
+        description: Calendar month (1-12)
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 12
+
+      - name: day_of_week
+        description: Day of week (1=Monday, 7=Sunday in DuckDB)
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 7
+
+      - name: is_weekend
+        description: True if Saturday or Sunday
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true, false]

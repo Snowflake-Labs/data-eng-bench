@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: reference
+    description: Reference data and lookup tables
+    schema: REFERENCE
+
+    tables:
+      - name: CARRIERS
+      - name: COUNTRIES
+      - name: CURRENCIES
+      - name: LANGUAGES
+      - name: PAYMENT_METHODS
+      - name: REASON_CODES
+      - name: SHIPPING_METHODS
+      - name: STATES_PROVINCES
+      - name: STATUS_CODES
+      - name: TIMEZONES
+      - name: UNITS_OF_MEASURE
+
+      - name: CHANNELS
+      - name: CHANNEL_CONFIGURATIONS
+      - name: RETURN_REASONS
+      - name: SALES_CHANNELS

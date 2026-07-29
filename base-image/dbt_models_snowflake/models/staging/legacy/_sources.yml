@@ -1,0 +1,250 @@
+version: 2
+sources:
+- name: legacy
+  description: 'Legacy AS/400 system - historical product and vendor data
+
+
+    This source contains raw data extracted from the LEGACY system.
+
+    Data is loaded via ELT processes and stored in the RAW_LEGACY schema.
+
+    '
+  schema: RAW_LEGACY
+  freshness:
+    warn_after:
+      count: 24
+      period: hour
+    error_after:
+      count: 48
+      period: hour
+  meta:
+    owner: data-engineering@company.com
+    source_system: legacy
+  tables:
+  - name: APINV
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: ARINV
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BRANDS
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: CATCOD
+    description: 'Lookup/reference table for code values from LEGACY
+
+      Entity type: lookup
+
+      '
+    meta:
+      entity_type: lookup
+    loaded_at_field: _LOADED_AT
+  - name: CTRYCOD
+    description: 'Lookup/reference table for code values from LEGACY
+
+      Entity type: lookup
+
+      '
+    meta:
+      entity_type: lookup
+    loaded_at_field: _LOADED_AT
+  - name: GLACCT
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: ITMATTR
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: ITMIMG
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: ITMTAGS
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: ITMTXT
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: PODTL
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: POHDR
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: PRCLST
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: REGCOD
+    description: 'Lookup/reference table for code values from LEGACY
+
+      Entity type: lookup
+
+      '
+    meta:
+      entity_type: lookup
+    loaded_at_field: _LOADED_AT
+  - name: STSCOD
+    description: 'Lookup/reference table for code values from LEGACY
+
+      Entity type: lookup
+
+      '
+    meta:
+      entity_type: lookup
+    loaded_at_field: _LOADED_AT
+  - name: TIME_DIM
+    description: 'Dimension table containing descriptive attributes from LEGACY
+
+      Entity type: dimension
+
+      '
+    meta:
+      entity_type: dimension
+    loaded_at_field: _LOADED_AT
+  - name: VENDCAT
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VENDITEM
+    description: 'Source table from LEGACY
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VENDMST
+    description: 'Dimension table containing descriptive attributes from LEGACY
+
+      Entity type: dimension
+
+      '
+    meta:
+      entity_type: dimension
+    loaded_at_field: _LOADED_AT
+- name: raw_legacy
+  description: Raw legacy system data (lowercase table names)
+  schema: RAW_LEGACY
+  tables:
+  - name: a305
+  - name: a305_hist
+  - name: apinv
+  - name: apinv_hist
+  - name: apinv_stg
+  - name: arinv
+  - name: arinv_hist
+  - name: arinv_stg
+  - name: brands
+  - name: brands_hist
+  - name: brands_stg
+  - name: catcod
+  - name: catcod_hist
+  - name: catcod_stg
+  - name: catsdb
+  - name: catsdb_hist
+  - name: ctrycod
+  - name: ctrycod_hist
+  - name: ctrycod_stg
+  - name: glacct
+  - name: glacct_hist
+  - name: glacct_stg
+  - name: itmattr
+  - name: itmattr_hist
+  - name: itmattr_stg
+  - name: itmimg
+  - name: itmimg_hist
+  - name: itmimg_stg
+  - name: itmtags
+  - name: itmtags_hist
+  - name: itmtags_stg
+  - name: itmtxt
+  - name: itmtxt_hist
+  - name: itmtxt_stg
+  - name: podtl
+  - name: podtl_hist
+  - name: podtl_stg
+  - name: pohdr
+  - name: pohdr_hist
+  - name: pohdr_stg
+  - name: prclst
+  - name: prclst_hist
+  - name: regcod
+  - name: regcod_hist
+  - name: stscod
+  - name: stscod_hist
+  - name: vendcat
+  - name: vendcat_hist
+  - name: venditem
+  - name: venditem_hist
+  - name: vendmst
+  - name: vendmst_hist

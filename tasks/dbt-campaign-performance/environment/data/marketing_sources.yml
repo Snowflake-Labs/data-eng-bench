@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: main
+    schema: main
+    tables:
+      - name: stg_marketing__campaigns
+        description: Marketing campaigns master data
+        columns:
+          - name: campaign_id
+            description: Primary key
+          - name: campaign_name
+            description: Campaign name
+          - name: channel
+            description: Marketing channel (EMAIL, SMS, etc.)
+          - name: start_date
+            description: Campaign start date
+          - name: end_date
+            description: Campaign end date
+          - name: budget
+            description: Campaign budget
+          - name: status
+            description: Campaign status (ACTIVE, COMPLETED, etc.)
+
+      - name: stg_marketing__email_events
+        description: Email interaction events
+        columns:
+          - name: event_id
+            description: Primary key
+          - name: customer_id
+            description: Customer who received the email
+          - name: campaign_id
+            description: Associated campaign
+          - name: event_type
+            description: Event type (SENT, OPENED, CLICKED, CONVERTED)
+          - name: event_at
+            description: Event timestamp

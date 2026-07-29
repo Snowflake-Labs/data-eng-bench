@@ -1,0 +1,23 @@
+{
+"count_stats": [
+	{
+		"model_name" : "int_cart_recovery__cart_base",
+		"counts" : 1500
+	},
+	{
+		"model_name" : "int_cart_recovery__session_signals",
+		"counts" : 5029
+	},
+	{
+		"model_name" : "int_cart_recovery__inventory_risk",
+		"counts" : 1365
+	},
+	{
+		"model_name" : "int_cart_recovery__customer_context",
+		"counts" : 1035
+	},
+	{
+		"model_name" : "fct_cart_recovery_priority",
+		"counts" : 592
+	}
+]}

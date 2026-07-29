@@ -1,0 +1,5 @@
+code,name,min_value
+BRONZE,Bronze,0
+SILVER,Silver,100
+GOLD,Gold,500
+PLATINUM,Platinum,1000

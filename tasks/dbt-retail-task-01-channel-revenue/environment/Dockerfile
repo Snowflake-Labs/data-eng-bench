@@ -1,0 +1,2 @@
+FROM dbt-bench-base
+

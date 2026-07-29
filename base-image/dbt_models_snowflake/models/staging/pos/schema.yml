@@ -1,0 +1,599 @@
+version: 2
+
+models:
+  - name: stg_pos__coupons
+    description: |
+      Staging model for COUPONS from POS
+
+      This is a table containing coupons data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: coupon_id
+        description: Unique identifier for the coupon
+        tests:
+          - not_null
+          - unique
+      - name: coupon_code
+        description: Code value for coupon
+      - name: promotion_id
+        description: Unique identifier for the promotion
+      - name: usage_limit
+        description: Usage Limit
+      - name: usage_count
+        description: Usage Count
+      - name: is_active
+        description: Boolean flag
+      - name: expires_at
+        description: Timestamp when the record was expires
+        tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__coupon_usage
+    description: |
+      Staging model for COUPON_USAGE from POS
+
+      This is a table containing coupon usage data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: redemption_id
+        description: Unique identifier for the redemption
+        tests:
+          - not_null
+          - unique
+      - name: coupon_id
+        description: Unique identifier for the coupon
+      - name: order_id
+        description: Unique identifier for the order
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: discount_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "discount_amount is not null"
+      - name: redeemed_at
+        description: Timestamp when the record was redeemed
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__discounts
+    description: |
+      Staging model for DISCOUNTS from POS
+
+      This is a table containing discounts data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__loyalty_accts
+    description: |
+      Staging model for LOYALTY_ACCTS from POS
+
+      This is a table containing loyalty accts data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__loyalty_trans
+    description: |
+      Staging model for LOYALTY_TRANS from POS
+
+      This is a fact containing loyalty trans data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__promotions
+    description: |
+      Staging model for PROMOTIONS from POS
+
+      This is a table containing promotions data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: promotion_id
+        description: Unique identifier for the promotion
+        tests:
+          - not_null
+          - unique
+      - name: promotion_code
+        description: Code value for promotion
+      - name: promotion_name
+        description: Name/description field
+      - name: promotion_type
+        description: Promotion Type
+      - name: discount_type
+        description: Discount Type
+      - name: discount_value
+        description: Discount Value
+      - name: min_purchase
+        description: Min Purchase
+      - name: max_discount
+        description: Max Discount
+      - name: start_date
+        description: Date of start
+        tests:
+          - not_null
+      - name: end_date
+        description: Date of end
+        tests:
+          - not_null
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__refunds
+    description: |
+      Staging model for REFUNDS from POS
+
+      This is a table containing refunds data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__returns
+    description: |
+      Staging model for RETURNS from POS
+
+      This is a table containing returns data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__return_lines
+    description: |
+      Staging model for RETURN_LINES from POS
+
+      This is a table containing return lines data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__sales_fact
+    description: |
+      Staging model for SALES_FACT from POS
+
+      This is a fact containing sales fact data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__tax_lines
+    description: |
+      Staging model for TAX_LINES from POS
+
+      This is a table containing tax lines data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__tenders
+    description: |
+      Staging model for TENDERS from POS
+
+      This is a table containing tenders data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: payment_id
+        description: Unique identifier for the payment
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: Unique identifier for the order
+      - name: payment_method_id
+        description: Unique identifier for the payment_method
+      - name: payment_method
+        description: Payment Method
+      - name: amount
+        description: Amount
+      - name: currency_code
+        description: Code value for currency
+      - name: status
+        description: Status
+      - name: transaction_id
+        description: Unique identifier for the transaction
+      - name: authorization_code
+        description: Code value for authorization
+      - name: card_last_four
+        description: Card Last Four
+      - name: card_type
+        description: Card Type
+      - name: processed_at
+        description: Timestamp when the record was processed
+        tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__transactions
+    description: |
+      Staging model for TRANSACTIONS from POS
+
+      This is a fact containing transactions data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: order_id
+        description: Unique identifier for the order
+        tests:
+          - not_null
+          - unique
+      - name: order_number
+        description: Number/reference identifier
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: order_type
+        description: Order Type
+      - name: order_source
+        description: Order Source
+      - name: channel_id
+        description: Unique identifier for the channel
+      - name: currency_code
+        description: Code value for currency
+      - name: exchange_rate
+        description: Exchange Rate
+      - name: billing_address_id
+        description: Unique identifier for the billing_address
+      - name: shipping_address_id
+        description: Unique identifier for the shipping_address
+      - name: subtotal
+        description: Subtotal
+      - name: discount_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "discount_total is not null"
+      - name: shipping_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "shipping_total is not null"
+      - name: tax_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "tax_total is not null"
+      - name: grand_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "grand_total is not null"
+      - name: status
+        description: Status
+      - name: payment_status
+        description: Status indicator
+      - name: fulfillment_status
+        description: Status indicator
+      - name: ordered_at
+        description: Timestamp when the record was ordered
+        tests:
+          - not_null
+      - name: shipped_at
+        description: Timestamp when the record was shipped
+        tests:
+          - not_null
+      - name: delivered_at
+        description: Timestamp when the record was delivered
+        tests:
+          - not_null
+      - name: cancelled_at
+        description: Timestamp when the record was cancelled
+        tests:
+          - not_null
+      - name: ip_address
+        description: Ip Address
+      - name: user_agent
+        description: User Agent
+      - name: notes
+        description: Notes
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__trans_lines
+    description: |
+      Staging model for TRANS_LINES from POS
+
+      This is a fact containing trans lines data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: order_line_id
+        description: Unique identifier for the order_line
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: Unique identifier for the order
+      - name: line_number
+        description: Number/reference identifier
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: product_id
+        description: Unique identifier for the product
+      - name: sku
+        description: Sku
+      - name: product_name
+        description: Name/description field
+      - name: variant_name
+        description: Name/description field
+      - name: quantity_ordered
+        description: Quantity Ordered
+      - name: quantity_shipped
+        description: Quantity Shipped
+      - name: quantity_returned
+        description: Quantity Returned
+      - name: unit_price
+        description: Unit Price
+      - name: discount_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "discount_amount is not null"
+      - name: tax_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "tax_amount is not null"
+      - name: line_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "line_total is not null"
+      - name: status
+        description: Status
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_pos__trans_status
+    description: |
+      Staging model for TRANS_STATUS from POS
+
+      This is a fact containing trans status data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+

@@ -1,0 +1,6 @@
+order_number,corrected_currency_code,correction_reason
+ORD-2024-001234,USD,Wrong SAP config - was EUR
+ORD-2024-001456,USD,Wrong SAP config - was EUR
+ORD-2024-001789,GBP,Wrong SAP config - was EUR
+ORD-2024-002345,USD,Wrong SAP config - was EUR
+ORD-2024-002567,CAD,Wrong SAP config - was USD

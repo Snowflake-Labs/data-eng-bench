@@ -1,0 +1,40 @@
+{{
+    config(
+        materialized='view',
+        tags=['time_series', 'customers', 'yearly']
+    )
+}}
+
+/*
+ * Time Series: Churned Customers - Yearly
+ * Counts customers who churned (no orders in 90 days) by yearly
+ */
+
+with customer_last_order as (
+    select
+        customer_id,
+        max(order_date) as last_order_date
+    from {{ ref('fct_sales') }}
+    where is_cancelled = false
+    group by customer_id
+),
+
+churned_by_period as (
+    select
+        DATE_TRUNC(year, DATEADD(day, 90, last_order_date)) as period_start,
+        customer_id
+    from customer_last_order
+    where DATEADD(day, 90, last_order_date) < current_date
+),
+
+aggregated as (
+    select
+        period_start,
+        count(distinct customer_id) as churned_customers,
+        current_timestamp as dbt_updated_at
+    from churned_by_period
+    group by period_start
+)
+
+select * from aggregated
+order by period_start

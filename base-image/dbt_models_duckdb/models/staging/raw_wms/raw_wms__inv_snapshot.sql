@@ -1,0 +1,23 @@
+{{
+    config(
+        materialized='view',
+        tags=['staging', 'wms']
+    )
+}}
+
+with source as (
+    select * from {{ source('wms', 'INV_SNAPSHOT') }}
+),
+
+deduped as (
+    select * exclude (_rn)
+    from (
+        select *,
+            row_number() over (partition by inventory_id order by _loaded_at desc) as _rn
+        from source
+        where inventory_id is not null
+    )
+    where _rn = 1
+)
+
+select * from deduped

@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: product
+    description: Product catalog and attributes
+    schema: PRODUCT
+
+    tables:
+      - name: BRANDS
+      - name: PRODUCTS
+      - name: PRODUCT_ATTRIBUTES
+      - name: PRODUCT_ATTRIBUTE_OPTIONS
+      - name: PRODUCT_CATEGORIES
+      - name: PRODUCT_CATEGORY_MAPPING
+      - name: PRODUCT_IMAGES
+      - name: PRODUCT_PRICES
+      - name: PRODUCT_RATINGS_SUMMARY
+      - name: PRODUCT_REVIEWS
+      - name: PRODUCT_TAGS
+      - name: PRODUCT_VARIANTS
+
+      - name: BRANDS_HIST
+      - name: BRANDS_STG
+      - name: BRAND_MASTER
+      - name: BRAND_MASTER_HIST
+      - name: PRODUCT_COSTS
+      - name: PRODUCT_VIEWS
+      - name: PRODUCT_VIEWS_HIST
+      - name: PRODUCT_VIEWS_STG
+      - name: SUBSTITUTES
+      - name: SUBSTITUTES_HIST

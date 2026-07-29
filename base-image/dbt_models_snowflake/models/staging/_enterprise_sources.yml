@@ -1,0 +1,1754 @@
+version: 2
+
+sources:
+  - name: enterprise_db
+    description: |
+      Generic enterprise database source - maps to various schemas based on table naming.
+      This source exists for backwards compatibility with legacy model naming conventions.
+    schema: main
+    tables:
+      # ============================================================
+      # SFDC/CRM tables
+      # ============================================================
+      - name: QUOTE_LINES_HIST
+        identifier: QUOTE_LINES_HIST
+        schema: RAW_SFDC
+      - name: QUOTES_HIST
+        identifier: QUOTES_HIST
+        schema: RAW_SFDC
+      - name: CONTACTS
+        identifier: CONTACTS
+        schema: RAW_SFDC
+      - name: CONTACTS_HIST
+        identifier: CONTACTS_HIST
+        schema: RAW_SFDC
+      - name: QUOTES
+        identifier: QUOTES
+        schema: RAW_SFDC
+      - name: QUOTE_LINES
+        identifier: QUOTE_LINES
+        schema: RAW_SFDC
+      - name: ADDRESSES
+        identifier: ADDRESSES
+        schema: RAW_SFDC
+      - name: ADDRESSES_HIST
+        identifier: ADDRESSES_HIST
+        schema: RAW_SFDC
+      - name: SUBSCRIPTIONS
+        identifier: SUBSCRIPTIONS
+        schema: RAW_SFDC
+      - name: SUBSCRIPTIONS_HIST
+        identifier: SUBSCRIPTIONS_HIST
+        schema: RAW_SFDC
+      - name: LISTS
+        identifier: LISTS
+        schema: RAW_SFDC
+      - name: LISTS_HIST
+        identifier: LISTS_HIST
+        schema: RAW_SFDC
+      - name: CONSENTS
+        identifier: CONSENTS
+        schema: RAW_SFDC
+      - name: CONSENTS_HIST
+        identifier: CONSENTS_HIST
+        schema: RAW_SFDC
+      - name: PREFERENCES
+        identifier: PREFERENCES
+        schema: RAW_SFDC
+      - name: PREFERENCES_HIST
+        identifier: PREFERENCES_HIST
+        schema: RAW_SFDC
+      - name: CAMPAIGN_RESPONSES
+        identifier: CAMPAIGN_RESPONSES
+        schema: RAW_SFDC
+      - name: CAMPAIGN_RESPONSES_HIST
+        identifier: CAMPAIGN_RESPONSES_HIST
+        schema: RAW_SFDC
+      - name: FEEDBACK
+        identifier: FEEDBACK
+        schema: RAW_SFDC
+      - name: FEEDBACK_HIST
+        identifier: FEEDBACK_HIST
+        schema: RAW_SFDC
+      - name: EMAIL_SENDS
+        identifier: EMAIL_SENDS
+        schema: RAW_SFDC
+      - name: EMAIL_SENDS_HIST
+        identifier: EMAIL_SENDS_HIST
+        schema: RAW_SFDC
+      - name: ATTACHMENTS
+        identifier: ATTACHMENTS
+        schema: RAW_SFDC
+      - name: ATTACHMENTS_HIST
+        identifier: ATTACHMENTS_HIST
+        schema: RAW_SFDC
+      - name: APPROVALS
+        identifier: APPROVALS
+        schema: RAW_SFDC
+      - name: APPROVALS_HIST
+        identifier: APPROVALS_HIST
+        schema: RAW_SFDC
+      - name: CAMPAIGN_MEMBERS
+        identifier: CAMPAIGN_MEMBERS
+        schema: RAW_SFDC
+      - name: CAMPAIGN_MEMBERS_HIST
+        identifier: CAMPAIGN_MEMBERS_HIST
+        schema: RAW_SFDC
+      - name: AUDIT_LOG
+        identifier: AUDIT_LOG
+        schema: RAW_SFDC
+      - name: AUDIT_LOG_HIST
+        identifier: AUDIT_LOG_HIST
+        schema: RAW_SFDC
+      - name: EMAIL_CAMPAIGNS
+        identifier: EMAIL_CAMPAIGNS
+        schema: RAW_SFDC
+      - name: EMAIL_CAMPAIGNS_HIST
+        identifier: EMAIL_CAMPAIGNS_HIST
+        schema: RAW_SFDC
+      - name: ACTIVITIES
+        identifier: ACTIVITIES
+        schema: RAW_SFDC
+      - name: ACTIVITIES_HIST
+        identifier: ACTIVITIES_HIST
+        schema: RAW_SFDC
+      - name: EMAIL_EVENTS
+        identifier: EMAIL_EVENTS
+        schema: RAW_SFDC
+      - name: EMAIL_EVENTS_HIST
+        identifier: EMAIL_EVENTS_HIST
+        schema: RAW_SFDC
+      - name: ACCOUNT_SCORES
+        identifier: ACCOUNT_SCORES
+        schema: RAW_SFDC
+      - name: ACCOUNT_SCORES_HIST
+        identifier: ACCOUNT_SCORES_HIST
+        schema: RAW_SFDC
+      - name: LIFECYCLE_STAGES
+        identifier: LIFECYCLE_STAGES
+        schema: RAW_SFDC
+      - name: LIFECYCLE_STAGES_HIST
+        identifier: LIFECYCLE_STAGES_HIST
+        schema: RAW_SFDC
+      - name: ACCOUNT_TIERS
+        identifier: ACCOUNT_TIERS
+        schema: RAW_SFDC
+      - name: ACCOUNT_TIERS_HIST
+        identifier: ACCOUNT_TIERS_HIST
+        schema: RAW_SFDC
+      - name: ACCOUNT_RELATIONS
+        identifier: ACCOUNT_RELATIONS
+        schema: RAW_SFDC
+      - name: ACCOUNT_RELATIONS_HIST
+        identifier: ACCOUNT_RELATIONS_HIST
+        schema: RAW_SFDC
+      - name: CAMPAIGNS
+        identifier: CAMPAIGNS
+        schema: RAW_SFDC
+      - name: CAMPAIGNS_HIST
+        identifier: CAMPAIGNS_HIST
+        schema: RAW_SFDC
+      - name: SEGMENTS
+        identifier: SEGMENTS
+        schema: RAW_SFDC
+      - name: SEGMENTS_HIST
+        identifier: SEGMENTS_HIST
+        schema: RAW_SFDC
+      - name: LOYALTY
+        identifier: LOYALTY
+        schema: RAW_SFDC
+      - name: LOYALTY_HIST
+        identifier: LOYALTY_HIST
+        schema: RAW_SFDC
+      - name: ORDER_NOTES
+        identifier: ORDER_NOTES
+        schema: RAW_SFDC
+      - name: ORDER_NOTES_HIST
+        identifier: ORDER_NOTES_HIST
+        schema: RAW_SFDC
+
+      # ============================================================
+      # POS tables
+      # ============================================================
+      - name: COUPON_USAGE
+        identifier: COUPON_USAGE
+        schema: RAW_POS
+      - name: COUPON_USAGE_HIST
+        identifier: COUPON_USAGE_HIST
+        schema: RAW_POS
+      - name: TAX_LINES
+        identifier: TAX_LINES
+        schema: RAW_POS
+      - name: TAX_LINES_HIST
+        identifier: TAX_LINES_HIST
+        schema: RAW_POS
+      - name: COUPONS
+        identifier: COUPONS
+        schema: RAW_POS
+      - name: COUPONS_HIST
+        identifier: COUPONS_HIST
+        schema: RAW_POS
+      - name: TRANSACTIONS
+        identifier: TRANSACTIONS
+        schema: RAW_POS
+      - name: TRANSACTIONS_HIST
+        identifier: TRANSACTIONS_HIST
+        schema: RAW_POS
+      - name: REFUNDS
+        identifier: REFUNDS
+        schema: RAW_POS
+      - name: REFUNDS_HIST
+        identifier: REFUNDS_HIST
+        schema: RAW_POS
+      - name: TRANS_STATUS
+        identifier: TRANS_STATUS
+        schema: RAW_POS
+      - name: TRANS_STATUS_HIST
+        identifier: TRANS_STATUS_HIST
+        schema: RAW_POS
+      - name: TRANS_LINES
+        identifier: TRANS_LINES
+        schema: RAW_POS
+      - name: TRANS_LINES_HIST
+        identifier: TRANS_LINES_HIST
+        schema: RAW_POS
+      - name: TENDERS
+        identifier: TENDERS
+        schema: RAW_POS
+      - name: TENDERS_HIST
+        identifier: TENDERS_HIST
+        schema: RAW_POS
+      - name: PROMOTIONS
+        identifier: PROMOTIONS
+        schema: RAW_POS
+      - name: PROMOTIONS_HIST
+        identifier: PROMOTIONS_HIST
+        schema: RAW_POS
+      - name: RETURNS_HIST
+        identifier: RETURNS_HIST
+        schema: RAW_POS
+      - name: RETURN_LINES_HIST
+        identifier: RETURN_LINES_HIST
+        schema: RAW_POS
+      - name: LOYALTY_ACCTS
+        identifier: LOYALTY_ACCTS
+        schema: RAW_POS
+      - name: LOYALTY_ACCTS_HIST
+        identifier: LOYALTY_ACCTS_HIST
+        schema: RAW_POS
+      - name: LOYALTY_TRANS
+        identifier: LOYALTY_TRANS
+        schema: RAW_POS
+      - name: LOYALTY_TRANS_HIST
+        identifier: LOYALTY_TRANS_HIST
+        schema: RAW_POS
+      - name: DISCOUNTS
+        identifier: DISCOUNTS
+        schema: RAW_POS
+      - name: DISCOUNTS_HIST
+        identifier: DISCOUNTS_HIST
+        schema: RAW_POS
+      - name: STORES
+        identifier: STORES
+        schema: RAW_POS
+      - name: STORE_DEPARTMENTS
+        identifier: STORE_DEPARTMENTS
+        schema: RAW_POS
+
+      # ============================================================
+      # Product tables
+      # ============================================================
+      - name: PRODUCTS
+        identifier: PRODUCTS
+        schema: PRODUCT
+      - name: PRODUCT_CATEGORIES
+        identifier: PRODUCT_CATEGORIES
+        schema: PRODUCT
+      - name: PRODUCT_CATEGORY_MAPPING
+        identifier: PRODUCT_CATEGORY_MAPPING
+        schema: PRODUCT
+      - name: PRODUCT_RATINGS_SUMMARY
+        identifier: PRODUCT_RATINGS_SUMMARY
+        schema: PRODUCT
+      - name: PRODUCT_REVIEWS
+        identifier: PRODUCT_REVIEWS
+        schema: PRODUCT
+      - name: PRODUCT_TAGS
+        identifier: PRODUCT_TAGS
+        schema: PRODUCT
+      - name: PRODUCT_IMAGES
+        identifier: PRODUCT_IMAGES
+        schema: PRODUCT
+      - name: BRANDS
+        identifier: BRANDS
+        schema: PRODUCT
+      - name: BRANDS_HIST
+        identifier: BRANDS_HIST
+        schema: PRODUCT
+      - name: BRANDS_STG
+        identifier: BRANDS_STG
+        schema: PRODUCT
+      - name: PRODUCT_ATTRIBUTES
+        identifier: PRODUCT_ATTRIBUTES
+        schema: PRODUCT
+      - name: PRODUCT_PRICES
+        identifier: PRODUCT_PRICES
+        schema: PRODUCT
+      - name: PRODUCT_ATTRIBUTE_OPTIONS
+        identifier: PRODUCT_ATTRIBUTE_OPTIONS
+        schema: PRODUCT
+      - name: PRODUCT_VARIANTS
+        identifier: PRODUCT_VARIANTS
+        schema: PRODUCT
+      - name: PRODUCT_VIEWS
+        identifier: PRODUCT_VIEWS
+        schema: PRODUCT
+      - name: PRODUCT_VIEWS_HIST
+        identifier: PRODUCT_VIEWS_HIST
+        schema: PRODUCT
+      - name: PRODUCT_VIEWS_STG
+        identifier: PRODUCT_VIEWS_STG
+        schema: PRODUCT
+      - name: PRODUCT_COSTS
+        identifier: PRODUCT_COSTS
+        schema: PRODUCT
+      - name: BRAND_MASTER
+        identifier: BRAND_MASTER
+        schema: PRODUCT
+      - name: BRAND_MASTER_HIST
+        identifier: BRAND_MASTER_HIST
+        schema: PRODUCT
+      - name: SUBSTITUTES
+        identifier: SUBSTITUTES
+        schema: PRODUCT
+      - name: SUBSTITUTES_HIST
+        identifier: SUBSTITUTES_HIST
+        schema: PRODUCT
+
+      # ============================================================
+      # SAP ERP tables (RAW_SAP schema)
+      # ============================================================
+      - name: BKPF
+        identifier: BKPF
+        schema: RAW_SAP
+      - name: BKPF_HIST
+        identifier: BKPF_HIST
+        schema: RAW_SAP
+      - name: BSEG
+        identifier: BSEG
+        schema: RAW_SAP
+      - name: BSEG_HIST
+        identifier: BSEG_HIST
+        schema: RAW_SAP
+      - name: BSET
+        identifier: BSET
+        schema: RAW_SAP
+      - name: BSET_HIST
+        identifier: BSET_HIST
+        schema: RAW_SAP
+      - name: BSID
+        identifier: BSID
+        schema: RAW_SAP
+      - name: BSID_HIST
+        identifier: BSID_HIST
+        schema: RAW_SAP
+      - name: BSIK
+        identifier: BSIK
+        schema: RAW_SAP
+      - name: BSIK_HIST
+        identifier: BSIK_HIST
+        schema: RAW_SAP
+      - name: CEPC
+        identifier: CEPC
+        schema: RAW_SAP
+      - name: CEPC_HIST
+        identifier: CEPC_HIST
+        schema: RAW_SAP
+      - name: CHARG
+        identifier: CHARG
+        schema: RAW_SAP
+      - name: CHARG_HIST
+        identifier: CHARG_HIST
+        schema: RAW_SAP
+      - name: CSKS
+        identifier: CSKS
+        schema: RAW_SAP
+      - name: CSKS_HIST
+        identifier: CSKS_HIST
+        schema: RAW_SAP
+      - name: CDHDR
+        identifier: CDHDR
+        schema: RAW_SAP
+      - name: CDHDR_HIST
+        identifier: CDHDR_HIST
+        schema: RAW_SAP
+      - name: CDPOS
+        identifier: CDPOS
+        schema: RAW_SAP
+      - name: CDPOS_HIST
+        identifier: CDPOS_HIST
+        schema: RAW_SAP
+      - name: EBAN
+        identifier: EBAN
+        schema: RAW_SAP
+      - name: EBAN_HIST
+        identifier: EBAN_HIST
+        schema: RAW_SAP
+      - name: EINA
+        identifier: EINA
+        schema: RAW_SAP
+      - name: EINA_HIST
+        identifier: EINA_HIST
+        schema: RAW_SAP
+      - name: EKKO
+        identifier: EKKO
+        schema: RAW_SAP
+      - name: EKKO_HIST
+        identifier: EKKO_HIST
+        schema: RAW_SAP
+      - name: EKKO_BO
+        identifier: EKKO_BO
+        schema: RAW_SAP
+      - name: EKKO_BO_HIST
+        identifier: EKKO_BO_HIST
+        schema: RAW_SAP
+      - name: EKKO_CT
+        identifier: EKKO_CT
+        schema: RAW_SAP
+      - name: EKKO_CT_HIST
+        identifier: EKKO_CT_HIST
+        schema: RAW_SAP
+      - name: EKKO_RESP
+        identifier: EKKO_RESP
+        schema: RAW_SAP
+      - name: EKKO_RESP_HIST
+        identifier: EKKO_RESP_HIST
+        schema: RAW_SAP
+      - name: EKKO_RFQ
+        identifier: EKKO_RFQ
+        schema: RAW_SAP
+      - name: EKKO_RFQ_HIST
+        identifier: EKKO_RFQ_HIST
+        schema: RAW_SAP
+      - name: EKPO
+        identifier: EKPO
+        schema: RAW_SAP
+      - name: EKPO_HIST
+        identifier: EKPO_HIST
+        schema: RAW_SAP
+      - name: EORD
+        identifier: EORD
+        schema: RAW_SAP
+      - name: EORD_HIST
+        identifier: EORD_HIST
+        schema: RAW_SAP
+      - name: HRP1000
+        identifier: HRP1000
+        schema: RAW_SAP
+      - name: HRP1000_HIST
+        identifier: HRP1000_HIST
+        schema: RAW_SAP
+      - name: HRP1000_DEP
+        identifier: HRP1000_DEP
+        schema: RAW_SAP
+      - name: HRP1000_DEP_HIST
+        identifier: HRP1000_DEP_HIST
+        schema: RAW_SAP
+      - name: KNA1_ADDR
+        identifier: KNA1_ADDR
+        schema: RAW_SAP
+      - name: KNA1_ADDR_HIST
+        identifier: KNA1_ADDR_HIST
+        schema: RAW_SAP
+      - name: KONV
+        identifier: KONV
+        schema: RAW_SAP
+      - name: KONV_HIST
+        identifier: KONV_HIST
+        schema: RAW_SAP
+      - name: LFA1
+        identifier: LFA1
+        schema: RAW_SAP
+      - name: LFA1_HIST
+        identifier: LFA1_HIST
+        schema: RAW_SAP
+      - name: LIKP
+        identifier: LIKP
+        schema: RAW_SAP
+      - name: LIKP_HIST
+        identifier: LIKP_HIST
+        schema: RAW_SAP
+      - name: LIPS
+        identifier: LIPS
+        schema: RAW_SAP
+      - name: LIPS_HIST
+        identifier: LIPS_HIST
+        schema: RAW_SAP
+      - name: MAKT
+        identifier: MAKT
+        schema: RAW_SAP
+      - name: MAKT_HIST
+        identifier: MAKT_HIST
+        schema: RAW_SAP
+      - name: MARA_ATTR
+        identifier: MARA_ATTR
+        schema: RAW_SAP
+      - name: MARA_ATTR_HIST
+        identifier: MARA_ATTR_HIST
+        schema: RAW_SAP
+      - name: MARA_VAR
+        identifier: MARA_VAR
+        schema: RAW_SAP
+      - name: MARA_VAR_HIST
+        identifier: MARA_VAR_HIST
+        schema: RAW_SAP
+      - name: MARC
+        identifier: MARC
+        schema: RAW_SAP
+      - name: MARC_HIST
+        identifier: MARC_HIST
+        schema: RAW_SAP
+      - name: MARC_SS
+        identifier: MARC_SS
+        schema: RAW_SAP
+      - name: MARC_SS_HIST
+        identifier: MARC_SS_HIST
+        schema: RAW_SAP
+      - name: MARD
+        identifier: MARD
+        schema: RAW_SAP
+      - name: MARD_HIST
+        identifier: MARD_HIST
+        schema: RAW_SAP
+      - name: MATKL
+        identifier: MATKL
+        schema: RAW_SAP
+      - name: MATKL_HIST
+        identifier: MATKL_HIST
+        schema: RAW_SAP
+      - name: MBEW
+        identifier: MBEW
+        schema: RAW_SAP
+      - name: MBEW_HIST
+        identifier: MBEW_HIST
+        schema: RAW_SAP
+      - name: MIGO
+        identifier: MIGO
+        schema: RAW_SAP
+      - name: MIGO_HIST
+        identifier: MIGO_HIST
+        schema: RAW_SAP
+      - name: MKPF
+        identifier: MKPF
+        schema: RAW_SAP
+      - name: MKPF_HIST
+        identifier: MKPF_HIST
+        schema: RAW_SAP
+      - name: MKPF_GR
+        identifier: MKPF_GR
+        schema: RAW_SAP
+      - name: MKPF_GR_HIST
+        identifier: MKPF_GR_HIST
+        schema: RAW_SAP
+      - name: MSEG
+        identifier: MSEG
+        schema: RAW_SAP
+      - name: MSEG_HIST
+        identifier: MSEG_HIST
+        schema: RAW_SAP
+      - name: PA0001
+        identifier: PA0001
+        schema: RAW_SAP
+      - name: PA0001_HIST
+        identifier: PA0001_HIST
+        schema: RAW_SAP
+      - name: PA0002
+        identifier: PA0002
+        schema: RAW_SAP
+      - name: PA0002_HIST
+        identifier: PA0002_HIST
+        schema: RAW_SAP
+      - name: PBIM
+        identifier: PBIM
+        schema: RAW_SAP
+      - name: PBIM_HIST
+        identifier: PBIM_HIST
+        schema: RAW_SAP
+      - name: PC2
+        identifier: PC2
+        schema: RAW_SAP
+      - name: PC2_HIST
+        identifier: PC2_HIST
+        schema: RAW_SAP
+      - name: PTREQ
+        identifier: PTREQ
+        schema: RAW_SAP
+      - name: PTREQ_HIST
+        identifier: PTREQ_HIST
+        schema: RAW_SAP
+      - name: RBKP
+        identifier: RBKP
+        schema: RAW_SAP
+      - name: RBKP_HIST
+        identifier: RBKP_HIST
+        schema: RAW_SAP
+      - name: RGDIR
+        identifier: RGDIR
+        schema: RAW_SAP
+      - name: RGDIR_HIST
+        identifier: RGDIR_HIST
+        schema: RAW_SAP
+      - name: SERNP
+        identifier: SERNP
+        schema: RAW_SAP
+      - name: SERNP_HIST
+        identifier: SERNP_HIST
+        schema: RAW_SAP
+      - name: SKA1
+        identifier: SKA1
+        schema: RAW_SAP
+      - name: SKA1_HIST
+        identifier: SKA1_HIST
+        schema: RAW_SAP
+      - name: TRIP
+        identifier: TRIP
+        schema: RAW_SAP
+      - name: TRIP_HIST
+        identifier: TRIP_HIST
+        schema: RAW_SAP
+      - name: TRIP_LINES
+        identifier: TRIP_LINES
+        schema: RAW_SAP
+      - name: TRIP_LINES_HIST
+        identifier: TRIP_LINES_HIST
+        schema: RAW_SAP
+      - name: TSHM
+        identifier: TSHM
+        schema: RAW_SAP
+      - name: TSHM_HIST
+        identifier: TSHM_HIST
+        schema: RAW_SAP
+      - name: TTZZ
+        identifier: TTZZ
+        schema: RAW_SAP
+      - name: TTZZ_HIST
+        identifier: TTZZ_HIST
+        schema: RAW_SAP
+      - name: VBAK
+        identifier: VBAK
+        schema: RAW_SAP
+      - name: VBAK_HIST
+        identifier: VBAK_HIST
+        schema: RAW_SAP
+      - name: VBAK_QT
+        identifier: VBAK_QT
+        schema: RAW_SAP
+      - name: VBAK_QT_HIST
+        identifier: VBAK_QT_HIST
+        schema: RAW_SAP
+      - name: VBAP
+        identifier: VBAP
+        schema: RAW_SAP
+      - name: VBAP_HIST
+        identifier: VBAP_HIST
+        schema: RAW_SAP
+      - name: VBAP_QT
+        identifier: VBAP_QT
+        schema: RAW_SAP
+      - name: VBAP_QT_HIST
+        identifier: VBAP_QT_HIST
+        schema: RAW_SAP
+      - name: VBRK
+        identifier: VBRK
+        schema: RAW_SAP
+      - name: VBRK_HIST
+        identifier: VBRK_HIST
+        schema: RAW_SAP
+      - name: VBRK_RET
+        identifier: VBRK_RET
+        schema: RAW_SAP
+      - name: VBRK_RET_HIST
+        identifier: VBRK_RET_HIST
+        schema: RAW_SAP
+      - name: VBRP_FACT
+        identifier: VBRP_FACT
+        schema: RAW_SAP
+      - name: VBRP_FACT_HIST
+        identifier: VBRP_FACT_HIST
+        schema: RAW_SAP
+      - name: VBUK
+        identifier: VBUK
+        schema: RAW_SAP
+      - name: VBUK_HIST
+        identifier: VBUK_HIST
+        schema: RAW_SAP
+
+      # SAP Reference/Config tables
+      - name: T001L
+        identifier: T001L
+        schema: RAW_SAP
+      - name: T001L_HIST
+        identifier: T001L_HIST
+        schema: RAW_SAP
+      - name: T001W
+        identifier: T001W
+        schema: RAW_SAP
+      - name: T001W_HIST
+        identifier: T001W_HIST
+        schema: RAW_SAP
+      - name: T002
+        identifier: T002
+        schema: RAW_SAP
+      - name: T002_HIST
+        identifier: T002_HIST
+        schema: RAW_SAP
+      - name: T003
+        identifier: T003
+        schema: RAW_SAP
+      - name: T003_HIST
+        identifier: T003_HIST
+        schema: RAW_SAP
+      - name: T005
+        identifier: T005
+        schema: RAW_SAP
+      - name: T005_HIST
+        identifier: T005_HIST
+        schema: RAW_SAP
+      - name: T005S
+        identifier: T005S
+        schema: RAW_SAP
+      - name: T005S_HIST
+        identifier: T005S_HIST
+        schema: RAW_SAP
+      - name: T006
+        identifier: T006
+        schema: RAW_SAP
+      - name: T006_HIST
+        identifier: T006_HIST
+        schema: RAW_SAP
+      - name: T007A
+        identifier: T007A
+        schema: RAW_SAP
+      - name: T007A_HIST
+        identifier: T007A_HIST
+        schema: RAW_SAP
+      - name: T009B
+        identifier: T009B
+        schema: RAW_SAP
+      - name: T009B_HIST
+        identifier: T009B_HIST
+        schema: RAW_SAP
+      - name: T024
+        identifier: T024
+        schema: RAW_SAP
+      - name: T024_HIST
+        identifier: T024_HIST
+        schema: RAW_SAP
+      - name: T052
+        identifier: T052
+        schema: RAW_SAP
+      - name: T052_HIST
+        identifier: T052_HIST
+        schema: RAW_SAP
+      - name: T179
+        identifier: T179
+        schema: RAW_SAP
+      - name: T179_HIST
+        identifier: T179_HIST
+        schema: RAW_SAP
+      - name: T510
+        identifier: T510
+        schema: RAW_SAP
+      - name: T510_HIST
+        identifier: T510_HIST
+        schema: RAW_SAP
+      - name: T513
+        identifier: T513
+        schema: RAW_SAP
+      - name: T513_HIST
+        identifier: T513_HIST
+        schema: RAW_SAP
+      - name: TCURC
+        identifier: TCURC
+        schema: RAW_SAP
+      - name: TCURC_HIST
+        identifier: TCURC_HIST
+        schema: RAW_SAP
+      - name: TCURR
+        identifier: TCURR
+        schema: RAW_SAP
+      - name: TCURR_HIST
+        identifier: TCURR_HIST
+        schema: RAW_SAP
+
+      # ============================================================
+      # WMS (Warehouse Management) tables
+      # ============================================================
+      - name: FULFILLMENT
+        identifier: FULFILLMENT
+        schema: RAW_WMS
+      - name: FULFILLMENT_HIST
+        identifier: FULFILLMENT_HIST
+        schema: RAW_WMS
+      - name: ZONES
+        identifier: ZONES
+        schema: RAW_WMS
+      - name: ZONES_HIST
+        identifier: ZONES_HIST
+        schema: RAW_WMS
+      - name: PICKS
+        identifier: PICKS
+        schema: RAW_WMS
+      - name: PICKS_HIST
+        identifier: PICKS_HIST
+        schema: RAW_WMS
+      - name: PACKS
+        identifier: PACKS
+        schema: RAW_WMS
+      - name: PACKS_HIST
+        identifier: PACKS_HIST
+        schema: RAW_WMS
+      - name: RECEIPTS
+        identifier: RECEIPTS
+        schema: RAW_WMS
+      - name: RECEIPTS_HIST
+        identifier: RECEIPTS_HIST
+        schema: RAW_WMS
+      - name: MOVEMENTS
+        identifier: MOVEMENTS
+        schema: RAW_WMS
+      - name: MOVEMENTS_HIST
+        identifier: MOVEMENTS_HIST
+        schema: RAW_WMS
+      - name: CYCLE_COUNTS
+        identifier: CYCLE_COUNTS
+        schema: RAW_WMS
+      - name: CYCLE_COUNTS_HIST
+        identifier: CYCLE_COUNTS_HIST
+        schema: RAW_WMS
+      - name: REPLEN_ORDERS
+        identifier: REPLEN_ORDERS
+        schema: RAW_WMS
+      - name: REPLEN_ORDERS_HIST
+        identifier: REPLEN_ORDERS_HIST
+        schema: RAW_WMS
+      - name: ADJUSTMENTS
+        identifier: ADJUSTMENTS
+        schema: RAW_WMS
+      - name: ADJUSTMENTS_HIST
+        identifier: ADJUSTMENTS_HIST
+        schema: RAW_WMS
+      - name: LOCATIONS
+        identifier: LOCATIONS
+        schema: RAW_WMS
+      - name: LOCATIONS_HIST
+        identifier: LOCATIONS_HIST
+        schema: RAW_WMS
+      - name: INV_SNAPSHOT
+        identifier: INV_SNAPSHOT
+        schema: RAW_WMS
+      - name: INV_SNAPSHOT_HIST
+        identifier: INV_SNAPSHOT_HIST
+        schema: RAW_WMS
+      - name: TRANSFERS
+        identifier: TRANSFERS
+        schema: RAW_WMS
+      - name: TRANSFERS_HIST
+        identifier: TRANSFERS_HIST
+        schema: RAW_WMS
+      - name: LOT_TRACKING
+        identifier: LOT_TRACKING
+        schema: RAW_WMS
+      - name: LOT_TRACKING_HIST
+        identifier: LOT_TRACKING_HIST
+        schema: RAW_WMS
+      - name: SERIAL_TRACKING
+        identifier: SERIAL_TRACKING
+        schema: RAW_WMS
+      - name: SERIAL_TRACKING_HIST
+        identifier: SERIAL_TRACKING_HIST
+        schema: RAW_WMS
+      - name: WAREHOUSES
+        identifier: WAREHOUSES
+        schema: RAW_WMS
+      - name: WAREHOUSES_HIST
+        identifier: WAREHOUSES_HIST
+        schema: RAW_WMS
+      - name: WAREHOUSE_LOCATIONS
+        identifier: WAREHOUSE_LOCATIONS
+        schema: RAW_WMS
+      - name: WAREHOUSE_ZONES
+        identifier: WAREHOUSE_ZONES
+        schema: RAW_WMS
+      - name: SHIP_LINES
+        identifier: SHIP_LINES
+        schema: RAW_WMS
+      - name: SHIP_LINES_HIST
+        identifier: SHIP_LINES_HIST
+        schema: RAW_WMS
+      - name: SHIP_METHODS
+        identifier: SHIP_METHODS
+        schema: RAW_WMS
+      - name: SHIP_METHODS_HIST
+        identifier: SHIP_METHODS_HIST
+        schema: RAW_WMS
+      - name: SHIPMENTS_HIST
+        identifier: SHIPMENTS_HIST
+        schema: RAW_WMS
+      - name: SHIPMENT_LINES
+        identifier: SHIPMENT_LINES
+        schema: RAW_WMS
+      - name: SHIPMENT_PACKAGES
+        identifier: SHIPMENT_PACKAGES
+        schema: RAW_WMS
+      - name: SHIPMENT_TRACKING
+        identifier: SHIPMENT_TRACKING
+        schema: RAW_WMS
+      - name: CARRIERS
+        identifier: CARRIERS
+        schema: RAW_WMS
+
+      # ============================================================
+      # GA/Web Analytics tables
+      # ============================================================
+      - name: PAGEVIEWS
+        identifier: PAGEVIEWS
+        schema: RAW_GA
+      - name: PAGEVIEWS_HIST
+        identifier: PAGEVIEWS_HIST
+        schema: RAW_GA
+      - name: PAGEVIEWS_STG
+        identifier: PAGEVIEWS_STG
+        schema: RAW_GA
+      - name: SESSIONS
+        identifier: SESSIONS
+        schema: RAW_GA
+      - name: SESSIONS_HIST
+        identifier: SESSIONS_HIST
+        schema: RAW_GA
+      - name: SESSIONS_STG
+        identifier: SESSIONS_STG
+        schema: RAW_GA
+      - name: EVENTS
+        identifier: EVENTS
+        schema: RAW_GA
+      - name: EVENTS_HIST
+        identifier: EVENTS_HIST
+        schema: RAW_GA
+      - name: EVENTS_STG
+        identifier: EVENTS_STG
+        schema: RAW_GA
+      - name: CONVERSIONS
+        identifier: CONVERSIONS
+        schema: RAW_GA
+      - name: CONVERSIONS_HIST
+        identifier: CONVERSIONS_HIST
+        schema: RAW_GA
+      - name: CONVERSIONS_STG
+        identifier: CONVERSIONS_STG
+        schema: RAW_GA
+      - name: DEVICES
+        identifier: DEVICES
+        schema: RAW_GA
+      - name: DEVICES_HIST
+        identifier: DEVICES_HIST
+        schema: RAW_GA
+      - name: DEVICES_STG
+        identifier: DEVICES_STG
+        schema: RAW_GA
+      - name: USER_PROPS
+        identifier: USER_PROPS
+        schema: RAW_GA
+      - name: USER_PROPS_HIST
+        identifier: USER_PROPS_HIST
+        schema: RAW_GA
+      - name: USER_PROPS_STG
+        identifier: USER_PROPS_STG
+        schema: RAW_GA
+      - name: UTM_CAMPAIGNS
+        identifier: UTM_CAMPAIGNS
+        schema: RAW_GA
+      - name: UTM_CAMPAIGNS_HIST
+        identifier: UTM_CAMPAIGNS_HIST
+        schema: RAW_GA
+      - name: UTM_CAMPAIGNS_STG
+        identifier: UTM_CAMPAIGNS_STG
+        schema: RAW_GA
+      - name: WEB_EVENTS
+        identifier: WEB_EVENTS
+        schema: RAW_GA
+      - name: WEB_SESSIONS
+        identifier: WEB_SESSIONS
+        schema: RAW_GA
+      - name: WEB_PAGE_VIEWS
+        identifier: WEB_PAGE_VIEWS
+        schema: RAW_GA
+      - name: SEARCHES
+        identifier: SEARCHES
+        schema: RAW_GA
+      - name: SEARCHES_HIST
+        identifier: SEARCHES_HIST
+        schema: RAW_GA
+      - name: SEARCHES_STG
+        identifier: SEARCHES_STG
+        schema: RAW_GA
+
+      # ============================================================
+      # Digital/Ecommerce tables
+      # ============================================================
+      - name: ABANDONED_CARTS
+        identifier: ABANDONED_CARTS
+        schema: DIGITAL
+      - name: ABANDONED_CARTS_HIST
+        identifier: ABANDONED_CARTS_HIST
+        schema: DIGITAL
+      - name: ABANDONED_CARTS_STG
+        identifier: ABANDONED_CARTS_STG
+        schema: DIGITAL
+      - name: CARTS
+        identifier: CARTS
+        schema: DIGITAL
+      - name: CARTS_HIST
+        identifier: CARTS_HIST
+        schema: DIGITAL
+      - name: CARTS_STG
+        identifier: CARTS_STG
+        schema: DIGITAL
+      - name: CART_ITEMS
+        identifier: CART_ITEMS
+        schema: DIGITAL
+      - name: CART_ITEMS_HIST
+        identifier: CART_ITEMS_HIST
+        schema: DIGITAL
+      - name: CART_ITEMS_STG
+        identifier: CART_ITEMS_STG
+        schema: DIGITAL
+      - name: SHOPPING_CARTS
+        identifier: SHOPPING_CARTS
+        schema: DIGITAL
+      - name: SHOPPING_CART_ITEMS
+        identifier: SHOPPING_CART_ITEMS
+        schema: DIGITAL
+      - name: WISHLIST_ITEMS
+        identifier: WISHLIST_ITEMS
+        schema: DIGITAL
+      - name: WISHLISTS_HIST
+        identifier: WISHLISTS_HIST
+        schema: DIGITAL
+      - name: WISHLISTS_STG
+        identifier: WISHLISTS_STG
+        schema: DIGITAL
+      - name: ECOM_TRANS
+        identifier: ECOM_TRANS
+        schema: DIGITAL
+      - name: ECOM_TRANS_HIST
+        identifier: ECOM_TRANS_HIST
+        schema: DIGITAL
+      - name: ECOM_TRANS_STG
+        identifier: ECOM_TRANS_STG
+        schema: DIGITAL
+      - name: RATINGS
+        identifier: RATINGS
+        schema: DIGITAL
+      - name: RATINGS_HIST
+        identifier: RATINGS_HIST
+        schema: DIGITAL
+      - name: RATINGS_STG
+        identifier: RATINGS_STG
+        schema: DIGITAL
+      - name: REVIEWS
+        identifier: REVIEWS
+        schema: DIGITAL
+      - name: REVIEWS_HIST
+        identifier: REVIEWS_HIST
+        schema: DIGITAL
+      - name: REVIEWS_STG
+        identifier: REVIEWS_STG
+        schema: DIGITAL
+      - name: RECOMMENDATIONS
+        identifier: RECOMMENDATIONS
+        schema: DIGITAL
+      - name: RECOMMENDATIONS_HIST
+        identifier: RECOMMENDATIONS_HIST
+        schema: DIGITAL
+      - name: RECOMMENDATIONS_STG
+        identifier: RECOMMENDATIONS_STG
+        schema: DIGITAL
+      - name: MARKETPLACE_LISTINGS
+        identifier: MARKETPLACE_LISTINGS
+        schema: DIGITAL
+
+      # ============================================================
+      # Marketing tables
+      # ============================================================
+      - name: ADS_CAMPAIGNS
+        identifier: ADS_CAMPAIGNS
+        schema: MARKETING
+      - name: ADS_CAMPAIGNS_HIST
+        identifier: ADS_CAMPAIGNS_HIST
+        schema: MARKETING
+      - name: ADS_CAMPAIGNS_STG
+        identifier: ADS_CAMPAIGNS_STG
+        schema: MARKETING
+      - name: ADS_CLICKS
+        identifier: ADS_CLICKS
+        schema: MARKETING
+      - name: ADS_CLICKS_HIST
+        identifier: ADS_CLICKS_HIST
+        schema: MARKETING
+      - name: ADS_CLICKS_STG
+        identifier: ADS_CLICKS_STG
+        schema: MARKETING
+      - name: ADS_IMPRESSIONS
+        identifier: ADS_IMPRESSIONS
+        schema: MARKETING
+      - name: ADS_IMPRESSIONS_HIST
+        identifier: ADS_IMPRESSIONS_HIST
+        schema: MARKETING
+      - name: ADS_IMPRESSIONS_STG
+        identifier: ADS_IMPRESSIONS_STG
+        schema: MARKETING
+      - name: AUDIENCES
+        identifier: AUDIENCES
+        schema: MARKETING
+      - name: AUDIENCES_HIST
+        identifier: AUDIENCES_HIST
+        schema: MARKETING
+      - name: AUDIENCES_STG
+        identifier: AUDIENCES_STG
+        schema: MARKETING
+      - name: EMAIL_CLICKS
+        identifier: EMAIL_CLICKS
+        schema: MARKETING
+      - name: EMAIL_CLICKS_HIST
+        identifier: EMAIL_CLICKS_HIST
+        schema: MARKETING
+      - name: EMAIL_CLICKS_STG
+        identifier: EMAIL_CLICKS_STG
+        schema: MARKETING
+      - name: CAMPAIGNS_STG
+        identifier: CAMPAIGNS_STG
+        schema: MARKETING
+      - name: MARKETING_CAMPAIGNS
+        identifier: MARKETING_CAMPAIGNS
+        schema: MARKETING
+      - name: CAMPAIGN_AUDIENCES
+        identifier: CAMPAIGN_AUDIENCES
+        schema: MARKETING
+      - name: CAMPAIGN_CHANNELS
+        identifier: CAMPAIGN_CHANNELS
+        schema: MARKETING
+      - name: CAMPAIGN_PERFORMANCE
+        identifier: CAMPAIGN_PERFORMANCE
+        schema: MARKETING
+
+      # ============================================================
+      # Customer tables
+      # ============================================================
+      - name: CUSTOMERS
+        identifier: CUSTOMERS
+        schema: CUSTOMER
+      - name: CUSTOMER_ADDRESSES
+        identifier: CUSTOMER_ADDRESSES
+        schema: CUSTOMER
+      - name: CUSTOMER_CONTACTS
+        identifier: CUSTOMER_CONTACTS
+        schema: CUSTOMER
+      - name: CUSTOMER_PREFERENCES
+        identifier: CUSTOMER_PREFERENCES
+        schema: CUSTOMER
+      - name: CUSTOMER_SEGMENTS
+        identifier: CUSTOMER_SEGMENTS
+        schema: CUSTOMER
+      - name: CUSTOMER_SEGMENT_MEMBERS
+        identifier: CUSTOMER_SEGMENT_MEMBERS
+        schema: CUSTOMER
+      - name: CUSTOMER_TAGS
+        identifier: CUSTOMER_TAGS
+        schema: CUSTOMER
+      - name: CUSTOMER_TIERS
+        identifier: CUSTOMER_TIERS
+        schema: CUSTOMER
+      - name: CUSTOMER_TIER_HISTORY
+        identifier: CUSTOMER_TIER_HISTORY
+        schema: CUSTOMER
+      - name: CUSTOMER_NOTES
+        identifier: CUSTOMER_NOTES
+        schema: CUSTOMER
+      - name: CUSTOMER_LIFECYCLE_EVENTS
+        identifier: CUSTOMER_LIFECYCLE_EVENTS
+        schema: CUSTOMER
+      - name: CUSTOMER_CONSENT_LOG
+        identifier: CUSTOMER_CONSENT_LOG
+        schema: CUSTOMER
+      - name: CONSENT_LOG
+        identifier: CONSENT_LOG
+        schema: CUSTOMER
+      - name: CONSENT_LOG_HIST
+        identifier: CONSENT_LOG_HIST
+        schema: CUSTOMER
+      - name: CONSENT_LOG_STG
+        identifier: CONSENT_LOG_STG
+        schema: CUSTOMER
+      - name: CONSENT_PREFERENCES
+        identifier: CONSENT_PREFERENCES
+        schema: CUSTOMER
+
+      # ============================================================
+      # Orders tables
+      # ============================================================
+      - name: ORDERS
+        identifier: ORDERS
+        schema: ORDERS
+      - name: ORDER_LINES
+        identifier: ORDER_LINES
+        schema: ORDERS
+      - name: ORDER_PAYMENTS
+        identifier: ORDER_PAYMENTS
+        schema: ORDERS
+      - name: ORDER_MODIFICATIONS
+        identifier: ORDER_MODIFICATIONS
+        schema: ORDERS
+      - name: ORDER_CANCELLATIONS
+        identifier: ORDER_CANCELLATIONS
+        schema: ORDERS
+      - name: ORDER_HOLDS
+        identifier: ORDER_HOLDS
+        schema: ORDERS
+      - name: ORDER_STATUS_HISTORY
+        identifier: ORDER_STATUS_HISTORY
+        schema: ORDERS
+      - name: ORDER_LINE_DISCOUNTS
+        identifier: ORDER_LINE_DISCOUNTS
+        schema: ORDERS
+      - name: ORDER_FRAUD_SCORES
+        identifier: ORDER_FRAUD_SCORES
+        schema: ORDERS
+      - name: CHARGES
+        identifier: CHARGES
+        schema: ORDERS
+      - name: CHARGES_HIST
+        identifier: CHARGES_HIST
+        schema: ORDERS
+      - name: SHIPPING_METHODS
+        identifier: SHIPPING_METHODS
+        schema: ORDERS
+
+      # ============================================================
+      # Finance tables
+      # ============================================================
+      - name: CHART_OF_ACCOUNTS
+        identifier: CHART_OF_ACCOUNTS
+        schema: FINANCE
+      - name: GL_TRANSACTIONS
+        identifier: GL_TRANSACTIONS
+        schema: FINANCE
+      - name: GL_PERIODS
+        identifier: GL_PERIODS
+        schema: FINANCE
+      - name: REVENUE_RECOGNITION
+        identifier: REVENUE_RECOGNITION
+        schema: FINANCE
+      - name: DEFERRED_REVENUE
+        identifier: DEFERRED_REVENUE
+        schema: FINANCE
+      - name: COST_CENTERS
+        identifier: COST_CENTERS
+        schema: FINANCE
+      - name: COST_CENTER_ASSIGNMENTS
+        identifier: COST_CENTER_ASSIGNMENTS
+        schema: FINANCE
+      - name: PROFIT_CENTERS
+        identifier: PROFIT_CENTERS
+        schema: FINANCE
+      - name: TAX_TRANSACTIONS
+        identifier: TAX_TRANSACTIONS
+        schema: FINANCE
+      - name: TAX_RATES
+        identifier: TAX_RATES
+        schema: FINANCE
+      - name: CUSTOMER_INVOICES
+        identifier: CUSTOMER_INVOICES
+        schema: FINANCE
+      - name: CUSTOMER_INVOICE_LINES
+        identifier: CUSTOMER_INVOICE_LINES
+        schema: FINANCE
+      - name: CUSTOMER_PAYMENTS
+        identifier: CUSTOMER_PAYMENTS
+        schema: FINANCE
+      - name: CUSTOMER_PAYMENT_APPLICATIONS
+        identifier: CUSTOMER_PAYMENT_APPLICATIONS
+        schema: FINANCE
+      - name: CUSTOMER_CREDITS
+        identifier: CUSTOMER_CREDITS
+        schema: FINANCE
+      - name: CUSTOMER_AGING
+        identifier: CUSTOMER_AGING
+        schema: FINANCE
+      - name: CURRENCY_EXCHANGE_RATES
+        identifier: CURRENCY_EXCHANGE_RATES
+        schema: FINANCE
+      - name: CURRENCIES_HIST
+        identifier: CURRENCIES_HIST
+        schema: FINANCE
+      - name: GLACCT
+        identifier: GLACCT
+        schema: FINANCE
+      - name: GLACCT_HIST
+        identifier: GLACCT_HIST
+        schema: FINANCE
+      - name: GLACCT_STG
+        identifier: GLACCT_STG
+        schema: FINANCE
+      - name: APINV
+        identifier: APINV
+        schema: FINANCE
+      - name: APINV_HIST
+        identifier: APINV_HIST
+        schema: FINANCE
+      - name: APINV_STG
+        identifier: APINV_STG
+        schema: FINANCE
+      - name: ARINV
+        identifier: ARINV
+        schema: FINANCE
+      - name: ARINV_HIST
+        identifier: ARINV_HIST
+        schema: FINANCE
+      - name: ARINV_STG
+        identifier: ARINV_STG
+        schema: FINANCE
+
+      # ============================================================
+      # Procurement/Supplier tables
+      # ============================================================
+      - name: SUPPLIERS
+        identifier: SUPPLIERS
+        schema: PROCUREMENT
+      - name: SUPPLIER_ADDRESSES
+        identifier: SUPPLIER_ADDRESSES
+        schema: PROCUREMENT
+      - name: SUPPLIER_CONTACTS
+        identifier: SUPPLIER_CONTACTS
+        schema: PROCUREMENT
+      - name: SUPPLIER_INVOICES
+        identifier: SUPPLIER_INVOICES
+        schema: PROCUREMENT
+      - name: SUPPLIER_INVOICE_LINES
+        identifier: SUPPLIER_INVOICE_LINES
+        schema: PROCUREMENT
+      - name: SUPPLIER_CERTIFICATIONS
+        identifier: SUPPLIER_CERTIFICATIONS
+        schema: PROCUREMENT
+      - name: SUPPLIER_PERFORMANCE_SCORES
+        identifier: SUPPLIER_PERFORMANCE_SCORES
+        schema: PROCUREMENT
+      - name: PURCHASE_ORDERS
+        identifier: PURCHASE_ORDERS
+        schema: PROCUREMENT
+      - name: PURCHASE_ORDER_LINES
+        identifier: PURCHASE_ORDER_LINES
+        schema: PROCUREMENT
+      - name: PURCHASE_ORDER_RECEIPTS
+        identifier: PURCHASE_ORDER_RECEIPTS
+        schema: PROCUREMENT
+      - name: PURCHASE_ORDER_RECEIPT_LINES
+        identifier: PURCHASE_ORDER_RECEIPT_LINES
+        schema: PROCUREMENT
+      - name: PURCHASE_CONTRACTS
+        identifier: PURCHASE_CONTRACTS
+        schema: PROCUREMENT
+      - name: PURCHASE_CONTRACT_ITEMS
+        identifier: PURCHASE_CONTRACT_ITEMS
+        schema: PROCUREMENT
+      - name: LANDED_COST_COMPONENTS
+        identifier: LANDED_COST_COMPONENTS
+        schema: PROCUREMENT
+      - name: VENDMST
+        identifier: VENDMST
+        schema: PROCUREMENT
+      - name: VENDMST_HIST
+        identifier: VENDMST_HIST
+        schema: PROCUREMENT
+      - name: VENDCAT
+        identifier: VENDCAT
+        schema: PROCUREMENT
+      - name: VENDCAT_HIST
+        identifier: VENDCAT_HIST
+        schema: PROCUREMENT
+      - name: VENDITEM
+        identifier: VENDITEM
+        schema: PROCUREMENT
+      - name: VENDITEM_HIST
+        identifier: VENDITEM_HIST
+        schema: PROCUREMENT
+
+      # ============================================================
+      # Inventory tables
+      # ============================================================
+      - name: INVENTORY_LEVELS
+        identifier: INVENTORY_LEVELS
+        schema: INVENTORY
+      - name: INVENTORY_SNAPSHOTS
+        identifier: INVENTORY_SNAPSHOTS
+        schema: INVENTORY
+      - name: INVENTORY_TRANSACTIONS
+        identifier: INVENTORY_TRANSACTIONS
+        schema: INVENTORY
+      - name: INVENTORY_ADJUSTMENTS
+        identifier: INVENTORY_ADJUSTMENTS
+        schema: INVENTORY
+      - name: INVENTORY_ADJUSTMENT_LINES
+        identifier: INVENTORY_ADJUSTMENT_LINES
+        schema: INVENTORY
+      - name: INVENTORY_COUNTS
+        identifier: INVENTORY_COUNTS
+        schema: INVENTORY
+      - name: INVENTORY_COUNT_DETAILS
+        identifier: INVENTORY_COUNT_DETAILS
+        schema: INVENTORY
+      - name: INVENTORY_TRANSFERS
+        identifier: INVENTORY_TRANSFERS
+        schema: INVENTORY
+      - name: INVENTORY_TRANSFER_LINES
+        identifier: INVENTORY_TRANSFER_LINES
+        schema: INVENTORY
+      - name: INVENTORY_RESERVATIONS
+        identifier: INVENTORY_RESERVATIONS
+        schema: INVENTORY
+      - name: REORDER_RULES
+        identifier: REORDER_RULES
+        schema: INVENTORY
+      - name: DEMAND_FORECASTS
+        identifier: DEMAND_FORECASTS
+        schema: INVENTORY
+
+      # ============================================================
+      # HR tables
+      # ============================================================
+      - name: EMPLOYEES
+        identifier: EMPLOYEES
+        schema: HR
+      - name: EMPLOYEE_DEPARTMENTS
+        identifier: EMPLOYEE_DEPARTMENTS
+        schema: HR
+      - name: EMPLOYEE_POSITIONS
+        identifier: EMPLOYEE_POSITIONS
+        schema: HR
+      - name: EMPLOYEE_COMPENSATION
+        identifier: EMPLOYEE_COMPENSATION
+        schema: HR
+      - name: EMPLOYEE_SCHEDULES
+        identifier: EMPLOYEE_SCHEDULES
+        schema: HR
+      - name: DEPARTMENTS
+        identifier: DEPARTMENTS
+        schema: HR
+      - name: JOB_POSITIONS
+        identifier: JOB_POSITIONS
+        schema: HR
+      - name: ORG_HIERARCHY
+        identifier: ORG_HIERARCHY
+        schema: HR
+      - name: PAYROLL_RUNS
+        identifier: PAYROLL_RUNS
+        schema: HR
+      - name: PAYROLL_DETAILS
+        identifier: PAYROLL_DETAILS
+        schema: HR
+      - name: TIME_ENTRIES
+        identifier: TIME_ENTRIES
+        schema: HR
+
+      # ============================================================
+      # Promotions/Loyalty tables
+      # ============================================================
+      - name: PROMO
+        identifier: PROMO
+        schema: RAW_SAP
+      - name: PROMO_HIST
+        identifier: PROMO_HIST
+        schema: RAW_SAP
+      - name: PROMO_ITEMS
+        identifier: PROMO_ITEMS
+        schema: RAW_SAP
+      - name: PROMO_ITEMS_HIST
+        identifier: PROMO_ITEMS_HIST
+        schema: RAW_SAP
+      - name: PROMO_CODES
+        identifier: PROMO_CODES
+        schema: RAW_GA
+      - name: PROMO_CODES_HIST
+        identifier: PROMO_CODES_HIST
+        schema: RAW_GA
+      - name: PROMO_CODES_STG
+        identifier: PROMO_CODES_STG
+        schema: RAW_GA
+      - name: PROMOTION_PRODUCTS
+        identifier: PROMOTION_PRODUCTS
+        schema: MARKETING
+      - name: PROMOTION_REDEMPTIONS
+        identifier: PROMOTION_REDEMPTIONS
+        schema: MARKETING
+      - name: PROMOTION_RULES
+        identifier: PROMOTION_RULES
+        schema: MARKETING
+      - name: COUPON_REDEMPTIONS
+        identifier: COUPON_REDEMPTIONS
+        schema: MARKETING
+      - name: GIFT_CARDS
+        identifier: GIFT_CARDS
+        schema: MARKETING
+      - name: GIFT_CARD_TRANSACTIONS
+        identifier: GIFT_CARD_TRANSACTIONS
+        schema: MARKETING
+      - name: LOYALTY_PROGRAMS
+        identifier: LOYALTY_PROGRAMS
+        schema: MARKETING
+      - name: LOYALTY_POINTS_TRANSACTIONS
+        identifier: LOYALTY_POINTS_TRANSACTIONS
+        schema: MARKETING
+
+      # ============================================================
+      # Reference/Lookup tables
+      # ============================================================
+      - name: COUNTRIES
+        identifier: COUNTRIES
+        schema: REFERENCE
+      - name: STATES_PROVINCES
+        identifier: STATES_PROVINCES
+        schema: REFERENCE
+      - name: LANGUAGES
+        identifier: LANGUAGES
+        schema: REFERENCE
+      - name: TIMEZONES
+        identifier: TIMEZONES
+        schema: REFERENCE
+      - name: UNITS_OF_MEASURE
+        identifier: UNITS_OF_MEASURE
+        schema: REFERENCE
+      - name: STATUS_CODES
+        identifier: STATUS_CODES
+        schema: REFERENCE
+      - name: REASON_CODES
+        identifier: REASON_CODES
+        schema: REFERENCE
+      - name: RETURN_REASONS
+        identifier: RETURN_REASONS
+        schema: REFERENCE
+      - name: PAYMENT_METHODS
+        identifier: PAYMENT_METHODS
+        schema: REFERENCE
+      - name: SALES_CHANNELS
+        identifier: SALES_CHANNELS
+        schema: REFERENCE
+      - name: CHANNELS
+        identifier: CHANNELS
+        schema: REFERENCE
+      - name: CHANNEL_CONFIGURATIONS
+        identifier: CHANNEL_CONFIGURATIONS
+        schema: REFERENCE
+
+      # Legacy lookup tables
+      - name: CTRYCOD
+        identifier: CTRYCOD
+        schema: RAW_LEGACY
+      - name: CTRYCOD_HIST
+        identifier: CTRYCOD_HIST
+        schema: RAW_LEGACY
+      - name: CTRYCOD_STG
+        identifier: CTRYCOD_STG
+        schema: RAW_LEGACY
+      - name: REGCOD
+        identifier: REGCOD
+        schema: RAW_LEGACY
+      - name: REGCOD_HIST
+        identifier: REGCOD_HIST
+        schema: RAW_LEGACY
+      - name: STSCOD
+        identifier: STSCOD
+        schema: RAW_LEGACY
+      - name: STSCOD_HIST
+        identifier: STSCOD_HIST
+        schema: RAW_LEGACY
+      - name: CATCOD
+        identifier: CATCOD
+        schema: RAW_LEGACY
+      - name: CATCOD_HIST
+        identifier: CATCOD_HIST
+        schema: RAW_LEGACY
+      - name: CATCOD_STG
+        identifier: CATCOD_STG
+        schema: RAW_LEGACY
+      - name: CATSDB
+        identifier: CATSDB
+        schema: RAW_LEGACY
+      - name: CATSDB_HIST
+        identifier: CATSDB_HIST
+        schema: RAW_LEGACY
+      - name: A305
+        identifier: A305
+        schema: RAW_LEGACY
+      - name: A305_HIST
+        identifier: A305_HIST
+        schema: RAW_LEGACY
+      - name: POHDR
+        identifier: POHDR
+        schema: RAW_LEGACY
+      - name: POHDR_HIST
+        identifier: POHDR_HIST
+        schema: RAW_LEGACY
+      - name: POHDR_STG
+        identifier: POHDR_STG
+        schema: RAW_LEGACY
+      - name: PODTL
+        identifier: PODTL
+        schema: RAW_LEGACY
+      - name: PODTL_HIST
+        identifier: PODTL_HIST
+        schema: RAW_LEGACY
+      - name: PODTL_STG
+        identifier: PODTL_STG
+        schema: RAW_LEGACY
+      - name: ITMATTR
+        identifier: ITMATTR
+        schema: RAW_LEGACY
+      - name: ITMATTR_HIST
+        identifier: ITMATTR_HIST
+        schema: RAW_LEGACY
+      - name: ITMATTR_STG
+        identifier: ITMATTR_STG
+        schema: RAW_LEGACY
+      - name: ITMIMG
+        identifier: ITMIMG
+        schema: RAW_LEGACY
+      - name: ITMIMG_HIST
+        identifier: ITMIMG_HIST
+        schema: RAW_LEGACY
+      - name: ITMIMG_STG
+        identifier: ITMIMG_STG
+        schema: RAW_LEGACY
+      - name: ITMTAGS
+        identifier: ITMTAGS
+        schema: RAW_LEGACY
+      - name: ITMTAGS_HIST
+        identifier: ITMTAGS_HIST
+        schema: RAW_LEGACY
+      - name: ITMTAGS_STG
+        identifier: ITMTAGS_STG
+        schema: RAW_LEGACY
+      - name: ITMTXT
+        identifier: ITMTXT
+        schema: RAW_LEGACY
+      - name: ITMTXT_HIST
+        identifier: ITMTXT_HIST
+        schema: RAW_LEGACY
+      - name: ITMTXT_STG
+        identifier: ITMTXT_STG
+        schema: RAW_LEGACY
+      - name: PRCLST
+        identifier: PRCLST
+        schema: RAW_LEGACY
+      - name: PRCLST_HIST
+        identifier: PRCLST_HIST
+        schema: RAW_LEGACY
+
+      # ============================================================
+      # Audit/Compliance tables
+      # ============================================================
+      - name: AUDIT_LOGS
+        identifier: AUDIT_LOGS
+        schema: AUDIT
+      - name: USER_ACCESS_LOGS
+        identifier: USER_ACCESS_LOGS
+        schema: AUDIT
+      - name: ACCESS_LOG_STG
+        identifier: ACCESS_LOG_STG
+        schema: AUDIT
+      - name: DATA_CHANGE_HISTORY
+        identifier: DATA_CHANGE_HISTORY
+        schema: AUDIT
+      - name: COMPLIANCE_RULES
+        identifier: COMPLIANCE_RULES
+        schema: AUDIT
+      - name: COMPLIANCE_VIOLATIONS
+        identifier: COMPLIANCE_VIOLATIONS
+        schema: AUDIT
+      - name: DATA_MASKING_RULES
+        identifier: DATA_MASKING_RULES
+        schema: AUDIT
+      - name: DATA_RETENTION_POLICIES
+        identifier: DATA_RETENTION_POLICIES
+        schema: AUDIT
+
+      # ============================================================
+      # Payment tables
+      # ============================================================
+      - name: PAYOUTS
+        identifier: PAYOUTS
+        schema: RAW_PAYMENTS
+      - name: PAYOUTS_HIST
+        identifier: PAYOUTS_HIST
+        schema: RAW_PAYMENTS
+
+      # ============================================================
+      # Fact/Dimension warehouse tables
+      # ============================================================
+      - name: FACT_SALES
+        identifier: FACT_SALES
+        schema: ANALYTICS
+      - name: FACT_INVENTORY
+        identifier: FACT_INVENTORY
+        schema: ANALYTICS
+      - name: FACT_WEB_TRAFFIC
+        identifier: FACT_WEB_TRAFFIC
+        schema: ANALYTICS
+      - name: FACT_MARKETING_SPEND
+        identifier: FACT_MARKETING_SPEND
+        schema: ANALYTICS
+      - name: FACT_CUSTOMER_INTERACTIONS
+        identifier: FACT_CUSTOMER_INTERACTIONS
+        schema: ANALYTICS
+      - name: DIM_TIME
+        identifier: DIM_TIME
+        schema: ANALYTICS
+      - name: DIM_GEOGRAPHY
+        identifier: DIM_GEOGRAPHY
+        schema: ANALYTICS
+      - name: DIM_CHANNEL
+        identifier: DIM_CHANNEL
+        schema: ANALYTICS
+      - name: DIM_EMPLOYEE
+        identifier: DIM_EMPLOYEE
+        schema: ANALYTICS
+      - name: MKT_FACT_STG
+        identifier: MKT_FACT_STG
+        schema: ANALYTICS
+      - name: WEB_FACT_STG
+        identifier: WEB_FACT_STG
+        schema: ANALYTICS
+
+      # ============================================================
+      # Lookup annotation tables (metadata)
+      # ============================================================
+      - name: _lookup_analyst_notes
+        identifier: _lookup_analyst_notes
+        schema: main
+      - name: _lookup_approval_notes
+        identifier: _lookup_approval_notes
+        schema: main
+      - name: _lookup_deprecation_reasons
+        identifier: _lookup_deprecation_reasons
+        schema: main
+      - name: _lookup_dq_issues
+        identifier: _lookup_dq_issues
+        schema: main
+      - name: _lookup_migration_notes
+        identifier: _lookup_migration_notes
+        schema: main
+      - name: _lookup_rejection_reasons
+        identifier: _lookup_rejection_reasons
+        schema: main
+      - name: _lookup_review_comments
+        identifier: _lookup_review_comments
+        schema: main

@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: hr
+    description: Human resources and payroll data
+    schema: HR
+
+    tables:
+      - name: COST_CENTER_ASSIGNMENTS
+      - name: DEPARTMENTS
+      - name: EMPLOYEES
+      - name: EMPLOYEE_COMPENSATION
+      - name: EMPLOYEE_DEPARTMENTS
+      - name: EMPLOYEE_POSITIONS
+      - name: EMPLOYEE_SCHEDULES
+      - name: JOB_POSITIONS
+      - name: ORG_HIERARCHY
+      - name: PAYROLL_DETAILS
+      - name: PAYROLL_RUNS
+      - name: TIME_ENTRIES

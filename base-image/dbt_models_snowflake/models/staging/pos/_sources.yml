@@ -1,0 +1,143 @@
+version: 2
+
+sources:
+  - name: pos
+    description: |
+      Point of Sale system - retail transaction data from physical stores
+
+      This source contains raw data extracted from the POS system.
+      Data is loaded via ELT processes and stored in the RAW_POS schema.
+
+    schema: RAW_POS
+
+    # Source freshness checks
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    # Metadata for all tables
+    meta:
+      owner: "data-engineering@company.com"
+      source_system: "pos"
+
+    tables:
+      - name: COUPONS
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: COUPON_USAGE
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: DISCOUNTS
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: LOYALTY_ACCTS
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: LOYALTY_TRANS
+        description: |
+          Fact table containing transactional or measurement data from POS
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: PROMOTIONS
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: REFUNDS
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: RETURNS
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: RETURN_LINES
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SALES_FACT
+        description: |
+          Fact table containing transactional or measurement data from POS
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: TAX_LINES
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: TENDERS
+        description: |
+          Source table from POS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: TRANSACTIONS
+        description: |
+          Fact table containing transactional or measurement data from POS
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: TRANS_LINES
+        description: |
+          Fact table containing transactional or measurement data from POS
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: TRANS_STATUS
+        description: |
+          Fact table containing transactional or measurement data from POS
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+

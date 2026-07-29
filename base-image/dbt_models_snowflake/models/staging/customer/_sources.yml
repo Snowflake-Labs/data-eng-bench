@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: customer
+    description: Customer master and relationship data
+    schema: CUSTOMER
+
+    tables:
+      - name: CUSTOMERS
+      - name: CUSTOMER_ADDRESSES
+      - name: CUSTOMER_CONSENT_LOG
+      - name: CUSTOMER_CONTACTS
+      - name: CUSTOMER_LIFECYCLE_EVENTS
+      - name: CUSTOMER_NOTES
+      - name: CUSTOMER_PREFERENCES
+      - name: CUSTOMER_SEGMENTS
+      - name: CUSTOMER_SEGMENT_MEMBERS
+      - name: CUSTOMER_TAGS
+      - name: CUSTOMER_TIERS
+      - name: CUSTOMER_TIER_HISTORY
+
+      - name: CONSENT_LOG
+      - name: CONSENT_LOG_HIST
+      - name: CONSENT_LOG_STG
+      - name: CONSENT_PREFERENCES

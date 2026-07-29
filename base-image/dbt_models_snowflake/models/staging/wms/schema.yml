@@ -1,0 +1,753 @@
+version: 2
+
+models:
+  - name: stg_wms__adjustments
+    description: |
+      Staging model for ADJUSTMENTS from WMS
+
+      This is a table containing adjustments data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: adjustment_id
+        description: Unique identifier for the adjustment
+        tests:
+          - not_null
+          - unique
+      - name: adjustment_number
+        description: Number/reference identifier
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: adjustment_type
+        description: Adjustment Type
+      - name: status
+        description: Status
+      - name: total_lines
+        description: Total Lines
+      - name: total_quantity
+        description: Quantity value
+      - name: total_value
+        description: Total Value
+      - name: reason_code
+        description: Code value for reason
+      - name: notes
+        description: Notes
+      - name: requested_by
+        description: Requested By
+      - name: requested_at
+        description: Timestamp when the record was requested
+        tests:
+          - not_null
+      - name: approved_by
+        description: Approved By
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__cycle_counts
+    description: |
+      Staging model for CYCLE_COUNTS from WMS
+
+      This is a table containing cycle counts data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: count_id
+        description: Unique identifier for the count
+        tests:
+          - not_null
+          - unique
+      - name: count_number
+        description: Number/reference identifier
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: count_type
+        description: Count Type
+      - name: status
+        description: Status
+      - name: scheduled_date
+        description: Date of scheduled
+        tests:
+          - not_null
+      - name: total_locations
+        description: Total Locations
+      - name: total_skus
+        description: Total Skus
+      - name: total_units_counted
+        description: Total Units Counted
+      - name: total_variance_units
+        description: Total Variance Units
+      - name: total_variance_value
+        description: Total Variance Value
+      - name: created_by
+        description: Created By
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__fulfillment
+    description: |
+      Staging model for FULFILLMENT from WMS
+
+      This is a table containing fulfillment data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__inv_fact
+    description: |
+      Staging model for INV_FACT from WMS
+
+      This is a fact containing inv fact data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__inv_snapshot
+    description: |
+      Staging model for INV_SNAPSHOT from WMS
+
+      This is a table containing inv snapshot data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: inventory_id
+        description: Unique identifier for the inventory
+        tests:
+          - not_null
+          - unique
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: location_type
+        description: Location Type
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: store_id
+        description: Unique identifier for the store
+      - name: location_id
+        description: Unique identifier for the location
+      - name: quantity_on_hand
+        description: Quantity On Hand
+      - name: quantity_available
+        description: Quantity Available
+      - name: quantity_reserved
+        description: Quantity Reserved
+      - name: quantity_incoming
+        description: Quantity Incoming
+      - name: quantity_on_hold
+        description: Quantity On Hold
+      - name: unit_cost
+        description: Unit Cost
+      - name: inventory_status
+        description: Status indicator
+      - name: last_counted_at
+        description: Timestamp when the record was last_counted
+        tests:
+          - not_null
+      - name: last_received_at
+        description: Timestamp when the record was last_received
+        tests:
+          - not_null
+      - name: last_picked_at
+        description: Timestamp when the record was last_picked
+        tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__locations
+    description: |
+      Staging model for LOCATIONS from WMS
+
+      This is a table containing locations data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: location_id
+        description: Unique identifier for the location
+        tests:
+          - not_null
+          - unique
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: zone_id
+        description: Unique identifier for the zone
+      - name: location_code
+        description: Code value for location
+      - name: location_barcode
+        description: Location Barcode
+      - name: aisle
+        description: Aisle
+      - name: rack
+        description: Rack
+      - name: shelf
+        description: Shelf
+      - name: location_type
+        description: Location Type
+      - name: is_pickable
+        description: Boolean flag
+      - name: is_receivable
+        description: Boolean flag
+      - name: max_weight
+        description: Max Weight
+      - name: pick_sequence
+        description: Pick Sequence
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__lot_tracking
+    description: |
+      Staging model for LOT_TRACKING from WMS
+
+      This is a table containing lot tracking data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__movements
+    description: |
+      Staging model for MOVEMENTS from WMS
+
+      This is a table containing movements data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__packs
+    description: |
+      Staging model for PACKS from WMS
+
+      This is a table containing packs data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__picks
+    description: |
+      Staging model for PICKS from WMS
+
+      This is a table containing picks data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__receipts
+    description: |
+      Staging model for RECEIPTS from WMS
+
+      This is a table containing receipts data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__replen_orders
+    description: |
+      Staging model for REPLEN_ORDERS from WMS
+
+      This is a table containing replen orders data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__serial_tracking
+    description: |
+      Staging model for SERIAL_TRACKING from WMS
+
+      This is a table containing serial tracking data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__shipments
+    description: |
+      Staging model for SHIPMENTS from WMS
+
+      This is a table containing shipments data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__ship_lines
+    description: |
+      Staging model for SHIP_LINES from WMS
+
+      This is a table containing ship lines data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__ship_methods
+    description: |
+      Staging model for SHIP_METHODS from WMS
+
+      This is a table containing ship methods data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: shipping_method_id
+        description: Unique identifier for the shipping_method
+        tests:
+          - not_null
+          - unique
+      - name: shipping_method_code
+        description: Code value for shipping_method
+      - name: shipping_method_name
+        description: Name/description field
+      - name: carrier_id
+        description: Unique identifier for the carrier
+      - name: estimated_days_min
+        description: Estimated Days Min
+      - name: estimated_days_max
+        description: Estimated Days Max
+      - name: is_express
+        description: Boolean flag
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__transfers
+    description: |
+      Staging model for TRANSFERS from WMS
+
+      This is a fact containing transfers data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: transfer_id
+        description: Unique identifier for the transfer
+        tests:
+          - not_null
+          - unique
+      - name: transfer_number
+        description: Number/reference identifier
+      - name: transfer_type
+        description: Transfer Type
+      - name: source_type
+        description: Source Type
+      - name: source_warehouse_id
+        description: Unique identifier for the source_warehouse
+      - name: source_store_id
+        description: Unique identifier for the source_store
+      - name: dest_type
+        description: Dest Type
+      - name: dest_warehouse_id
+        description: Unique identifier for the dest_warehouse
+      - name: dest_store_id
+        description: Unique identifier for the dest_store
+      - name: status
+        description: Status
+      - name: priority
+        description: Priority
+      - name: total_lines
+        description: Total Lines
+      - name: total_quantity
+        description: Quantity value
+      - name: total_value
+        description: Total Value
+      - name: created_by
+        description: Created By
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__warehouses
+    description: |
+      Staging model for WAREHOUSES from WMS
+
+      This is a table containing warehouses data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+        tests:
+          - not_null
+          - unique
+      - name: warehouse_code
+        description: Code value for warehouse
+      - name: warehouse_name
+        description: Name/description field
+      - name: warehouse_type
+        description: Warehouse Type
+      - name: address_line_1
+        description: Address Line 1
+      - name: city
+        description: City
+      - name: state_province
+        description: State Province
+      - name: postal_code
+        description: Code value for postal
+      - name: country_code
+        description: Code value for country
+      - name: latitude
+        description: Latitude
+      - name: longitude
+        description: Longitude
+      - name: timezone
+        description: Timezone
+      - name: phone
+        description: Phone
+      - name: email
+        description: Email
+      - name: manager_name
+        description: Name/description field
+      - name: square_footage
+        description: Square Footage
+      - name: max_capacity_units
+        description: Max Capacity Units
+      - name: opened_date
+        description: Date of opened
+        tests:
+          - not_null
+      - name: priority
+        description: Priority
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_wms__zones
+    description: |
+      Staging model for ZONES from WMS
+
+      This is a table containing zones data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: zone_id
+        description: Unique identifier for the zone
+        tests:
+          - not_null
+          - unique
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: zone_code
+        description: Code value for zone
+      - name: zone_name
+        description: Name/description field
+      - name: zone_type
+        description: Zone Type
+      - name: temperature_controlled
+        description: Temperature Controlled
+      - name: min_temperature
+        description: Min Temperature
+      - name: max_temperature
+        description: Max Temperature
+      - name: capacity_units
+        description: Capacity Units
+      - name: sort_order
+        description: Sort Order
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+

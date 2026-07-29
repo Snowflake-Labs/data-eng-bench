@@ -1,0 +1,5 @@
+code,name
+PENDING,Pending
+CONFIRMED,Confirmed
+SHIPPED,Shipped
+DELIVERED,Delivered

@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: analytics
+    description: Pre-aggregated analytics tables
+    schema: ANALYTICS
+
+    tables:
+      - name: DIM_CHANNEL
+      - name: DIM_CUSTOMER
+      - name: DIM_DATE
+      - name: DIM_EMPLOYEE
+      - name: DIM_GEOGRAPHY
+      - name: DIM_PRODUCT
+      - name: DIM_TIME
+      - name: FACT_CUSTOMER_INTERACTIONS
+      - name: FACT_INVENTORY
+      - name: FACT_MARKETING_SPEND
+      - name: FACT_SALES
+      - name: FACT_WEB_TRAFFIC

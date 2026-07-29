@@ -1,0 +1,35 @@
+dbt-bench
+Copyright 2026 Snowflake Inc.
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+------------------------------------------------------------------------------
+Provenance
+------------------------------------------------------------------------------
+
+The benchmark tasks, dbt models, verifiers, and the `retail` dataset
+(retail.duckdb) in this repository are original works authored by Snowflake for
+the dbt-bench benchmark. The dataset is a synthetic retail data warehouse
+(orders, customers, products, SAP-style source tables); it contains no real
+customer data and no third-party proprietary data.
+
+The repository layout, the `leaderboard/` tooling, and the
+`.github/workflows/leaderboard-*.yml` workflows are adapted from the
+Harbor Terminal-Bench 2.1 reference repository
+(https://github.com/harbor-framework/terminal-bench-2-1), also Apache-2.0.
+
+------------------------------------------------------------------------------
+Third-party components
+------------------------------------------------------------------------------
+
+The base Docker image installs the following at build time from their public
+distribution channels (none are vendored/redistributed in this repository):
+
+  - dbt-core, dbt-duckdb, dbt-snowflake  (Apache-2.0)   via PyPI
+  - duckdb                                (MIT)          via PyPI
+  - pytest, pandas, numpy                 (various OSS)  via PyPI
+  - dbt-labs/dbt_utils                    (Apache-2.0)   via dbt Hub (packages.yml)
+  - python:3.12-slim base image                          via Docker Hub
+  - Node.js 22                            (MIT)          via NodeSource
+
+Each retains its own license.

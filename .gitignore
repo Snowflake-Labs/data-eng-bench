@@ -1,0 +1,22 @@
+# Harbor run artifacts
+jobs/
+runs/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.uv/
+
+# dbt build artifacts (agents generate these at run time)
+target/
+dbt_packages/
+logs/
+.user.yml
+
+# OS
+.DS_Store
+
+# Extracted DB copy from the image (not part of the repo)
+/retail.duckdb

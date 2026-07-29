@@ -1,0 +1,42 @@
+# dbt-bench — Snowflake — Codex
+#
+# Requires a Snowflake account with the DBT_BENCH_RETAIL database seeded once
+# (see README.md "Quickstart (Snowflake)" -> migrate_duckdb.py). Verifiers and
+# the agent connect to Snowflake via the env vars below; DB_TYPE=snowflake
+# switches dbt to the dbt-snowflake adapter.
+#
+# Export these before running (or put them in your shell profile):
+#   export SNOWFLAKE_ACCOUNT=...      # e.g. abcd-xy12345
+#   export SNOWFLAKE_USER=...
+#   export SNOWFLAKE_PASSWORD=...     # or use key-pair auth (SNOWFLAKE_PRIVATE_KEY)
+#   export SNOWFLAKE_WAREHOUSE=COMPUTE_WH
+#   export SNOWFLAKE_DATABASE=DBT_BENCH_RETAIL
+#   export SNOWFLAKE_ROLE=SYSADMIN    # a role with USAGE on DBT_BENCH_RETAIL
+#
+# Run:
+#   harbor run --config configs/dbt-bench-snowflake.codex.yaml \
+#     --path tasks -m openai/gpt-5.6 --ak reasoning_effort=high
+
+name: dbt-bench-snowflake
+
+n_attempts: 3          # leaderboard requires >= 3 trials per task
+n_concurrent_trials: 4
+quiet: true
+
+environment:
+  type: docker
+  env:
+    - DB_TYPE=snowflake
+    - SNOWFLAKE_ACCOUNT=${SNOWFLAKE_ACCOUNT}
+    - SNOWFLAKE_USER=${SNOWFLAKE_USER}
+    - SNOWFLAKE_PASSWORD=${SNOWFLAKE_PASSWORD}
+    - SNOWFLAKE_WAREHOUSE=${SNOWFLAKE_WAREHOUSE:-COMPUTE_WH}
+    - SNOWFLAKE_DATABASE=${SNOWFLAKE_DATABASE:-DBT_BENCH_RETAIL}
+    - SNOWFLAKE_SCHEMA=${SNOWFLAKE_SCHEMA:-main}
+    - SNOWFLAKE_ROLE=${SNOWFLAKE_ROLE:-SYSADMIN}
+
+agents:
+  - name: codex
+    model_name: openai/gpt-5.6
+    kwargs:
+      reasoning_effort: high

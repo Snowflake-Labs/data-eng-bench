@@ -1,0 +1,969 @@
+version: 2
+
+models:
+  - name: stg_sfdc__account_dim
+    description: |
+      Staging model for ACCOUNT_DIM from SFDC
+
+      This is a dimension containing account dim data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__account_relations
+    description: |
+      Staging model for ACCOUNT_RELATIONS from SFDC
+
+      This is a table containing account relations data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__account_scores
+    description: |
+      Staging model for ACCOUNT_SCORES from SFDC
+
+      This is a table containing account scores data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__account_tiers
+    description: |
+      Staging model for ACCOUNT_TIERS from SFDC
+
+      This is a table containing account tiers data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: tier_id
+        description: Unique identifier for the tier
+        tests:
+          - not_null
+          - unique
+      - name: tier_code
+        description: Code value for tier
+      - name: tier_name
+        description: Name/description field
+      - name: tier_level
+        description: Tier Level
+      - name: min_points_required
+        description: Min Points Required
+      - name: min_spend_required
+        description: Min Spend Required
+      - name: points_multiplier
+        description: Points Multiplier
+      - name: discount_percentage
+        description: Discount Percentage
+      - name: free_shipping
+        description: Free Shipping
+      - name: benefits_description
+        description: Benefits Description
+      - name: tier_color
+        description: Tier Color
+      - name: tier_icon
+        description: Tier Icon
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__activities
+    description: |
+      Staging model for ACTIVITIES from SFDC
+
+      This is a table containing activities data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__addresses
+    description: |
+      Staging model for ADDRESSES from SFDC
+
+      This is a table containing addresses data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: address_id
+        description: Unique identifier for the address
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: address_type
+        description: Address Type
+      - name: address_label
+        description: Address Label
+      - name: is_default_billing
+        description: Boolean flag
+      - name: is_default_shipping
+        description: Boolean flag
+      - name: recipient_name
+        description: Name/description field
+      - name: company_name
+        description: Name/description field
+      - name: address_line_1
+        description: Address Line 1
+      - name: address_line_2
+        description: Address Line 2
+      - name: address_line_3
+        description: Address Line 3
+      - name: city
+        description: City
+      - name: state_province
+        description: State Province
+      - name: postal_code
+        description: Code value for postal
+      - name: country_code
+        description: Code value for country
+      - name: phone
+        description: Phone
+      - name: delivery_instructions
+        description: Delivery Instructions
+      - name: latitude
+        description: Latitude
+      - name: longitude
+        description: Longitude
+      - name: is_verified
+        description: Boolean flag
+      - name: verified_at
+        description: Timestamp when the record was verified
+        tests:
+          - not_null
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__approvals
+    description: |
+      Staging model for APPROVALS from SFDC
+
+      This is a table containing approvals data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__attachments
+    description: |
+      Staging model for ATTACHMENTS from SFDC
+
+      This is a table containing attachments data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__audit_log
+    description: |
+      Staging model for AUDIT_LOG from SFDC
+
+      This is a table containing audit log data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__campaigns
+    description: |
+      Staging model for CAMPAIGNS from SFDC
+
+      This is a table containing campaigns data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__campaign_members
+    description: |
+      Staging model for CAMPAIGN_MEMBERS from SFDC
+
+      This is a table containing campaign members data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__campaign_responses
+    description: |
+      Staging model for CAMPAIGN_RESPONSES from SFDC
+
+      This is a table containing campaign responses data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__consents
+    description: |
+      Staging model for CONSENTS from SFDC
+
+      This is a table containing consents data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__contacts
+    description: |
+      Staging model for CONTACTS from SFDC
+
+      This is a table containing contacts data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: contact_id
+        description: Unique identifier for the contact
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: contact_type
+        description: Contact Type
+      - name: contact_subtype
+        description: Contact Subtype
+      - name: contact_value
+        description: Contact Value
+      - name: is_primary
+        description: Boolean flag
+      - name: is_verified
+        description: Boolean flag
+      - name: verified_at
+        description: Timestamp when the record was verified
+        tests:
+          - not_null
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__email_campaigns
+    description: |
+      Staging model for EMAIL_CAMPAIGNS from SFDC
+
+      This is a table containing email campaigns data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__email_events
+    description: |
+      Staging model for EMAIL_EVENTS from SFDC
+
+      This is a table containing email events data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__email_sends
+    description: |
+      Staging model for EMAIL_SENDS from SFDC
+
+      This is a table containing email sends data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__export_log
+    description: |
+      Staging model for EXPORT_LOG from SFDC
+
+      This is a table containing export log data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__feedback
+    description: |
+      Staging model for FEEDBACK from SFDC
+
+      This is a table containing feedback data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: review_id
+        description: Unique identifier for the review
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        description: Unique identifier for the product
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: order_id
+        description: Unique identifier for the order
+      - name: rating
+        description: Rating
+      - name: review_title
+        description: Review Title
+      - name: review_text
+        description: Review Text
+      - name: pros
+        description: Pros
+      - name: cons
+        description: Cons
+      - name: is_verified_purchase
+        description: Boolean flag
+      - name: is_recommended
+        description: Boolean flag
+      - name: helpful_count
+        description: Helpful Count
+      - name: not_helpful_count
+        description: Not Helpful Count
+      - name: media_urls
+        description: Media Urls
+      - name: status
+        description: Status
+      - name: moderated_at
+        description: Timestamp when the record was moderated
+        tests:
+          - not_null
+      - name: moderated_by
+        description: Moderated By
+      - name: rejection_reason
+        description: Rejection Reason
+      - name: review_source
+        description: Review Source
+      - name: reviewer_display_name
+        description: Name/description field
+      - name: submitted_at
+        description: Timestamp when the record was submitted
+        tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__lifecycle_stages
+    description: |
+      Staging model for LIFECYCLE_STAGES from SFDC
+
+      This is a table containing lifecycle stages data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__lists
+    description: |
+      Staging model for LISTS from SFDC
+
+      This is a table containing lists data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__login_history
+    description: |
+      Staging model for LOGIN_HISTORY from SFDC
+
+      This is a table containing login history data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__loyalty
+    description: |
+      Staging model for LOYALTY from SFDC
+
+      This is a table containing loyalty data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__mkt_fact
+    description: |
+      Staging model for MKT_FACT from SFDC
+
+      This is a fact containing mkt fact data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__order_notes
+    description: |
+      Staging model for ORDER_NOTES from SFDC
+
+      This is a table containing order notes data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: note_id
+        description: Unique identifier for the note
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: Unique identifier for the order
+      - name: note_type
+        description: Note Type
+      - name: note_text
+        description: Note Text
+      - name: is_internal
+        description: Boolean flag
+      - name: created_by
+        description: Created By
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__preferences
+    description: |
+      Staging model for PREFERENCES from SFDC
+
+      This is a table containing preferences data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: preference_id
+        description: Unique identifier for the preference
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: preference_category
+        description: Preference Category
+      - name: preference_key
+        description: Preference Key
+      - name: preference_value
+        description: Preference Value
+      - name: is_opted_in
+        description: Boolean flag
+      - name: effective_from
+        description: Effective From
+      - name: effective_to
+        description: Effective To
+      - name: source
+        description: Source
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__quotes
+    description: |
+      Staging model for QUOTES from SFDC
+
+      This is a table containing quotes data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__quote_lines
+    description: |
+      Staging model for QUOTE_LINES from SFDC
+
+      This is a table containing quote lines data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__segments
+    description: |
+      Staging model for SEGMENTS from SFDC
+
+      This is a table containing segments data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: segment_id
+        description: Unique identifier for the segment
+        tests:
+          - not_null
+          - unique
+      - name: segment_code
+        description: Code value for segment
+      - name: segment_name
+        description: Name/description field
+      - name: segment_type
+        description: Segment Type
+      - name: segment_description
+        description: Segment Description
+      - name: segment_criteria
+        description: Segment Criteria
+      - name: is_dynamic
+        description: Boolean flag
+      - name: refresh_frequency
+        description: Refresh Frequency
+      - name: last_refreshed_at
+        description: Timestamp when the record was last_refreshed
+        tests:
+          - not_null
+      - name: member_count
+        description: Member Count
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sfdc__subscriptions
+    description: |
+      Staging model for SUBSCRIPTIONS from SFDC
+
+      This is a table containing subscriptions data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+

@@ -1,0 +1,3559 @@
+version: 2
+
+models:
+  - name: stg_sap__a305
+    description: |
+      Staging model for A305 from SAP
+
+      This is a table containing a305 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: price_id
+        description: Unique identifier for the price
+        tests:
+          - not_null
+          - unique
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: price_type
+        description: Price Type
+      - name: currency_code
+        description: Code value for currency
+      - name: price_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "price_amount is not null"
+      - name: compare_at_price
+        description: Compare At Price
+      - name: cost_price
+        description: Cost Price
+      - name: min_qty
+        description: Quantity value
+      - name: max_qty
+        description: Quantity value
+      - name: customer_tier_id
+        description: Unique identifier for the customer_tier
+      - name: channel_id
+        description: Unique identifier for the channel
+      - name: effective_from
+        description: Effective From
+      - name: effective_to
+        description: Effective To
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: created_by
+        description: Created By
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__approval_log
+    description: |
+      Staging model for APPROVAL_LOG from SAP
+
+      This is a table containing approval log data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__bkpf
+    description: |
+      Staging model for BKPF from SAP
+
+      This is a table containing bkpf data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: transaction_id
+        description: Unique identifier for the transaction
+        tests:
+          - not_null
+          - unique
+      - name: transaction_number
+        description: Number/reference identifier
+      - name: account_id
+        description: Unique identifier for the account
+      - name: period_id
+        description: Unique identifier for the period
+      - name: transaction_date
+        description: Date of transaction
+        tests:
+          - not_null
+      - name: debit_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "debit_amount is not null"
+      - name: credit_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "credit_amount is not null"
+      - name: description
+        description: Description
+      - name: reference_type
+        description: Reference Type
+      - name: reference_id
+        description: Unique identifier for the reference
+      - name: created_by
+        description: Created By
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__bkpf_je
+    description: |
+      Staging model for BKPF_JE from SAP
+
+      This is a table containing bkpf je data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__brand_master
+    description: |
+      Staging model for BRAND_MASTER from SAP
+
+      This is a dimension containing brand master data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: brand_id
+        description: Unique identifier for the brand
+        tests:
+          - not_null
+          - unique
+      - name: brand_code
+        description: Code value for brand
+      - name: brand_name
+        description: Name/description field
+      - name: brand_description
+        description: Brand Description
+      - name: brand_logo_url
+        description: Brand Logo Url
+      - name: brand_website
+        description: Brand Website
+      - name: parent_brand_id
+        description: Unique identifier for the parent_brand
+      - name: is_private_label
+        description: Boolean flag
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__bseg
+    description: |
+      Staging model for BSEG from SAP
+
+      This is a table containing bseg data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: transaction_id
+        description: Unique identifier for the transaction
+        tests:
+          - not_null
+          - unique
+      - name: transaction_number
+        description: Number/reference identifier
+      - name: account_id
+        description: Unique identifier for the account
+      - name: period_id
+        description: Unique identifier for the period
+      - name: transaction_date
+        description: Date of transaction
+        tests:
+          - not_null
+      - name: debit_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "debit_amount is not null"
+      - name: credit_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "credit_amount is not null"
+      - name: description
+        description: Description
+      - name: reference_type
+        description: Reference Type
+      - name: reference_id
+        description: Unique identifier for the reference
+      - name: created_by
+        description: Created By
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__bset
+    description: |
+      Staging model for BSET from SAP
+
+      This is a table containing bset data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: tax_transaction_id
+        description: Unique identifier for the tax_transaction
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: Unique identifier for the order
+      - name: invoice_id
+        description: Unique identifier for the invoice
+      - name: tax_rate_id
+        description: Unique identifier for the tax_rate
+      - name: taxable_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "taxable_amount is not null"
+      - name: tax_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "tax_amount is not null"
+      - name: tax_date
+        description: Date of tax
+        tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__bsid
+    description: |
+      Staging model for BSID from SAP
+
+      This is a table containing bsid data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__bsid_cr
+    description: |
+      Staging model for BSID_CR from SAP
+
+      This is a table containing bsid cr data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__bsik
+    description: |
+      Staging model for BSIK from SAP
+
+      This is a table containing bsik data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__bundles
+    description: |
+      Staging model for BUNDLES from SAP
+
+      This is a table containing bundles data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__catsdb
+    description: |
+      Staging model for CATSDB from SAP
+
+      This is a table containing catsdb data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: entry_id
+        description: Unique identifier for the entry
+        tests:
+          - not_null
+          - unique
+      - name: employee_id
+        description: Unique identifier for the employee
+      - name: entry_date
+        description: Date of entry
+        tests:
+          - not_null
+      - name: clock_in
+        description: Clock In
+      - name: clock_out
+        description: Clock Out
+      - name: break_minutes
+        description: Break Minutes
+      - name: hours_worked
+        description: Hours Worked
+      - name: entry_type
+        description: Entry Type
+      - name: status
+        description: Status
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__cdhdr
+    description: |
+      Staging model for CDHDR from SAP
+
+      This is a table containing cdhdr data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__cdpos
+    description: |
+      Staging model for CDPOS from SAP
+
+      This is a table containing cdpos data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__cepc
+    description: |
+      Staging model for CEPC from SAP
+
+      This is a table containing cepc data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: profit_center_id
+        description: Unique identifier for the profit_center
+        tests:
+          - not_null
+          - unique
+      - name: profit_center_code
+        description: Code value for profit_center
+      - name: profit_center_name
+        description: Name/description field
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__certs
+    description: |
+      Staging model for CERTS from SAP
+
+      This is a table containing certs data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__charg
+    description: |
+      Staging model for CHARG from SAP
+
+      This is a table containing charg data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__compliance
+    description: |
+      Staging model for COMPLIANCE from SAP
+
+      This is a table containing compliance data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__compliance_log
+    description: |
+      Staging model for COMPLIANCE_LOG from SAP
+
+      This is a table containing compliance log data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__csks
+    description: |
+      Staging model for CSKS from SAP
+
+      This is a table containing csks data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: cost_center_id
+        description: Unique identifier for the cost_center
+        tests:
+          - not_null
+          - unique
+      - name: cost_center_code
+        description: Code value for cost_center
+      - name: cost_center_name
+        description: Name/description field
+      - name: manager_id
+        description: Unique identifier for the manager
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__eban
+    description: |
+      Staging model for EBAN from SAP
+
+      This is a table containing eban data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__eina
+    description: |
+      Staging model for EINA from SAP
+
+      This is a table containing eina data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__ekko
+    description: |
+      Staging model for EKKO from SAP
+
+      This is a table containing ekko data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: po_id
+        description: Unique identifier for the po
+        tests:
+          - not_null
+          - unique
+      - name: po_number
+        description: Number/reference identifier
+      - name: supplier_id
+        description: Unique identifier for the supplier
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: status
+        description: Status
+      - name: total_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "total_amount is not null"
+      - name: currency_code
+        description: Code value for currency
+      - name: expected_date
+        description: Date of expected
+        tests:
+          - not_null
+      - name: ordered_at
+        description: Timestamp when the record was ordered
+        tests:
+          - not_null
+      - name: created_by
+        description: Created By
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__ekko_bo
+    description: |
+      Staging model for EKKO_BO from SAP
+
+      This is a table containing ekko bo data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__ekko_ct
+    description: |
+      Staging model for EKKO_CT from SAP
+
+      This is a table containing ekko ct data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__ekko_resp
+    description: |
+      Staging model for EKKO_RESP from SAP
+
+      This is a table containing ekko resp data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__ekko_rfq
+    description: |
+      Staging model for EKKO_RFQ from SAP
+
+      This is a table containing ekko rfq data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__ekpo
+    description: |
+      Staging model for EKPO from SAP
+
+      This is a table containing ekpo data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: po_line_id
+        description: Unique identifier for the po_line
+        tests:
+          - not_null
+          - unique
+      - name: po_id
+        description: Unique identifier for the po
+      - name: line_number
+        description: Number/reference identifier
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: sku
+        description: Sku
+      - name: quantity_ordered
+        description: Quantity Ordered
+      - name: quantity_received
+        description: Quantity Received
+      - name: unit_price
+        description: Unit Price
+      - name: line_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "line_total is not null"
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__eord
+    description: |
+      Staging model for EORD from SAP
+
+      This is a table containing eord data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__fmbl
+    description: |
+      Staging model for FMBL from SAP
+
+      This is a table containing fmbl data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__fmit
+    description: |
+      Staging model for FMIT from SAP
+
+      This is a table containing fmit data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__gl_fact
+    description: |
+      Staging model for GL_FACT from SAP
+
+      This is a fact containing gl fact data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__hrp1000
+    description: |
+      Staging model for HRP1000 from SAP
+
+      This is a table containing hrp1000 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: assignment_id
+        description: Unique identifier for the assignment
+        tests:
+          - not_null
+          - unique
+      - name: employee_id
+        description: Unique identifier for the employee
+      - name: position_id
+        description: Unique identifier for the position
+      - name: start_date
+        description: Date of start
+        tests:
+          - not_null
+      - name: end_date
+        description: Date of end
+        tests:
+          - not_null
+      - name: is_primary
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__hrp1000_dep
+    description: |
+      Staging model for HRP1000_DEP from SAP
+
+      This is a table containing hrp1000 dep data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: department_id
+        description: Unique identifier for the department
+        tests:
+          - not_null
+          - unique
+      - name: department_code
+        description: Code value for department
+      - name: department_name
+        description: Name/description field
+      - name: parent_department_id
+        description: Unique identifier for the parent_department
+      - name: manager_id
+        description: Unique identifier for the manager
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__hrp1000_org
+    description: |
+      Staging model for HRP1000_ORG from SAP
+
+      This is a table containing hrp1000 org data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__hr_fact
+    description: |
+      Staging model for HR_FACT from SAP
+
+      This is a fact containing hr fact data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__kna1_addr
+    description: |
+      Staging model for KNA1_ADDR from SAP
+
+      This is a table containing kna1 addr data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: address_id
+        description: Unique identifier for the address
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: address_type
+        description: Address Type
+      - name: address_label
+        description: Address Label
+      - name: is_default_billing
+        description: Boolean flag
+      - name: is_default_shipping
+        description: Boolean flag
+      - name: recipient_name
+        description: Name/description field
+      - name: company_name
+        description: Name/description field
+      - name: address_line_1
+        description: Address Line 1
+      - name: address_line_2
+        description: Address Line 2
+      - name: address_line_3
+        description: Address Line 3
+      - name: city
+        description: City
+      - name: state_province
+        description: State Province
+      - name: postal_code
+        description: Code value for postal
+      - name: country_code
+        description: Code value for country
+      - name: phone
+        description: Phone
+      - name: delivery_instructions
+        description: Delivery Instructions
+      - name: latitude
+        description: Latitude
+      - name: longitude
+        description: Longitude
+      - name: is_verified
+        description: Boolean flag
+      - name: verified_at
+        description: Timestamp when the record was verified
+        tests:
+          - not_null
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__konv
+    description: |
+      Staging model for KONV from SAP
+
+      This is a table containing konv data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__lfa1
+    description: |
+      Staging model for LFA1 from SAP
+
+      This is a table containing lfa1 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__lifecycle
+    description: |
+      Staging model for LIFECYCLE from SAP
+
+      This is a table containing lifecycle data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__likp
+    description: |
+      Staging model for LIKP from SAP
+
+      This is a table containing likp data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__lips
+    description: |
+      Staging model for LIPS from SAP
+
+      This is a table containing lips data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__makt
+    description: |
+      Staging model for MAKT from SAP
+
+      This is a table containing makt data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__mara_attr
+    description: |
+      Staging model for MARA_ATTR from SAP
+
+      This is a table containing mara attr data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: attribute_id
+        description: Unique identifier for the attribute
+        tests:
+          - not_null
+          - unique
+      - name: attribute_code
+        description: Code value for attribute
+      - name: attribute_name
+        description: Name/description field
+      - name: attribute_description
+        description: Attribute Description
+      - name: attribute_type
+        description: Attribute Type
+      - name: data_type
+        description: Data Type
+      - name: is_variant_attribute
+        description: Boolean flag
+      - name: is_filterable
+        description: Boolean flag
+      - name: is_searchable
+        description: Boolean flag
+      - name: is_comparable
+        description: Boolean flag
+      - name: is_required
+        description: Boolean flag
+      - name: default_value
+        description: Default Value
+      - name: validation_regex
+        description: Validation Regex
+      - name: min_value
+        description: Min Value
+      - name: max_value
+        description: Max Value
+      - name: display_order
+        description: Display Order
+      - name: attribute_group
+        description: Attribute Group
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__mara_dim
+    description: |
+      Staging model for MARA_DIM from SAP
+
+      This is a dimension containing mara dim data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__mara_var
+    description: |
+      Staging model for MARA_VAR from SAP
+
+      This is a table containing mara var data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: variant_id
+        description: Unique identifier for the variant
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        description: Unique identifier for the product
+      - name: sku
+        description: Sku
+      - name: variant_name
+        description: Name/description field
+      - name: variant_description
+        description: Variant Description
+      - name: barcode
+        description: Barcode
+      - name: barcode_type
+        description: Barcode Type
+      - name: gtin
+        description: Gtin
+      - name: mpn
+        description: Mpn
+      - name: weight
+        description: Weight
+      - name: weight_uom
+        description: Weight Uom
+      - name: length
+        description: Length
+      - name: width
+        description: Width
+      - name: height
+        description: Height
+      - name: dimension_uom
+        description: Dimension Uom
+      - name: cost_price
+        description: Cost Price
+      - name: compare_at_price
+        description: Compare At Price
+      - name: requires_shipping
+        description: Requires Shipping
+      - name: is_taxable
+        description: Boolean flag
+      - name: inventory_policy
+        description: Inventory Policy
+      - name: fulfillment_service
+        description: Fulfillment Service
+      - name: image_url
+        description: Image Url
+      - name: sort_order
+        description: Sort Order
+      - name: is_default
+        description: Boolean flag
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__marc
+    description: |
+      Staging model for MARC from SAP
+
+      This is a table containing marc data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__marc_ss
+    description: |
+      Staging model for MARC_SS from SAP
+
+      This is a table containing marc ss data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__mard
+    description: |
+      Staging model for MARD from SAP
+
+      This is a table containing mard data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: inventory_id
+        description: Unique identifier for the inventory
+        tests:
+          - not_null
+          - unique
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: location_type
+        description: Location Type
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: store_id
+        description: Unique identifier for the store
+      - name: location_id
+        description: Unique identifier for the location
+      - name: quantity_on_hand
+        description: Quantity On Hand
+      - name: quantity_available
+        description: Quantity Available
+      - name: quantity_reserved
+        description: Quantity Reserved
+      - name: quantity_incoming
+        description: Quantity Incoming
+      - name: quantity_on_hold
+        description: Quantity On Hold
+      - name: unit_cost
+        description: Unit Cost
+      - name: inventory_status
+        description: Status indicator
+      - name: last_counted_at
+        description: Timestamp when the record was last_counted
+        tests:
+          - not_null
+      - name: last_received_at
+        description: Timestamp when the record was last_received
+        tests:
+          - not_null
+      - name: last_picked_at
+        description: Timestamp when the record was last_picked
+        tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__matkl
+    description: |
+      Staging model for MATKL from SAP
+
+      This is a table containing matkl data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: category_id
+        description: Unique identifier for the category
+        tests:
+          - not_null
+          - unique
+      - name: category_code
+        description: Code value for category
+      - name: category_name
+        description: Name/description field
+      - name: category_description
+        description: Category Description
+      - name: parent_category_id
+        description: Unique identifier for the parent_category
+      - name: category_level
+        description: Category Level
+      - name: category_path
+        description: Category Path
+      - name: category_path_ids
+        description: Category Path Ids
+      - name: sort_order
+        description: Sort Order
+      - name: image_url
+        description: Image Url
+      - name: icon_name
+        description: Name/description field
+      - name: meta_title
+        description: Meta Title
+      - name: meta_description
+        description: Meta Description
+      - name: meta_keywords
+        description: Meta Keywords
+      - name: is_featured
+        description: Boolean flag
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__mbew
+    description: |
+      Staging model for MBEW from SAP
+
+      This is a table containing mbew data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__migo
+    description: |
+      Staging model for MIGO from SAP
+
+      This is a table containing migo data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: transfer_id
+        description: Unique identifier for the transfer
+        tests:
+          - not_null
+          - unique
+      - name: transfer_number
+        description: Number/reference identifier
+      - name: transfer_type
+        description: Transfer Type
+      - name: source_type
+        description: Source Type
+      - name: source_warehouse_id
+        description: Unique identifier for the source_warehouse
+      - name: source_store_id
+        description: Unique identifier for the source_store
+      - name: dest_type
+        description: Dest Type
+      - name: dest_warehouse_id
+        description: Unique identifier for the dest_warehouse
+      - name: dest_store_id
+        description: Unique identifier for the dest_store
+      - name: status
+        description: Status
+      - name: priority
+        description: Priority
+      - name: total_lines
+        description: Total Lines
+      - name: total_quantity
+        description: Quantity value
+      - name: total_value
+        description: Total Value
+      - name: created_by
+        description: Created By
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__mkpf
+    description: |
+      Staging model for MKPF from SAP
+
+      This is a table containing mkpf data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__mkpf_gr
+    description: |
+      Staging model for MKPF_GR from SAP
+
+      This is a table containing mkpf gr data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__mseg
+    description: |
+      Staging model for MSEG from SAP
+
+      This is a table containing mseg data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__pa0001
+    description: |
+      Staging model for PA0001 from SAP
+
+      This is a table containing pa0001 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: employee_id
+        description: Unique identifier for the employee
+        tests:
+          - not_null
+          - unique
+      - name: employee_number
+        description: Number/reference identifier
+      - name: first_name
+        description: Name/description field
+      - name: last_name
+        description: Name/description field
+      - name: email
+        description: Email
+      - name: phone
+        description: Phone
+      - name: hire_date
+        description: Date of hire
+        tests:
+          - not_null
+      - name: termination_date
+        description: Date of termination
+        tests:
+          - not_null
+      - name: manager_id
+        description: Unique identifier for the manager
+      - name: department_id
+        description: Unique identifier for the department
+      - name: position_id
+        description: Unique identifier for the position
+      - name: employment_type
+        description: Employment Type
+      - name: status
+        description: Status
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__pa0002
+    description: |
+      Staging model for PA0002 from SAP
+
+      This is a table containing pa0002 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: employee_id
+        description: Unique identifier for the employee
+        tests:
+          - not_null
+          - unique
+      - name: employee_number
+        description: Number/reference identifier
+      - name: first_name
+        description: Name/description field
+      - name: last_name
+        description: Name/description field
+      - name: email
+        description: Email
+      - name: phone
+        description: Phone
+      - name: hire_date
+        description: Date of hire
+        tests:
+          - not_null
+      - name: termination_date
+        description: Date of termination
+        tests:
+          - not_null
+      - name: manager_id
+        description: Unique identifier for the manager
+      - name: department_id
+        description: Unique identifier for the department
+      - name: position_id
+        description: Unique identifier for the position
+      - name: employment_type
+        description: Employment Type
+      - name: status
+        description: Status
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__pa_dim
+    description: |
+      Staging model for PA_DIM from SAP
+
+      This is a dimension containing pa dim data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__pbim
+    description: |
+      Staging model for PBIM from SAP
+
+      This is a table containing pbim data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: forecast_id
+        description: Unique identifier for the forecast
+        tests:
+          - not_null
+          - unique
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: forecast_date
+        description: Date of forecast
+        tests:
+          - not_null
+      - name: forecast_period
+        description: Forecast Period
+      - name: forecasted_demand
+        description: Forecasted Demand
+      - name: lower_bound
+        description: Lower Bound
+      - name: upper_bound
+        description: Upper Bound
+      - name: confidence_level
+        description: Confidence Level
+      - name: forecast_model
+        description: Forecast Model
+      - name: generated_at
+        description: Timestamp when the record was generated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__pc2
+    description: |
+      Staging model for PC2 from SAP
+
+      This is a table containing pc2 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: payroll_run_id
+        description: Unique identifier for the payroll_run
+        tests:
+          - not_null
+          - unique
+      - name: payroll_period
+        description: Payroll Period
+      - name: period_start
+        description: Period Start
+      - name: period_end
+        description: Period End
+      - name: pay_date
+        description: Date of pay
+        tests:
+          - not_null
+      - name: status
+        description: Status
+      - name: total_gross
+        description: Total Gross
+      - name: total_net
+        description: Total Net
+      - name: employee_count
+        description: Employee Count
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__promo
+    description: |
+      Staging model for PROMO from SAP
+
+      This is a table containing promo data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: promotion_id
+        description: Unique identifier for the promotion
+        tests:
+          - not_null
+          - unique
+      - name: promotion_code
+        description: Code value for promotion
+      - name: promotion_name
+        description: Name/description field
+      - name: promotion_type
+        description: Promotion Type
+      - name: discount_type
+        description: Discount Type
+      - name: discount_value
+        description: Discount Value
+      - name: min_purchase
+        description: Min Purchase
+      - name: max_discount
+        description: Max Discount
+      - name: start_date
+        description: Date of start
+        tests:
+          - not_null
+      - name: end_date
+        description: Date of end
+        tests:
+          - not_null
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__promo_items
+    description: |
+      Staging model for PROMO_ITEMS from SAP
+
+      This is a table containing promo items data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: mapping_id
+        description: Unique identifier for the mapping
+        tests:
+          - not_null
+          - unique
+      - name: promotion_id
+        description: Unique identifier for the promotion
+      - name: product_id
+        description: Unique identifier for the product
+      - name: category_id
+        description: Unique identifier for the category
+      - name: brand_id
+        description: Unique identifier for the brand
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__ptreq
+    description: |
+      Staging model for PTREQ from SAP
+
+      This is a table containing ptreq data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__rbkp
+    description: |
+      Staging model for RBKP from SAP
+
+      This is a table containing rbkp data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__rgdir
+    description: |
+      Staging model for RGDIR from SAP
+
+      This is a table containing rgdir data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__sec_log
+    description: |
+      Staging model for SEC_LOG from SAP
+
+      This is a table containing sec log data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__sernp
+    description: |
+      Staging model for SERNP from SAP
+
+      This is a table containing sernp data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__ska1
+    description: |
+      Staging model for SKA1 from SAP
+
+      This is a table containing ska1 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__substitutes
+    description: |
+      Staging model for SUBSTITUTES from SAP
+
+      This is a table containing substitutes data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__syslog
+    description: |
+      Staging model for SYSLOG from SAP
+
+      This is a table containing syslog data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t001l
+    description: |
+      Staging model for T001L from SAP
+
+      This is a table containing t001l data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: location_id
+        description: Unique identifier for the location
+        tests:
+          - not_null
+          - unique
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: zone_id
+        description: Unique identifier for the zone
+      - name: location_code
+        description: Code value for location
+      - name: location_barcode
+        description: Location Barcode
+      - name: aisle
+        description: Aisle
+      - name: rack
+        description: Rack
+      - name: shelf
+        description: Shelf
+      - name: location_type
+        description: Location Type
+      - name: is_pickable
+        description: Boolean flag
+      - name: is_receivable
+        description: Boolean flag
+      - name: max_weight
+        description: Max Weight
+      - name: pick_sequence
+        description: Pick Sequence
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t001w
+    description: |
+      Staging model for T001W from SAP
+
+      This is a table containing t001w data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+        tests:
+          - not_null
+          - unique
+      - name: warehouse_code
+        description: Code value for warehouse
+      - name: warehouse_name
+        description: Name/description field
+      - name: warehouse_type
+        description: Warehouse Type
+      - name: address_line_1
+        description: Address Line 1
+      - name: city
+        description: City
+      - name: state_province
+        description: State Province
+      - name: postal_code
+        description: Code value for postal
+      - name: country_code
+        description: Code value for country
+      - name: latitude
+        description: Latitude
+      - name: longitude
+        description: Longitude
+      - name: timezone
+        description: Timezone
+      - name: phone
+        description: Phone
+      - name: email
+        description: Email
+      - name: manager_name
+        description: Name/description field
+      - name: square_footage
+        description: Square Footage
+      - name: max_capacity_units
+        description: Max Capacity Units
+      - name: opened_date
+        description: Date of opened
+        tests:
+          - not_null
+      - name: priority
+        description: Priority
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t001w_dim
+    description: |
+      Staging model for T001W_DIM from SAP
+
+      This is a dimension containing t001w dim data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t002
+    description: |
+      Staging model for T002 from SAP
+
+      This is a table containing t002 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: language_code
+        description: Code value for language
+        tests:
+          - not_null
+          - unique
+      - name: language_name
+        description: Name/description field
+      - name: native_name
+        description: Name/description field
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t003
+    description: |
+      Staging model for T003 from SAP
+
+      This is a table containing t003 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t005
+    description: |
+      Staging model for T005 from SAP
+
+      This is a table containing t005 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: country_id
+        description: Unique identifier for the country
+        tests:
+          - not_null
+          - unique
+      - name: country_code_2
+        description: Country Code 2
+      - name: country_name
+        description: Name/description field
+      - name: continent
+        description: Continent
+      - name: currency_code
+        description: Code value for currency
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t005s
+    description: |
+      Staging model for T005S from SAP
+
+      This is a table containing t005s data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t006
+    description: |
+      Staging model for T006 from SAP
+
+      This is a table containing t006 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: uom_code
+        description: Code value for uom
+        tests:
+          - not_null
+          - unique
+      - name: uom_name
+        description: Name/description field
+      - name: uom_type
+        description: Uom Type
+      - name: base_uom_code
+        description: Code value for base_uom
+      - name: conversion_factor
+        description: Conversion Factor
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t007a
+    description: |
+      Staging model for T007A from SAP
+
+      This is a table containing t007a data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t009b
+    description: |
+      Staging model for T009B from SAP
+
+      This is a table containing t009b data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t009b_dim
+    description: |
+      Staging model for T009B_DIM from SAP
+
+      This is a dimension containing t009b dim data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t024
+    description: |
+      Staging model for T024 from SAP
+
+      This is a table containing t024 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t052
+    description: |
+      Staging model for T052 from SAP
+
+      This is a table containing t052 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t179
+    description: |
+      Staging model for T179 from SAP
+
+      This is a table containing t179 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t510
+    description: |
+      Staging model for T510 from SAP
+
+      This is a table containing t510 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__t513
+    description: |
+      Staging model for T513 from SAP
+
+      This is a table containing t513 data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__taxes
+    description: |
+      Staging model for TAXES from SAP
+
+      This is a table containing taxes data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__tcurc
+    description: |
+      Staging model for TCURC from SAP
+
+      This is a table containing tcurc data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: currency_code
+        description: Code value for currency
+        tests:
+          - not_null
+          - unique
+      - name: currency_name
+        description: Name/description field
+      - name: currency_symbol
+        description: Currency Symbol
+      - name: decimal_places
+        description: Decimal Places
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__tcurr
+    description: |
+      Staging model for TCURR from SAP
+
+      This is a table containing tcurr data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__trip
+    description: |
+      Staging model for TRIP from SAP
+
+      This is a table containing trip data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__trip_lines
+    description: |
+      Staging model for TRIP_LINES from SAP
+
+      This is a table containing trip lines data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__tshm
+    description: |
+      Staging model for TSHM from SAP
+
+      This is a table containing tshm data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: shipping_method_id
+        description: Unique identifier for the shipping_method
+        tests:
+          - not_null
+          - unique
+      - name: shipping_method_code
+        description: Code value for shipping_method
+      - name: shipping_method_name
+        description: Name/description field
+      - name: carrier_id
+        description: Unique identifier for the carrier
+      - name: estimated_days_min
+        description: Estimated Days Min
+      - name: estimated_days_max
+        description: Estimated Days Max
+      - name: is_express
+        description: Boolean flag
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__ttzz
+    description: |
+      Staging model for TTZZ from SAP
+
+      This is a table containing ttzz data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__vbak
+    description: |
+      Staging model for VBAK from SAP
+
+      This is a table containing vbak data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: order_id
+        description: Unique identifier for the order
+        tests:
+          - not_null
+          - unique
+      - name: order_number
+        description: Number/reference identifier
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: order_type
+        description: Order Type
+      - name: order_source
+        description: Order Source
+      - name: channel_id
+        description: Unique identifier for the channel
+      - name: currency_code
+        description: Code value for currency
+      - name: exchange_rate
+        description: Exchange Rate
+      - name: billing_address_id
+        description: Unique identifier for the billing_address
+      - name: shipping_address_id
+        description: Unique identifier for the shipping_address
+      - name: subtotal
+        description: Subtotal
+      - name: discount_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "discount_total is not null"
+      - name: shipping_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "shipping_total is not null"
+      - name: tax_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "tax_total is not null"
+      - name: grand_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "grand_total is not null"
+      - name: status
+        description: Status
+      - name: payment_status
+        description: Status indicator
+      - name: fulfillment_status
+        description: Status indicator
+      - name: ordered_at
+        description: Timestamp when the record was ordered
+        tests:
+          - not_null
+      - name: shipped_at
+        description: Timestamp when the record was shipped
+        tests:
+          - not_null
+      - name: delivered_at
+        description: Timestamp when the record was delivered
+        tests:
+          - not_null
+      - name: cancelled_at
+        description: Timestamp when the record was cancelled
+        tests:
+          - not_null
+      - name: ip_address
+        description: Ip Address
+      - name: user_agent
+        description: User Agent
+      - name: notes
+        description: Notes
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__vbak_qt
+    description: |
+      Staging model for VBAK_QT from SAP
+
+      This is a table containing vbak qt data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__vbap
+    description: |
+      Staging model for VBAP from SAP
+
+      This is a table containing vbap data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: order_line_id
+        description: Unique identifier for the order_line
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: Unique identifier for the order
+      - name: line_number
+        description: Number/reference identifier
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: product_id
+        description: Unique identifier for the product
+      - name: sku
+        description: Sku
+      - name: product_name
+        description: Name/description field
+      - name: variant_name
+        description: Name/description field
+      - name: quantity_ordered
+        description: Quantity Ordered
+      - name: quantity_shipped
+        description: Quantity Shipped
+      - name: quantity_returned
+        description: Quantity Returned
+      - name: unit_price
+        description: Unit Price
+      - name: discount_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "discount_amount is not null"
+      - name: tax_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "tax_amount is not null"
+      - name: line_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "line_total is not null"
+      - name: status
+        description: Status
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__vbap_qt
+    description: |
+      Staging model for VBAP_QT from SAP
+
+      This is a table containing vbap qt data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__vbrk
+    description: |
+      Staging model for VBRK from SAP
+
+      This is a table containing vbrk data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__vbrk_ret
+    description: |
+      Staging model for VBRK_RET from SAP
+
+      This is a table containing vbrk ret data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__vbrp_fact
+    description: |
+      Staging model for VBRP_FACT from SAP
+
+      This is a fact containing vbrp fact data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__vbuk
+    description: |
+      Staging model for VBUK from SAP
+
+      This is a table containing vbuk data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__vendor_eval
+    description: |
+      Staging model for VENDOR_EVAL from SAP
+
+      This is a master containing vendor eval data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_sap__warranties
+    description: |
+      Staging model for WARRANTIES from SAP
+
+      This is a table containing warranties data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+

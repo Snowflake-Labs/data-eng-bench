@@ -1,0 +1,141 @@
+version: 2
+
+models:
+  - name: stg_payments__charges
+    description: |
+      Staging model for CHARGES from PAYMENTS
+
+      This is a table containing charges data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_payments__currencies
+    description: |
+      Staging model for CURRENCIES from PAYMENTS
+
+      This is a table containing currencies data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: currency_code
+        description: Code value for currency
+        tests:
+          - not_null
+          - unique
+      - name: currency_name
+        description: Name/description field
+      - name: currency_symbol
+        description: Currency Symbol
+      - name: decimal_places
+        description: Decimal Places
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_payments__payouts
+    description: |
+      Staging model for PAYOUTS from PAYMENTS
+
+      This is a table containing payouts data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_payments__refunds
+    description: |
+      Staging model for REFUNDS from PAYMENTS
+
+      This is a table containing refunds data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_payments__subscriptions
+    description: |
+      Staging model for SUBSCRIPTIONS from PAYMENTS
+
+      This is a table containing subscriptions data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+

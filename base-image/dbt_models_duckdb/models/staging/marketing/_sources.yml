@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: marketing
+    description: Marketing campaigns and promotions
+    schema: MARKETING
+
+    tables:
+      - name: CAMPAIGN_AUDIENCES
+      - name: CAMPAIGN_CHANNELS
+      - name: CAMPAIGN_PERFORMANCE
+      - name: COUPONS
+      - name: COUPON_REDEMPTIONS
+      - name: GIFT_CARDS
+      - name: GIFT_CARD_TRANSACTIONS
+      - name: LOYALTY_POINTS_TRANSACTIONS
+      - name: LOYALTY_PROGRAMS
+      - name: MARKETING_CAMPAIGNS
+      - name: PROMOTIONS
+      - name: PROMOTION_PRODUCTS
+      - name: PROMOTION_REDEMPTIONS
+      - name: PROMOTION_RULES

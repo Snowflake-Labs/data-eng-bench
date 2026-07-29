@@ -1,0 +1,1195 @@
+version: 2
+sources:
+- name: sap
+  description: 'SAP ERP system - core transactional data including orders, materials,
+    finance, and master data
+
+
+    This source contains raw data extracted from the SAP system.
+
+    Data is loaded via ELT processes and stored in the RAW_SAP schema.
+
+    '
+  schema: RAW_SAP
+  freshness:
+    warn_after:
+      count: 24
+      period: hour
+    error_after:
+      count: 48
+      period: hour
+  meta:
+    owner: data-engineering@company.com
+    source_system: sap
+  tables:
+  - name: A305
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: APPROVAL_LOG
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BKPF
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BKPF_JE
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BRAND_MASTER
+    description: 'Dimension table containing descriptive attributes from SAP
+
+      Entity type: dimension
+
+      '
+    meta:
+      entity_type: dimension
+    loaded_at_field: _LOADED_AT
+  - name: BSEG
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BSET
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BSID
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BSID_CR
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BSIK
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BUNDLES
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: CATSDB
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: CDHDR
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: CDPOS
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: CEPC
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: CERTS
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: CHARG
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: COMPLIANCE
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: COMPLIANCE_LOG
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: CSKS
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: EBAN
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: EINA
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: EKKO
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: EKKO_BO
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: EKKO_CT
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: EKKO_RESP
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: EKKO_RFQ
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: EKPO
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: EORD
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: FMBL
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: FMIT
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: GL_FACT
+    description: 'Fact table containing transactional or measurement data from SAP
+
+      Entity type: fact
+
+      '
+    meta:
+      entity_type: fact
+    loaded_at_field: _LOADED_AT
+  - name: HRP1000
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: HRP1000_DEP
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: HRP1000_ORG
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: HR_FACT
+    description: 'Fact table containing transactional or measurement data from SAP
+
+      Entity type: fact
+
+      '
+    meta:
+      entity_type: fact
+    loaded_at_field: _LOADED_AT
+  - name: KNA1_ADDR
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: KONV
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: LFA1
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: LIFECYCLE
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: LIKP
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: LIPS
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MAKT
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MARA_ATTR
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MARA_DIM
+    description: 'Dimension table containing descriptive attributes from SAP
+
+      Entity type: dimension
+
+      '
+    meta:
+      entity_type: dimension
+    loaded_at_field: _LOADED_AT
+  - name: MARA_VAR
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MARC
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MARC_SS
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MARD
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MATKL
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MBEW
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MIGO
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MKPF
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MKPF_GR
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: MSEG
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: PA0001
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: PA0002
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: PA_DIM
+    description: 'Dimension table containing descriptive attributes from SAP
+
+      Entity type: dimension
+
+      '
+    meta:
+      entity_type: dimension
+    loaded_at_field: _LOADED_AT
+  - name: PBIM
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: PC2
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: PROMO
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: PROMO_ITEMS
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: PTREQ
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: RBKP
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: RGDIR
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: SEC_LOG
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: SERNP
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: SKA1
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: SUBSTITUTES
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: SYSLOG
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T001L
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T001W
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T001W_DIM
+    description: 'Dimension table containing descriptive attributes from SAP
+
+      Entity type: dimension
+
+      '
+    meta:
+      entity_type: dimension
+    loaded_at_field: _LOADED_AT
+  - name: T002
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T003
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T005
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T005S
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T006
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T007A
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T009B
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T009B_DIM
+    description: 'Dimension table containing descriptive attributes from SAP
+
+      Entity type: dimension
+
+      '
+    meta:
+      entity_type: dimension
+    loaded_at_field: _LOADED_AT
+  - name: T024
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T052
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T179
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T510
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: T513
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: TAXES
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: TCURC
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: TCURR
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: TRIP
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: TRIP_LINES
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: TSHM
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: TTZZ
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VBAK
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VBAK_QT
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VBAP
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VBAP_QT
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VBRK
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VBRK_RET
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VBRP_FACT
+    description: 'Fact table containing transactional or measurement data from SAP
+
+      Entity type: fact
+
+      '
+    meta:
+      entity_type: fact
+    loaded_at_field: _LOADED_AT
+  - name: VBUK
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: VENDOR_EVAL
+    description: 'Master data table containing core business entities from SAP
+
+      Entity type: master
+
+      '
+    meta:
+      entity_type: master
+    loaded_at_field: _LOADED_AT
+  - name: WARRANTIES
+    description: 'Source table from SAP
+
+      Entity type: table
+
+      '
+    meta:
+      entity_type: table
+    loaded_at_field: _LOADED_AT
+  - name: BKPF_HIST
+  - name: BSEG_HIST
+  - name: BSET_HIST
+  - name: BSID_HIST
+  - name: BSIK_HIST
+  - name: CDHDR_HIST
+  - name: CDPOS_HIST
+  - name: CEPC_HIST
+  - name: CHARG_HIST
+  - name: CSKS_HIST
+  - name: EBAN_HIST
+  - name: EINA_HIST
+  - name: EKKO_BO_HIST
+  - name: EKKO_CT_HIST
+  - name: EKKO_HIST
+  - name: EKKO_RESP_HIST
+  - name: EKKO_RFQ_HIST
+  - name: EKPO_HIST
+  - name: EORD_HIST
+  - name: HRP1000_DEP_HIST
+  - name: HRP1000_HIST
+  - name: KNA1_ADDR_HIST
+  - name: KONV_HIST
+  - name: LFA1_HIST
+  - name: LIKP_HIST
+  - name: LIPS_HIST
+  - name: MAKT_HIST
+  - name: MARA_ATTR_HIST
+  - name: MARA_VAR_HIST
+  - name: MARC_HIST
+  - name: MARC_SS_HIST
+  - name: MARD_HIST
+  - name: MATKL_HIST
+  - name: MBEW_HIST
+  - name: MIGO_HIST
+  - name: MKPF_GR_HIST
+  - name: MKPF_HIST
+  - name: MSEG_HIST
+  - name: PA0001_HIST
+  - name: PA0002_HIST
+  - name: PBIM_HIST
+  - name: PC2_HIST
+  - name: PROMO_HIST
+  - name: PROMO_ITEMS_HIST
+  - name: PTREQ_HIST
+  - name: RBKP_HIST
+  - name: RGDIR_HIST
+  - name: SERNP_HIST
+  - name: SKA1_HIST
+  - name: SUBSTITUTES_HIST
+  - name: T001L_HIST
+  - name: T001W_HIST
+  - name: T002_HIST
+  - name: T003_HIST
+  - name: T005S_HIST
+  - name: T005_HIST
+  - name: T006_HIST
+  - name: T007A_HIST
+  - name: T009B_HIST
+  - name: T024_HIST
+  - name: T052_HIST
+  - name: T179_HIST
+  - name: T510_HIST
+  - name: T513_HIST
+  - name: TCURC_HIST
+  - name: TCURR_HIST
+  - name: TRIP_HIST
+  - name: TRIP_LINES_HIST
+  - name: TSHM_HIST
+  - name: TTZZ_HIST
+  - name: VBAK_HIST
+  - name: VBAK_QT_HIST
+  - name: VBAP_HIST
+  - name: VBAP_QT_HIST
+  - name: VBRK_HIST
+  - name: VBRK_RET_HIST
+  - name: VBRP_FACT_HIST
+  - name: VBUK_HIST
+- name: raw_sap
+  description: Raw SAP ERP data (lowercase table names)
+  schema: RAW_SAP
+  tables:
+  - name: a305
+  - name: a305_hist
+  - name: bkpf
+  - name: bkpf_hist
+  - name: brand_master
+  - name: brand_master_hist
+  - name: bseg
+  - name: bseg_hist
+  - name: bset
+  - name: bset_hist
+  - name: bsid
+  - name: bsid_hist
+  - name: bsik
+  - name: bsik_hist
+  - name: catsdb
+  - name: catsdb_hist
+  - name: cdhdr
+  - name: cdhdr_hist
+  - name: cdpos
+  - name: cdpos_hist
+  - name: cepc
+  - name: cepc_hist
+  - name: charg
+  - name: charg_hist
+  - name: csks
+  - name: csks_hist
+  - name: eban
+  - name: eban_hist
+  - name: eina
+  - name: eina_hist
+  - name: ekko
+  - name: ekko_bo
+  - name: ekko_bo_hist
+  - name: ekko_ct
+  - name: ekko_ct_hist
+  - name: ekko_hist
+  - name: ekko_resp
+  - name: ekko_resp_hist
+  - name: ekko_rfq
+  - name: ekko_rfq_hist
+  - name: ekpo
+  - name: ekpo_hist
+  - name: eord
+  - name: eord_hist
+  - name: hrp1000
+  - name: hrp1000_dep
+  - name: hrp1000_dep_hist
+  - name: hrp1000_hist
+  - name: kna1_addr
+  - name: kna1_addr_hist
+  - name: konv
+  - name: konv_hist
+  - name: lfa1
+  - name: lfa1_hist
+  - name: likp
+  - name: likp_hist
+  - name: lips
+  - name: lips_hist
+  - name: makt
+  - name: makt_hist
+  - name: mara_attr
+  - name: mara_attr_hist
+  - name: mara_var
+  - name: mara_var_hist
+  - name: marc
+  - name: marc_hist
+  - name: marc_ss
+  - name: marc_ss_hist
+  - name: mard
+  - name: mard_hist
+  - name: matkl
+  - name: matkl_hist
+  - name: mbew
+  - name: mbew_hist
+  - name: migo
+  - name: migo_hist
+  - name: mkpf
+  - name: mkpf_gr
+  - name: mkpf_gr_hist
+  - name: mkpf_hist
+  - name: mseg
+  - name: mseg_hist
+  - name: pa0001
+  - name: pa0001_hist
+  - name: pa0002
+  - name: pa0002_hist
+  - name: pbim
+  - name: pbim_hist
+  - name: pc2
+  - name: pc2_hist
+  - name: promo
+  - name: promo_hist
+  - name: promo_items
+  - name: promo_items_hist
+  - name: ptreq
+  - name: ptreq_hist
+  - name: rbkp
+  - name: rbkp_hist
+  - name: rgdir
+  - name: rgdir_hist
+  - name: sernp
+  - name: sernp_hist
+  - name: ska1
+  - name: ska1_hist
+  - name: substitutes
+  - name: substitutes_hist
+  - name: t001l
+  - name: t001l_hist
+  - name: t001w
+  - name: t001w_hist
+  - name: t002
+  - name: t002_hist
+  - name: t003
+  - name: t003_hist
+  - name: t005
+  - name: t005_hist
+  - name: t005s
+  - name: t005s_hist
+  - name: t006
+  - name: t006_hist
+  - name: t007a
+  - name: t007a_hist
+  - name: t009b
+  - name: t009b_hist
+  - name: t024
+  - name: t024_hist
+  - name: t052
+  - name: t052_hist
+  - name: t179
+  - name: t179_hist
+  - name: t510
+  - name: t510_hist
+  - name: t513
+  - name: t513_hist
+  - name: tcurc
+  - name: tcurc_hist
+  - name: tcurr
+  - name: tcurr_hist
+  - name: trip
+  - name: trip_hist
+  - name: trip_lines
+  - name: trip_lines_hist
+  - name: tshm
+  - name: tshm_hist
+  - name: ttzz
+  - name: ttzz_hist
+  - name: vbak
+  - name: vbak_hist
+  - name: vbak_qt
+  - name: vbak_qt_hist
+  - name: vbap
+  - name: vbap_hist
+  - name: vbap_qt
+  - name: vbap_qt_hist
+  - name: vbrk
+  - name: vbrk_hist
+  - name: vbrk_ret
+  - name: vbrk_ret_hist
+  - name: vbrp_fact
+  - name: vbrp_fact_hist
+  - name: vbuk
+  - name: vbuk_hist

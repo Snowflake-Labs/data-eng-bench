@@ -1,0 +1,977 @@
+version: 2
+
+models:
+  - name: stg_ga__abandoned_carts
+    description: |
+      Staging model for ABANDONED_CARTS from GA
+
+      This is a table containing abandoned carts data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__access_log
+    description: |
+      Staging model for ACCESS_LOG from GA
+
+      This is a table containing access log data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__ads_campaigns
+    description: |
+      Staging model for ADS_CAMPAIGNS from GA
+
+      This is a table containing ads campaigns data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__ads_clicks
+    description: |
+      Staging model for ADS_CLICKS from GA
+
+      This is a table containing ads clicks data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__ads_impressions
+    description: |
+      Staging model for ADS_IMPRESSIONS from GA
+
+      This is a table containing ads impressions data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__audiences
+    description: |
+      Staging model for AUDIENCES from GA
+
+      This is a table containing audiences data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: segment_id
+        description: Unique identifier for the segment
+        tests:
+          - not_null
+          - unique
+      - name: segment_code
+        description: Code value for segment
+      - name: segment_name
+        description: Name/description field
+      - name: segment_type
+        description: Segment Type
+      - name: segment_description
+        description: Segment Description
+      - name: segment_criteria
+        description: Segment Criteria
+      - name: is_dynamic
+        description: Boolean flag
+      - name: refresh_frequency
+        description: Refresh Frequency
+      - name: last_refreshed_at
+        description: Timestamp when the record was last_refreshed
+        tests:
+          - not_null
+      - name: member_count
+        description: Member Count
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__campaigns
+    description: |
+      Staging model for CAMPAIGNS from GA
+
+      This is a table containing campaigns data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__carts
+    description: |
+      Staging model for CARTS from GA
+
+      This is a table containing carts data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__cart_items
+    description: |
+      Staging model for CART_ITEMS from GA
+
+      This is a table containing cart items data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__consent_log
+    description: |
+      Staging model for CONSENT_LOG from GA
+
+      This is a table containing consent log data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__conversions
+    description: |
+      Staging model for CONVERSIONS from GA
+
+      This is a table containing conversions data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__devices
+    description: |
+      Staging model for DEVICES from GA
+
+      This is a table containing devices data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__ecom_trans
+    description: |
+      Staging model for ECOM_TRANS from GA
+
+      This is a fact containing ecom trans data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: order_id
+        description: Unique identifier for the order
+        tests:
+          - not_null
+          - unique
+      - name: order_number
+        description: Number/reference identifier
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: order_type
+        description: Order Type
+      - name: order_source
+        description: Order Source
+      - name: channel_id
+        description: Unique identifier for the channel
+      - name: currency_code
+        description: Code value for currency
+      - name: exchange_rate
+        description: Exchange Rate
+      - name: billing_address_id
+        description: Unique identifier for the billing_address
+      - name: shipping_address_id
+        description: Unique identifier for the shipping_address
+      - name: subtotal
+        description: Subtotal
+      - name: discount_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "discount_total is not null"
+      - name: shipping_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "shipping_total is not null"
+      - name: tax_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "tax_total is not null"
+      - name: grand_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "grand_total is not null"
+      - name: status
+        description: Status
+      - name: payment_status
+        description: Status indicator
+      - name: fulfillment_status
+        description: Status indicator
+      - name: ordered_at
+        description: Timestamp when the record was ordered
+        tests:
+          - not_null
+      - name: shipped_at
+        description: Timestamp when the record was shipped
+        tests:
+          - not_null
+      - name: delivered_at
+        description: Timestamp when the record was delivered
+        tests:
+          - not_null
+      - name: cancelled_at
+        description: Timestamp when the record was cancelled
+        tests:
+          - not_null
+      - name: ip_address
+        description: Ip Address
+      - name: user_agent
+        description: User Agent
+      - name: notes
+        description: Notes
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__email_clicks
+    description: |
+      Staging model for EMAIL_CLICKS from GA
+
+      This is a table containing email clicks data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__events
+    description: |
+      Staging model for EVENTS from GA
+
+      This is a table containing events data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: event_id
+        description: Unique identifier for the event
+        tests:
+          - not_null
+          - unique
+      - name: session_id
+        description: Unique identifier for the session
+      - name: event_type
+        description: Event Type
+      - name: event_name
+        description: Name/description field
+      - name: event_timestamp
+        description: Event Timestamp
+      - name: page_url
+        description: Page Url
+      - name: element_id
+        description: Unique identifier for the element
+      - name: element_class
+        description: Element Class
+      - name: product_id
+        description: Unique identifier for the product
+      - name: event_value
+        description: Event Value
+      - name: event_data
+        description: Event Data
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__mkt_fact
+    description: |
+      Staging model for MKT_FACT from GA
+
+      This is a fact containing mkt fact data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__pageviews
+    description: |
+      Staging model for PAGEVIEWS from GA
+
+      This is a table containing pageviews data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__product_views
+    description: |
+      Staging model for PRODUCT_VIEWS from GA
+
+      This is a master containing product views data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__promo_codes
+    description: |
+      Staging model for PROMO_CODES from GA
+
+      This is a lookup containing promo codes data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: coupon_id
+        description: Unique identifier for the coupon
+        tests:
+          - not_null
+          - unique
+      - name: coupon_code
+        description: Code value for coupon
+      - name: promotion_id
+        description: Unique identifier for the promotion
+      - name: usage_limit
+        description: Usage Limit
+      - name: usage_count
+        description: Usage Count
+      - name: is_active
+        description: Boolean flag
+      - name: expires_at
+        description: Timestamp when the record was expires
+        tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__ratings
+    description: |
+      Staging model for RATINGS from GA
+
+      This is a table containing ratings data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__recommendations
+    description: |
+      Staging model for RECOMMENDATIONS from GA
+
+      This is a table containing recommendations data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__reviews
+    description: |
+      Staging model for REVIEWS from GA
+
+      This is a table containing reviews data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: review_id
+        description: Unique identifier for the review
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        description: Unique identifier for the product
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: order_id
+        description: Unique identifier for the order
+      - name: rating
+        description: Rating
+      - name: review_title
+        description: Review Title
+      - name: review_text
+        description: Review Text
+      - name: pros
+        description: Pros
+      - name: cons
+        description: Cons
+      - name: is_verified_purchase
+        description: Boolean flag
+      - name: is_recommended
+        description: Boolean flag
+      - name: helpful_count
+        description: Helpful Count
+      - name: not_helpful_count
+        description: Not Helpful Count
+      - name: media_urls
+        description: Media Urls
+      - name: status
+        description: Status
+      - name: moderated_at
+        description: Timestamp when the record was moderated
+        tests:
+          - not_null
+      - name: moderated_by
+        description: Moderated By
+      - name: rejection_reason
+        description: Rejection Reason
+      - name: review_source
+        description: Review Source
+      - name: reviewer_display_name
+        description: Name/description field
+      - name: submitted_at
+        description: Timestamp when the record was submitted
+        tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__searches
+    description: |
+      Staging model for SEARCHES from GA
+
+      This is a table containing searches data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__sessions
+    description: |
+      Staging model for SESSIONS from GA
+
+      This is a table containing sessions data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: session_id
+        description: Unique identifier for the session
+        tests:
+          - not_null
+          - unique
+      - name: visitor_id
+        description: Unique identifier for the visitor
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: channel_id
+        description: Unique identifier for the channel
+      - name: session_start
+        description: Session Start
+      - name: session_end
+        description: Session End
+      - name: duration_seconds
+        description: Duration Seconds
+      - name: page_views
+        description: Page Views
+      - name: landing_page
+        description: Landing Page
+      - name: exit_page
+        description: Exit Page
+      - name: referrer
+        description: Referrer
+      - name: utm_source
+        description: Utm Source
+      - name: utm_medium
+        description: Utm Medium
+      - name: utm_campaign
+        description: Utm Campaign
+      - name: device_type
+        description: Device Type
+      - name: browser
+        description: Browser
+      - name: os
+        description: Os
+      - name: ip_address
+        description: Ip Address
+      - name: country
+        description: Country
+      - name: is_converted
+        description: Boolean flag
+      - name: order_id
+        description: Unique identifier for the order
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__user_props
+    description: |
+      Staging model for USER_PROPS from GA
+
+      This is a table containing user props data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: preference_id
+        description: Unique identifier for the preference
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: preference_category
+        description: Preference Category
+      - name: preference_key
+        description: Preference Key
+      - name: preference_value
+        description: Preference Value
+      - name: is_opted_in
+        description: Boolean flag
+      - name: effective_from
+        description: Effective From
+      - name: effective_to
+        description: Effective To
+      - name: source
+        description: Source
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__utm_campaigns
+    description: |
+      Staging model for UTM_CAMPAIGNS from GA
+
+      This is a table containing utm campaigns data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__web_fact
+    description: |
+      Staging model for WEB_FACT from GA
+
+      This is a fact containing web fact data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source table identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_ga__wishlists
+    description: |
+      Staging model for WISHLISTS from GA
+
+      This is a table containing wishlists data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: wishlist_item_id
+        description: Unique identifier for the wishlist_item
+        tests:
+          - not_null
+          - unique
+      - name: wishlist_id
+        description: Unique identifier for the wishlist
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: added_at
+        description: Timestamp when the record was added
+        tests:
+          - not_null
+      - name: notes
+        description: Notes
+      - name: priority
+        description: Priority
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+

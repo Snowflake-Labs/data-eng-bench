@@ -1,0 +1,25 @@
+# dbt-bench — DuckDB (hermetic) — Codex
+#
+# Zero Snowflake account required. Each task builds the dbt-bench base image,
+# which bakes in retail.duckdb; DB_TYPE=duckdb points dbt at that local file.
+#
+# Run:
+#   harbor run --config configs/dbt-bench-duckdb.codex.yaml \
+#     --path tasks -m openai/gpt-5.6 --ak reasoning_effort=high
+
+name: dbt-bench-duckdb
+
+n_attempts: 3          # leaderboard requires >= 3 trials per task
+n_concurrent_trials: 4
+quiet: true
+
+environment:
+  type: docker         # builds each task's environment/Dockerfile (FROM dbt-bench-base)
+  env:
+    - DB_TYPE=duckdb
+
+agents:
+  - name: codex
+    model_name: openai/gpt-5.6
+    kwargs:
+      reasoning_effort: high

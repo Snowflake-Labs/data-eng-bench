@@ -1,0 +1,335 @@
+version: 2
+
+sources:
+  - name: ga
+    description: |
+      Google Analytics - web analytics including sessions, pageviews, and user behavior
+
+      This source contains raw data extracted from the GA system.
+      Data is loaded via ELT processes and stored in the RAW_GA schema.
+
+    schema: RAW_GA
+
+    # Source freshness checks
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    # Metadata for all tables
+    meta:
+      owner: "data-engineering@company.com"
+      source_system: "ga"
+
+    tables:
+      - name: ABANDONED_CARTS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ACCESS_LOG
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ADS_CAMPAIGNS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ADS_CLICKS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ADS_IMPRESSIONS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: AUDIENCES
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CAMPAIGNS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CARTS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CART_ITEMS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CONSENT_LOG
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CONVERSIONS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: DEVICES
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ECOM_TRANS
+        description: |
+          Fact table containing transactional or measurement data from GA
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: EMAIL_CLICKS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: EVENTS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: MKT_FACT
+        description: |
+          Fact table containing transactional or measurement data from GA
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: PAGEVIEWS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: PRODUCT_VIEWS
+        description: |
+          Master data table containing core business entities from GA
+          Entity type: master
+        meta:
+          entity_type: "master"
+        loaded_at_field: _LOADED_AT
+
+      - name: PROMO_CODES
+        description: |
+          Lookup/reference table for code values from GA
+          Entity type: lookup
+        meta:
+          entity_type: "lookup"
+        loaded_at_field: _LOADED_AT
+
+      - name: RATINGS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: RECOMMENDATIONS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: REVIEWS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SEARCHES
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SESSIONS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: USER_PROPS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: UTM_CAMPAIGNS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: WEB_FACT
+        description: |
+          Fact table containing transactional or measurement data from GA
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: WISHLISTS
+        description: |
+          Source table from GA
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+  - name: raw_ga
+    description: Raw Google Analytics data (lowercase table names)
+    schema: RAW_GA
+    tables:
+      - name: abandoned_carts
+      - name: abandoned_carts_hist
+      - name: abandoned_carts_stg
+      - name: access_log_stg
+      - name: ads_campaigns
+      - name: ads_campaigns_hist
+      - name: ads_campaigns_stg
+      - name: ads_clicks
+      - name: ads_clicks_hist
+      - name: ads_clicks_stg
+      - name: ads_impressions
+      - name: ads_impressions_hist
+      - name: ads_impressions_stg
+      - name: audiences
+      - name: audiences_hist
+      - name: audiences_stg
+      - name: campaigns
+      - name: campaigns_hist
+      - name: campaigns_stg
+      - name: cart_items
+      - name: cart_items_hist
+      - name: cart_items_stg
+      - name: carts
+      - name: carts_hist
+      - name: carts_stg
+      - name: consent_log
+      - name: consent_log_hist
+      - name: consent_log_stg
+      - name: conversions
+      - name: conversions_hist
+      - name: conversions_stg
+      - name: devices
+      - name: devices_hist
+      - name: devices_stg
+      - name: ecom_trans
+      - name: ecom_trans_hist
+      - name: ecom_trans_stg
+      - name: email_clicks
+      - name: email_clicks_hist
+      - name: email_clicks_stg
+      - name: events
+      - name: events_hist
+      - name: events_stg
+      - name: mkt_fact_stg
+      - name: pageviews
+      - name: pageviews_hist
+      - name: pageviews_stg
+      - name: product_views
+      - name: product_views_hist
+      - name: product_views_stg
+      - name: promo_codes
+      - name: promo_codes_hist
+      - name: promo_codes_stg
+      - name: ratings
+      - name: ratings_hist
+      - name: ratings_stg
+      - name: recommendations
+      - name: recommendations_hist
+      - name: recommendations_stg
+      - name: reviews
+      - name: reviews_hist
+      - name: reviews_stg
+      - name: searches
+      - name: searches_hist
+      - name: searches_stg
+      - name: sessions
+      - name: sessions_hist
+      - name: sessions_stg
+      - name: user_props
+      - name: user_props_hist
+      - name: user_props_stg
+      - name: utm_campaigns
+      - name: utm_campaigns_hist
+      - name: utm_campaigns_stg
+      - name: web_fact_stg
+      - name: wishlists
+      - name: wishlists_hist
+      - name: wishlists_stg
+
+  - name: google_analytics_3
+    description: Google Analytics 3 (Universal Analytics) data - legacy
+    schema: RAW_GA
+    tables:
+      - name: sessions

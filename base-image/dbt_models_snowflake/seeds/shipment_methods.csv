@@ -1,0 +1,5 @@
+code,name,min_days,max_days
+GROUND,Ground Shipping,5,7
+EXPRESS,Express Shipping,2,3
+OVERNIGHT,Overnight,1,1
+FREIGHT,Freight,7,14

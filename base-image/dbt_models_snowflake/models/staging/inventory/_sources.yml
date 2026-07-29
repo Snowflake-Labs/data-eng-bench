@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: inventory
+    description: Inventory management and stock data
+    schema: INVENTORY
+
+    tables:
+      - name: DEMAND_FORECASTS
+      - name: INVENTORY_ADJUSTMENTS
+      - name: INVENTORY_ADJUSTMENT_LINES
+      - name: INVENTORY_COUNTS
+      - name: INVENTORY_COUNT_DETAILS
+      - name: INVENTORY_LEVELS
+      - name: INVENTORY_RESERVATIONS
+      - name: INVENTORY_SNAPSHOTS
+      - name: INVENTORY_TRANSACTIONS
+      - name: INVENTORY_TRANSFERS
+      - name: INVENTORY_TRANSFER_LINES
+      - name: REORDER_RULES
+      - name: STORES
+      - name: STORE_DEPARTMENTS
+      - name: WAREHOUSES
+      - name: WAREHOUSE_LOCATIONS
+      - name: WAREHOUSE_ZONES

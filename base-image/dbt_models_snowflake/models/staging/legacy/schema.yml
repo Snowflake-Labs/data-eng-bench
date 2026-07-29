@@ -1,0 +1,763 @@
+version: 2
+
+models:
+  - name: stg_legacy__apinv
+    description: |
+      Staging model for APINV from LEGACY
+
+      This is a table containing apinv data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__arinv
+    description: |
+      Staging model for ARINV from LEGACY
+
+      This is a table containing arinv data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__brands
+    description: |
+      Staging model for BRANDS from LEGACY
+
+      This is a table containing brands data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: brand_id
+        description: Unique identifier for the brand
+        tests:
+          - not_null
+          - unique
+      - name: brand_code
+        description: Code value for brand
+      - name: brand_name
+        description: Name/description field
+      - name: brand_description
+        description: Brand Description
+      - name: brand_logo_url
+        description: Brand Logo Url
+      - name: brand_website
+        description: Brand Website
+      - name: parent_brand_id
+        description: Unique identifier for the parent_brand
+      - name: is_private_label
+        description: Boolean flag
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__catcod
+    description: |
+      Staging model for CATCOD from LEGACY
+
+      This is a lookup containing catcod data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: category_id
+        description: Unique identifier for the category
+        tests:
+          - not_null
+          - unique
+      - name: category_code
+        description: Code value for category
+      - name: category_name
+        description: Name/description field
+      - name: category_description
+        description: Category Description
+      - name: parent_category_id
+        description: Unique identifier for the parent_category
+      - name: category_level
+        description: Category Level
+      - name: category_path
+        description: Category Path
+      - name: category_path_ids
+        description: Category Path Ids
+      - name: sort_order
+        description: Sort Order
+      - name: image_url
+        description: Image Url
+      - name: icon_name
+        description: Name/description field
+      - name: meta_title
+        description: Meta Title
+      - name: meta_description
+        description: Meta Description
+      - name: meta_keywords
+        description: Meta Keywords
+      - name: is_featured
+        description: Boolean flag
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__ctrycod
+    description: |
+      Staging model for CTRYCOD from LEGACY
+
+      This is a lookup containing ctrycod data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: country_id
+        description: Unique identifier for the country
+        tests:
+          - not_null
+          - unique
+      - name: country_code_2
+        description: Country Code 2
+      - name: country_name
+        description: Name/description field
+      - name: continent
+        description: Continent
+      - name: currency_code
+        description: Code value for currency
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__glacct
+    description: |
+      Staging model for GLACCT from LEGACY
+
+      This is a table containing glacct data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__itmattr
+    description: |
+      Staging model for ITMATTR from LEGACY
+
+      This is a table containing itmattr data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: attribute_id
+        description: Unique identifier for the attribute
+        tests:
+          - not_null
+          - unique
+      - name: attribute_code
+        description: Code value for attribute
+      - name: attribute_name
+        description: Name/description field
+      - name: attribute_description
+        description: Attribute Description
+      - name: attribute_type
+        description: Attribute Type
+      - name: data_type
+        description: Data Type
+      - name: is_variant_attribute
+        description: Boolean flag
+      - name: is_filterable
+        description: Boolean flag
+      - name: is_searchable
+        description: Boolean flag
+      - name: is_comparable
+        description: Boolean flag
+      - name: is_required
+        description: Boolean flag
+      - name: default_value
+        description: Default Value
+      - name: validation_regex
+        description: Validation Regex
+      - name: min_value
+        description: Min Value
+      - name: max_value
+        description: Max Value
+      - name: display_order
+        description: Display Order
+      - name: attribute_group
+        description: Attribute Group
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__itmimg
+    description: |
+      Staging model for ITMIMG from LEGACY
+
+      This is a table containing itmimg data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: image_id
+        description: Unique identifier for the image
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        description: Unique identifier for the product
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: image_url
+        description: Image Url
+      - name: thumbnail_url
+        description: Thumbnail Url
+      - name: alt_text
+        description: Alt Text
+      - name: image_type
+        description: Image Type
+      - name: sort_order
+        description: Sort Order
+      - name: width
+        description: Width
+      - name: height
+        description: Height
+      - name: file_size_kb
+        description: File Size Kb
+      - name: is_primary
+        description: Boolean flag
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__itmtags
+    description: |
+      Staging model for ITMTAGS from LEGACY
+
+      This is a table containing itmtags data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: tag_id
+        description: Unique identifier for the tag
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        description: Unique identifier for the product
+      - name: tag_name
+        description: Name/description field
+      - name: tag_type
+        description: Tag Type
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__itmtxt
+    description: |
+      Staging model for ITMTXT from LEGACY
+
+      This is a table containing itmtxt data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__podtl
+    description: |
+      Staging model for PODTL from LEGACY
+
+      This is a table containing podtl data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: po_line_id
+        description: Unique identifier for the po_line
+        tests:
+          - not_null
+          - unique
+      - name: po_id
+        description: Unique identifier for the po
+      - name: line_number
+        description: Number/reference identifier
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: sku
+        description: Sku
+      - name: quantity_ordered
+        description: Quantity Ordered
+      - name: quantity_received
+        description: Quantity Received
+      - name: unit_price
+        description: Unit Price
+      - name: line_total
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "line_total is not null"
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__pohdr
+    description: |
+      Staging model for POHDR from LEGACY
+
+      This is a table containing pohdr data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: po_id
+        description: Unique identifier for the po
+        tests:
+          - not_null
+          - unique
+      - name: po_number
+        description: Number/reference identifier
+      - name: supplier_id
+        description: Unique identifier for the supplier
+      - name: warehouse_id
+        description: Unique identifier for the warehouse
+      - name: status
+        description: Status
+      - name: total_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "total_amount is not null"
+      - name: currency_code
+        description: Code value for currency
+      - name: expected_date
+        description: Date of expected
+        tests:
+          - not_null
+      - name: ordered_at
+        description: Timestamp when the record was ordered
+        tests:
+          - not_null
+      - name: created_by
+        description: Created By
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__prclst
+    description: |
+      Staging model for PRCLST from LEGACY
+
+      This is a table containing prclst data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: price_id
+        description: Unique identifier for the price
+        tests:
+          - not_null
+          - unique
+      - name: variant_id
+        description: Unique identifier for the variant
+      - name: price_type
+        description: Price Type
+      - name: currency_code
+        description: Code value for currency
+      - name: price_amount
+        description: Monetary amount
+        tests:
+          - not_null:
+              config:
+                where: "price_amount is not null"
+      - name: compare_at_price
+        description: Compare At Price
+      - name: cost_price
+        description: Cost Price
+      - name: min_qty
+        description: Quantity value
+      - name: max_qty
+        description: Quantity value
+      - name: customer_tier_id
+        description: Unique identifier for the customer_tier
+      - name: channel_id
+        description: Unique identifier for the channel
+      - name: effective_from
+        description: Effective From
+      - name: effective_to
+        description: Effective To
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: created_by
+        description: Created By
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__regcod
+    description: |
+      Staging model for REGCOD from LEGACY
+
+      This is a lookup containing regcod data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__stscod
+    description: |
+      Staging model for STSCOD from LEGACY
+
+      This is a lookup containing stscod data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: status_code_id
+        description: Unique identifier for the status_code
+        tests:
+          - not_null
+          - unique
+      - name: entity_type
+        description: Entity Type
+      - name: status_code
+        description: Code value for status
+      - name: status_name
+        description: Name/description field
+      - name: status_description
+        description: Status Description
+      - name: display_order
+        description: Display Order
+      - name: is_terminal
+        description: Boolean flag
+      - name: is_active
+        description: Boolean flag
+      - name: created_at
+        description: Timestamp when the record was created
+        tests:
+          - not_null
+      - name: updated_at
+        description: Timestamp when the record was updated
+        tests:
+          - not_null
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _batch_id
+        description: "Unique identifier for the _batch"
+      - name: _row_number
+        description: Number/reference identifier
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__time_dim
+    description: |
+      Staging model for TIME_DIM from LEGACY
+
+      This is a dimension containing time dim data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__vendcat
+    description: |
+      Staging model for VENDCAT from LEGACY
+
+      This is a table containing vendcat data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__venditem
+    description: |
+      Staging model for VENDITEM from LEGACY
+
+      This is a table containing venditem data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+
+  - name: stg_legacy__vendmst
+    description: |
+      Staging model for VENDMST from LEGACY
+
+      This is a dimension containing vendmst data.
+      Light transformations applied: column name standardization, trimming, and type casting.
+
+    columns:
+      - name: _id
+        description: Unique identifier for the 
+        tests:
+          - not_null
+          - unique
+      - name: _loaded_at
+        description: Timestamp when the record was _loaded
+        tests:
+          - not_null
+      - name: _source_system
+        description: "Metadata: source system identifier"
+      - name: _source_table
+        description: "Metadata: source system identifier"
+      - name: _row_hash
+        description: "Metadata: row hash for change detection"
+

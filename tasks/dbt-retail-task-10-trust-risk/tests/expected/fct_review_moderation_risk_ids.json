@@ -1,0 +1,309 @@
+{
+  "table": "fct_review_moderation_risk",
+  "id_fields": [
+    "review_id"
+  ],
+  "count": 100,
+  "ids": [
+    {
+      "review_id": "bc5ff031-7f4b-466a-8dd7-8a18fde9fc79"
+    },
+    {
+      "review_id": "216298bc-66f2-4ea2-a19a-da5c85a97f26"
+    },
+    {
+      "review_id": "2f33b695-1454-4637-95cc-bfc1794781da"
+    },
+    {
+      "review_id": "3f27d03a-ad8f-4d8e-b09b-9e51fc02476c"
+    },
+    {
+      "review_id": "a89bcb8c-884f-4cf3-8dfd-a7d79c08d862"
+    },
+    {
+      "review_id": "01b5a71c-b02d-4d08-b0f1-71bb4a73019f"
+    },
+    {
+      "review_id": "577babfc-94df-4aef-bece-6ccc7dac46e2"
+    },
+    {
+      "review_id": "f71a9319-acde-4c5d-a086-cc69dc77cdc7"
+    },
+    {
+      "review_id": "939c4308-582a-41d4-b364-bd41870c8ef1"
+    },
+    {
+      "review_id": "f8f87241-2243-4eca-8f06-f257162dcb82"
+    },
+    {
+      "review_id": "883a31c9-35bd-4968-bd61-9e89602fc39b"
+    },
+    {
+      "review_id": "1349c90f-8d03-4d8a-b6a6-ea045d94bcc2"
+    },
+    {
+      "review_id": "8e67af96-c150-447e-8346-bee73a2d7747"
+    },
+    {
+      "review_id": "ad318863-35f2-4140-a231-7173d94097df"
+    },
+    {
+      "review_id": "e8cf5909-ca57-4da3-839c-12ac1e39c1e6"
+    },
+    {
+      "review_id": "26726768-339a-495f-b44f-ddb017fd228b"
+    },
+    {
+      "review_id": "57cc634a-a2aa-482d-a411-8a03e3571472"
+    },
+    {
+      "review_id": "a64631e5-2c02-4b67-bef4-139193872af6"
+    },
+    {
+      "review_id": "6dc940b1-a86e-45b5-b44b-72530a04ebe7"
+    },
+    {
+      "review_id": "cbea2ebd-bb25-4d34-8087-253264824e92"
+    },
+    {
+      "review_id": "a3b7514e-6eef-4e7e-bc53-cd06153a8b08"
+    },
+    {
+      "review_id": "263e1ac4-ab1a-4daa-9caa-695353db0051"
+    },
+    {
+      "review_id": "c3028b33-517c-4301-a95b-587910bc5e96"
+    },
+    {
+      "review_id": "5630f697-5992-4e29-aa37-eb2dd57d3f0d"
+    },
+    {
+      "review_id": "b7994046-29ea-411b-9a96-8bd942545369"
+    },
+    {
+      "review_id": "6eab76a9-3dc5-4fe2-9339-a668f2a09eeb"
+    },
+    {
+      "review_id": "d08008ff-69cb-4597-bfb0-cf3b37421819"
+    },
+    {
+      "review_id": "c4ffd1c9-6052-4536-96cd-1622e87382b0"
+    },
+    {
+      "review_id": "cee1d4d8-414a-4bb4-aeb8-bb06b9a3d078"
+    },
+    {
+      "review_id": "fece1b99-13bb-4f1d-a6e0-43ea0c869832"
+    },
+    {
+      "review_id": "387bc75e-47a0-4a89-8f35-896f344f7a5d"
+    },
+    {
+      "review_id": "0e8f04f0-08d8-4b96-a3b4-6193d6668c52"
+    },
+    {
+      "review_id": "8bcb7ef3-5824-4a7e-9edd-e89a94a14060"
+    },
+    {
+      "review_id": "2ef0718f-5fab-4aed-ae0f-e030765596d1"
+    },
+    {
+      "review_id": "75b9ee2d-c978-4fa8-875c-a5970b6c7fca"
+    },
+    {
+      "review_id": "a31dd979-a252-42e7-8f10-30af5e48f5fb"
+    },
+    {
+      "review_id": "b8cce15e-8496-47c6-beff-561fa6e86b48"
+    },
+    {
+      "review_id": "bed3cd14-41ea-4318-a95d-367f0e1d298d"
+    },
+    {
+      "review_id": "0e100715-7a12-4fd7-a429-99af5c730bc8"
+    },
+    {
+      "review_id": "f8df3206-1418-43c3-8b71-576c6a61a65d"
+    },
+    {
+      "review_id": "d3141178-bf13-402b-98af-6147fee184a0"
+    },
+    {
+      "review_id": "741e1e5a-f71c-4107-acff-01904a80f42c"
+    },
+    {
+      "review_id": "6dfb339e-b1e9-4ab1-9896-7dc86427482b"
+    },
+    {
+      "review_id": "d1347131-3f88-4790-b34e-8aeef262d119"
+    },
+    {
+      "review_id": "5a65702b-b6d5-41bc-8a45-d9d1b0315a23"
+    },
+    {
+      "review_id": "b1217ed1-e116-4d04-aeaa-809dcb4a5cf2"
+    },
+    {
+      "review_id": "a735496a-e759-4e09-94a4-aa31aa6251b5"
+    },
+    {
+      "review_id": "a75addea-80ae-44b8-a393-f2b496313d0a"
+    },
+    {
+      "review_id": "66f63f8c-7550-4134-95ba-d6c6df4d8a02"
+    },
+    {
+      "review_id": "715337ba-8ac4-4a19-b609-b0e21c9fa629"
+    },
+    {
+      "review_id": "76b4cf2c-5893-4c6e-af83-52e7893b1c7e"
+    },
+    {
+      "review_id": "5eff5787-0daf-4482-9cf7-a2beaf7973e8"
+    },
+    {
+      "review_id": "ae110e40-cb25-406c-8c73-6df3f48f5f9f"
+    },
+    {
+      "review_id": "42d1c80f-0fae-4d19-84ba-8f197b85b4df"
+    },
+    {
+      "review_id": "adbce548-4856-43ec-976a-0d9edb74b5d6"
+    },
+    {
+      "review_id": "17294f87-1816-4488-834c-de952f09e609"
+    },
+    {
+      "review_id": "9fa85f0e-70e5-4b41-82ac-971bef4ade24"
+    },
+    {
+      "review_id": "7280cdc1-4254-4f08-8e21-c665e8d8908a"
+    },
+    {
+      "review_id": "d43f8f30-a02d-4e57-add2-24fc5f1581be"
+    },
+    {
+      "review_id": "054629df-89fc-40b5-94b4-ae3003b6bae7"
+    },
+    {
+      "review_id": "3b581cf7-a8cb-4e87-8ae4-838cc05b518a"
+    },
+    {
+      "review_id": "6833b259-bac1-40f7-aa37-f768793a6ed0"
+    },
+    {
+      "review_id": "c929f7e0-6a77-4ed4-a951-61a73d5e92fb"
+    },
+    {
+      "review_id": "6dc5924d-aaf8-4df5-8824-4a265d4d5c7a"
+    },
+    {
+      "review_id": "6ac96897-5d1c-4e95-a597-9c87c0e550c5"
+    },
+    {
+      "review_id": "7870e06c-f50d-478f-a48c-5fd8bfef65c9"
+    },
+    {
+      "review_id": "ae73e506-dcaf-461f-8143-e5e11a057021"
+    },
+    {
+      "review_id": "360863f0-6681-44bc-b8b6-018997ab4c00"
+    },
+    {
+      "review_id": "60ad0d40-6dda-4870-a365-5691883d227c"
+    },
+    {
+      "review_id": "4a99a033-5e1a-422f-9f31-84b9ee65f18c"
+    },
+    {
+      "review_id": "70b85850-a19f-44e5-a294-6cba7a81a0fc"
+    },
+    {
+      "review_id": "0735e5e1-4752-4df7-8737-314657334c7c"
+    },
+    {
+      "review_id": "a6e306b0-336e-4a2f-a847-bcdec412151b"
+    },
+    {
+      "review_id": "72c87084-89a4-43e9-90d6-61e14a1a9d08"
+    },
+    {
+      "review_id": "73c715d8-c07e-4fac-8160-c8b0749bfeaf"
+    },
+    {
+      "review_id": "5dac5532-b2fc-43cb-8d66-bcb9887c4ce5"
+    },
+    {
+      "review_id": "47a8e515-7794-4aed-8701-99969dc77999"
+    },
+    {
+      "review_id": "f89135ed-6955-4ebb-89b1-80d1f7e50b75"
+    },
+    {
+      "review_id": "a6fca867-cc78-464a-9b7a-35e20ff865c6"
+    },
+    {
+      "review_id": "13c98f6b-d613-4302-93af-7b29a1217988"
+    },
+    {
+      "review_id": "cb748f62-b98e-476c-9f5b-6723d6dc041c"
+    },
+    {
+      "review_id": "c267c1ec-640e-4635-9355-6accf8807070"
+    },
+    {
+      "review_id": "9b17e930-7ad2-4aec-9113-28749f93ed46"
+    },
+    {
+      "review_id": "b3e32a9b-de47-4b91-8c88-bd332f2dbc97"
+    },
+    {
+      "review_id": "33e4a4d0-16a4-4f8b-b4b8-025dbe434e62"
+    },
+    {
+      "review_id": "33905bb2-03e3-47bd-ac7b-9da26301ec27"
+    },
+    {
+      "review_id": "fc2cc554-4e6a-40ba-a5d5-75408d64e4d1"
+    },
+    {
+      "review_id": "413c1dad-826a-4c84-97b2-06ac28c6d4c2"
+    },
+    {
+      "review_id": "bcd71476-6e00-45d6-a051-3dd2e2971cdc"
+    },
+    {
+      "review_id": "e3a55bc6-1fd4-429b-8899-f3ea99d96ebf"
+    },
+    {
+      "review_id": "718f6084-fd6f-4ff7-a783-0260165eb983"
+    },
+    {
+      "review_id": "b6e8ef7b-37bc-45b9-9108-0fe923f8725c"
+    },
+    {
+      "review_id": "b864cd29-6d36-4d54-84cb-6c8487f389f6"
+    },
+    {
+      "review_id": "21371c44-98e7-411e-9e76-aeca179daf7e"
+    },
+    {
+      "review_id": "089c829d-9e5f-43b6-b1eb-eee870ecccd6"
+    },
+    {
+      "review_id": "d6c81c39-f5c2-4a29-b8dc-9e12230b329f"
+    },
+    {
+      "review_id": "9e79444f-7fb3-4c15-9603-83569941c5d6"
+    },
+    {
+      "review_id": "98207cb6-6de9-439e-8a4a-a7ec5ba90935"
+    },
+    {
+      "review_id": "a503cca2-fb54-469d-b437-2855af7c9bdd"
+    },
+    {
+      "review_id": "c6f28cbb-f733-49b6-a8df-e5e7c29187a9"
+    }
+  ]
+}

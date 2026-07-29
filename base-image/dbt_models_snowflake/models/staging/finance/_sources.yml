@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: finance
+    description: Financial accounting and GL data
+    schema: FINANCE
+
+    tables:
+      - name: CHART_OF_ACCOUNTS
+      - name: COST_CENTERS
+      - name: CURRENCY_EXCHANGE_RATES
+      - name: CUSTOMER_AGING
+      - name: CUSTOMER_CREDITS
+      - name: CUSTOMER_INVOICES
+      - name: CUSTOMER_INVOICE_LINES
+      - name: CUSTOMER_PAYMENTS
+      - name: CUSTOMER_PAYMENT_APPLICATIONS
+      - name: DEFERRED_REVENUE
+      - name: GL_PERIODS
+      - name: GL_TRANSACTIONS
+      - name: PROFIT_CENTERS
+      - name: REVENUE_RECOGNITION
+      - name: TAX_RATES
+      - name: TAX_TRANSACTIONS
+
+      - name: APINV
+      - name: APINV_HIST
+      - name: APINV_STG
+      - name: ARINV
+      - name: ARINV_HIST
+      - name: ARINV_STG
+      - name: COST_CENTER_ASSIGNMENTS
+      - name: CURRENCIES_HIST
+      - name: GLACCT
+      - name: GLACCT_HIST
+      - name: GLACCT_STG

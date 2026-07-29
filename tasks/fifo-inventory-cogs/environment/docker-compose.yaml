@@ -1,0 +1,36 @@
+services:
+  main:
+    build:
+      context: ${CONTEXT_DIR}
+    image: ${MAIN_IMAGE_NAME}
+    entrypoint: ["sh", "-c"]
+    command: ["touch /tmp/entrypoint_ready && sleep infinity"]
+    network_mode: ${NETWORK_MODE:-bridge}
+    healthcheck:
+      test: ["CMD", "test", "-f", "/tmp/entrypoint_ready"]
+      interval: 5s
+      timeout: 5s
+      retries: 300
+      start_period: 10s
+    environment:
+      - TEST_DIR=${TEST_DIR}
+      - DB_TYPE=${DB_TYPE:-snowflake}
+      - DUCKDB_PATH=${DUCKDB_PATH:-/app/database/retail.duckdb}
+      - SNOWFLAKE_ACCOUNT=${SNOWFLAKE_ACCOUNT:-}
+      - SNOWFLAKE_HOST=${SNOWFLAKE_HOST:-}
+      - SNOWFLAKE_PASSWORD=${SNOWFLAKE_PASSWORD:-}
+      - SNOWFLAKE_USER=${SNOWFLAKE_USER:-}
+      - SNOWFLAKE_PRIVATE_KEY=${SNOWFLAKE_PRIVATE_KEY:-}
+      - SNOWFLAKE_PRIVATE_KEY_PASSPHRASE=${SNOWFLAKE_PRIVATE_KEY_PASSPHRASE:-}
+      - SNOWFLAKE_SOURCE_DATABASE=${SNOWFLAKE_SOURCE_DATABASE:-}
+      - SNOWFLAKE_SCHEMA=main
+      - SNOWFLAKE_WAREHOUSE=${SNOWFLAKE_WAREHOUSE:-}
+      - SNOWFLAKE_ROLE=${SNOWFLAKE_ROLE:-}
+    volumes:
+      - ${HOST_VERIFIER_LOGS_PATH}:${ENV_VERIFIER_LOGS_PATH}
+      - ${HOST_AGENT_LOGS_PATH}:${ENV_AGENT_LOGS_PATH}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY}

@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: int_sales__orders_enriched
+    description: |
+      Enriched sales orders combining data from SAP and POS systems.
+      Includes calculated fields for discount rates, fulfillment times, and status flags.
+    columns:
+      - name: order_id
+        description: Unique identifier for the order
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: Customer who placed the order
+      - name: grand_total
+        description: Total order amount including tax and shipping
+      - name: is_cancelled
+        description: Flag indicating if order was cancelled
+      - name: days_to_fulfill
+        description: Number of days from order to delivery
+
+  - name: int_sales__order_lines
+    description: |
+      Order line items from SAP and POS systems.
+      Grain: one row per line item with calculated metrics.
+    columns:
+      - name: order_line_id
+        description: Unique identifier for the order line
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: Parent order identifier
+        tests:
+          - not_null
+      - name: product_id
+        description: Product identifier
+      - name: quantity_ordered
+        description: Quantity ordered
+      - name: line_total
+        description: Total amount for this line item
+
+  - name: int_customers__unified
+    description: |
+      Unified customer dimension combining SFDC and other sources.
+      Creates single customer view with enrichment.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+          - unique
+      - name: email
+        description: Customer email address
+      - name: full_name
+        description: Customer full name
+      - name: is_active
+        description: Flag indicating if customer is active

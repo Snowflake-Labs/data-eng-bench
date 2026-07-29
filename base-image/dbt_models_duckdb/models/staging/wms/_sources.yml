@@ -1,0 +1,215 @@
+version: 2
+
+sources:
+  - name: wms
+    description: |
+      Warehouse Management System - inventory movements, locations, and fulfillment operations
+
+      This source contains raw data extracted from the WMS system.
+      Data is loaded via ELT processes and stored in the RAW_WMS schema.
+
+    schema: RAW_WMS
+
+    # Source freshness checks
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    # Metadata for all tables
+    meta:
+      owner: "data-engineering@company.com"
+      source_system: "wms"
+
+    tables:
+      - name: ADJUSTMENTS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: CYCLE_COUNTS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: FULFILLMENT
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: INV_FACT
+        description: |
+          Fact table containing transactional or measurement data from WMS
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: INV_SNAPSHOT
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: LOCATIONS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: LOT_TRACKING
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: MOVEMENTS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: PACKS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: PICKS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: RECEIPTS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: REPLEN_ORDERS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SERIAL_TRACKING
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SHIPMENTS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SHIP_LINES
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: SHIP_METHODS
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: TRANSFERS
+        description: |
+          Fact table containing transactional or measurement data from WMS
+          Entity type: fact
+        meta:
+          entity_type: "fact"
+        loaded_at_field: _LOADED_AT
+
+      - name: WAREHOUSES
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+      - name: ZONES
+        description: |
+          Source table from WMS
+          Entity type: table
+        meta:
+          entity_type: "table"
+        loaded_at_field: _LOADED_AT
+
+  - name: raw_wms
+    description: Raw warehouse management data (lowercase table names)
+    schema: RAW_WMS
+    tables:
+      - name: adjustments
+      - name: adjustments_hist
+      - name: cycle_counts
+      - name: cycle_counts_hist
+      - name: fulfillment
+      - name: fulfillment_hist
+      - name: inv_snapshot
+      - name: inv_snapshot_hist
+      - name: locations
+      - name: locations_hist
+      - name: lot_tracking
+      - name: lot_tracking_hist
+      - name: movements
+      - name: movements_hist
+      - name: packs
+      - name: packs_hist
+      - name: picks
+      - name: picks_hist
+      - name: receipts
+      - name: receipts_hist
+      - name: replen_orders
+      - name: replen_orders_hist
+      - name: serial_tracking
+      - name: serial_tracking_hist
+      - name: ship_lines
+      - name: ship_lines_hist
+      - name: ship_methods
+      - name: ship_methods_hist
+      - name: shipments
+      - name: shipments_hist
+      - name: transfers
+      - name: transfers_hist
+      - name: warehouses
+      - name: warehouses_hist
+      - name: zones
+      - name: zones_hist

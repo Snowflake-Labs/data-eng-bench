@@ -1,0 +1,5 @@
+code,name,is_electronic
+CREDIT,Credit Card,True
+DEBIT,Debit Card,True
+PAYPAL,PayPal,True
+CASH,Cash,False

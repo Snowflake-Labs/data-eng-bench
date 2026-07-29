@@ -1,0 +1,86 @@
+name: 'retail_dw_master'
+version: 1.0.0
+config-version: 2
+profile: retail_dw_master
+
+model-paths:
+  - models
+analysis-paths:
+  - analyses
+test-paths:
+  - tests
+seed-paths:
+  - seeds
+macro-paths:
+  - macros
+snapshot-paths:
+  - snapshots
+
+target-path: target
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  retail_warehouse:
+    staging:
+      +materialized: view
+      +schema: staging
+      sap:
+        +tags:
+          - sap
+          - erp
+      sfdc:
+        +tags:
+          - salesforce
+          - crm
+      pos:
+        +tags:
+          - pos
+          - retail
+      ga:
+        +tags:
+          - analytics
+          - web
+      legacy:
+        +tags:
+          - legacy
+          - as400
+      wms:
+        +tags:
+          - wms
+          - inventory
+      payments:
+        +tags:
+          - payments
+          - stripe
+    intermediate:
+      +materialized: view
+      +schema: intermediate
+    marts:
+      +materialized: table
+      +schema: marts
+
+vars:
+  # Date range for historical data
+  start_date: '2020-01-01'
+  end_date: '2024-12-31'
+
+  # Customer segmentation thresholds
+  # Value segments (based on lifetime_value)
+  customer_value_vip_threshold: 10000
+  customer_value_high_threshold: 5000
+  customer_value_medium_threshold: 1000
+
+  # Order count segments
+  customer_orders_loyal_threshold: 10
+  customer_orders_regular_threshold: 5
+  customer_orders_occasional_threshold: 1
+
+  # LTV calculation parameters
+  # WARNING: predicted_ltv multiplier is a placeholder - see int_customers__lifetime_metrics.sql
+  ltv_prediction_multiplier: 2.0
+
+  # Data quality thresholds
+  dq_max_duplicate_rate: 0.01  # 1% max duplicates
+  dq_max_null_rate: 0.05       # 5% max nulls in key fields
