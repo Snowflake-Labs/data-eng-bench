@@ -1,4 +1,13 @@
-# dbt-bench
+<p align="center">
+  <img src="docs/assets/snowflake_dbt_bench.png" alt="dbt-bench" width="760" />
+</p>
+
+<p align="center">
+  <a href="https://hub.harborframework.com/datasets/snowflake-labs/dbt-bench"><img alt="Harbor Hub" src="https://img.shields.io/badge/Harbor%20Hub-snowflake--labs%2Fdbt--bench-2E7D32"></a>
+  <a href="https://hub.harborframework.com/datasets/snowflake-labs/dbt-bench/latest?tab=leaderboard&leaderboard=main"><img alt="Leaderboard" src="https://img.shields.io/badge/Leaderboard-live-1976D2"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache--2.0-blue"></a>
+  <a href="https://signup.snowflake.com/cortex-code"><img alt="Snowflake Cortex Code" src="https://img.shields.io/badge/Snowflake-Cortex%20Code-29B5E8"></a>
+</p>
 
 dbt-bench measures how well coding agents do real dbt data-engineering work on a
 large, realistic retail warehouse. Each task drops an agent into a containerized
@@ -22,8 +31,8 @@ Difficulty spread: 3 easy, 47 medium, 45 hard, 8 very hard.
 
 ## Links
 
-- Dataset: `snowflake-labs/dbt-bench` on the [Harbor Hub](https://hub.harborframework.com/)
-- Leaderboard: the public dbt-bench leaderboard on the Harbor Hub (see [Submitting to the leaderboard](#submitting-to-the-leaderboard))
+- Dataset: [`snowflake-labs/dbt-bench` on the Harbor Hub](https://hub.harborframework.com/datasets/snowflake-labs/dbt-bench)
+- Leaderboard: [the public dbt-bench leaderboard](https://hub.harborframework.com/datasets/snowflake-labs/dbt-bench/latest?tab=leaderboard&leaderboard=main) (see [Submitting to the leaderboard](#submitting-to-the-leaderboard))
 
 ## The benchmark
 
