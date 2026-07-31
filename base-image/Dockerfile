@@ -9,8 +9,8 @@
 #   docker build -t dbt-bench-base .
 #
 # Publish (maintainers, see ../PUBLISHING.md):
-#   docker build -t ghcr.io/snowflakedb/dbt-bench-base:1.0.0 .
-#   docker push  ghcr.io/snowflakedb/dbt-bench-base:1.0.0
+#   docker build -t ghcr.io/snowflake-labs/dbt-bench-base:1.0.0 .
+#   docker push  ghcr.io/snowflake-labs/dbt-bench-base:1.0.0
 FROM python:3.12-slim
 
 # dbt adapters, DuckDB, and the test toolchain. Versions are pinned to match

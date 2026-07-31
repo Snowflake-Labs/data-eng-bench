@@ -2,7 +2,7 @@
 version = "1.0"
 
 [task]
-name = "snowflakedb/dbt-customer-lifetime-value"
+name = "Snowflake-Labs/dbt-customer-lifetime-value"
 description = "Extend the existing retail data warehouse with Customer Lifetime Value (CLV) models using complex CTEs, LAG window functions, and predictive calculations"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "clv", "customer-analytics", "window-functions", "lag", "predictive", "snowflake"]

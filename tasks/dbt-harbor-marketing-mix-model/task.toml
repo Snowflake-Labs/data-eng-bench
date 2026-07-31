@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-harbor-marketing-mix-model"
+name = "Snowflake-Labs/dbt-harbor-marketing-mix-model"
 description = "Marketing Mix Modeling - Media effectiveness, saturation curves, and budget optimization"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "marketing", "mmm", "optimization", "econometrics", "incrementality", "snowflake"]

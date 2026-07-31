@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-payment-fraud-analysis"
+name = "Snowflake-Labs/dbt-payment-fraud-analysis"
 description = "Implement payment method analysis and fraud detection with anomaly pattern recognition"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "fraud-detection", "payment-analytics", "anomaly-detection", "snowflake"]

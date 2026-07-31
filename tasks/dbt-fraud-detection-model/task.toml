@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-fraud-detection-model"
+name = "Snowflake-Labs/dbt-fraud-detection-model"
 description = "Build a fraud detection model using multiple risk criteria including high value, bulk orders, velocity, and address mismatch"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "fraud-detection", "window-functions", "business-logic", "snowflake"]

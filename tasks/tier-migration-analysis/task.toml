@@ -2,7 +2,7 @@
 version = "1.0"
 
 [task]
-name = "snowflakedb/tier-migration-analysis"
+name = "Snowflake-Labs/tier-migration-analysis"
 description = "Analyze customer tier migrations between time periods to understand loyalty program movement patterns"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["duckdb", "sql", "customer", "segmentation", "analytics", "migration", "snowflake"]

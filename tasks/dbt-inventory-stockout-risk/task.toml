@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-inventory-stockout-risk"
+name = "Snowflake-Labs/dbt-inventory-stockout-risk"
 description = "Build a dbt mart that predicts near-term stockout risk by SKU and warehouse using the enterprise retail warehouse."
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "inventory", "operations", "stockout-risk", "snowflake"]

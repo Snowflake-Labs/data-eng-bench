@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-fulfillment-sla"
+name = "Snowflake-Labs/dbt-fulfillment-sla"
 description = "Build fulfillment SLA analytics with percentile calculations, date arithmetic, carrier performance comparison, and multi-dimensional analysis"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "fulfillment", "sla", "logistics", "percentiles", "date-arithmetic", "carrier-analysis", "snowflake"]

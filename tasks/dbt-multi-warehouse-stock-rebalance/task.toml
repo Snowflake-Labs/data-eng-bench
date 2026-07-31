@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-multi-warehouse-stock-rebalance"
+name = "Snowflake-Labs/dbt-multi-warehouse-stock-rebalance"
 description = "Build inventory rebalancing recommendation model across warehouses"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "inventory", "optimization", "window-functions", "snowflake"]

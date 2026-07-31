@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-order-interval-metrics"
+name = "Snowflake-Labs/dbt-order-interval-metrics"
 description = "Build dbt models to analyze time intervals between consecutive customer orders and classify ordering patterns"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "customer-analytics", "window-functions", "time-series", "snowflake"]

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-fix-daily-revenue"
+name = "Snowflake-Labs/dbt-fix-daily-revenue"
 description = "Fix missing dates and incorrect cumulative revenue in daily revenue report"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "sql", "window-functions", "data-warehouse", "debugging", "snowflake"]

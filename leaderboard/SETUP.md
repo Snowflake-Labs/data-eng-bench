@@ -72,7 +72,7 @@ submission (disqualified trials included — they still consumed resources;
 disqualification only zeroes a trial's reward in accuracy and pass@k).
 
 `$HARBOR_API_KEY` must be a production key minted by an account allowed to
-manage the `snowflakedb` org's leaderboards.
+manage the `Snowflake-Labs` org's leaderboards.
 
 ## Secrets
 

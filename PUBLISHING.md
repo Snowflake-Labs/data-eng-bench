@@ -1,11 +1,11 @@
 # Publishing dbt-bench (maintainer runbook)
 
 Exact steps to take this repo from the staging checkout to a live, public
-Harbor dataset + leaderboard under the `snowflakedb` org. Run top-to-bottom.
+Harbor dataset + leaderboard under the `Snowflake-Labs` org. Run top-to-bottom.
 
-> **Blocker up front — SSO.** Pushing to `github.com/snowflakedb` requires an
+> **Blocker up front — SSO.** Pushing to `github.com/Snowflake-Labs` requires an
 > SSO-authorized token. A bare PAT is rejected until authorized for the
-> `snowflakedb` org (`gh auth login` with SSO, or authorize the PAT at
+> `Snowflake-Labs` org (`gh auth login` with SSO, or authorize the PAT at
 > `https://github.com/settings/tokens` → "Configure SSO"). Do this before
 > Step 2. Publishing to the Harbor Hub (Steps 4–6) is independent of GitHub SSO
 > and uses a `HARBOR_API_KEY`.
@@ -30,9 +30,9 @@ See "retail.duckdb hosting decision" below.
 ## 2. Create the GitHub repo and push (needs SSO)
 
 ```bash
-gh repo create snowflakedb/dbt-bench --public --source . --remote origin --push
+gh repo create Snowflake-Labs/dbt-bench --public --source . --remote origin --push
 # or, if the repo exists:
-git remote add origin git@github.com:snowflakedb/dbt-bench.git
+git remote add origin git@github.com:Snowflake-Labs/dbt-bench.git
 git push -u origin main            # LFS objects upload automatically
 ```
 
@@ -48,8 +48,8 @@ build — see the hosting decision).
 
 ```bash
 git lfs pull --include="base-image/database/*"    # ensure real DB, not pointer
-docker build base-image/ -t ghcr.io/snowflakedb/dbt-bench-base:1.0.0
-docker push ghcr.io/snowflakedb/dbt-bench-base:1.0.0
+docker build base-image/ -t ghcr.io/snowflake-labs/dbt-bench-base:1.0.0
+docker push ghcr.io/snowflake-labs/dbt-bench-base:1.0.0
 # make the GHCR package public in the org's package settings
 ```
 
@@ -57,9 +57,9 @@ If you repoint the task Dockerfiles at the GHCR tag, do it repo-wide:
 
 ```bash
 # tasks/*/environment/Dockerfile: FROM dbt-bench-base
-#                              ->  FROM ghcr.io/snowflakedb/dbt-bench-base:1.0.0
+#                              ->  FROM ghcr.io/snowflake-labs/dbt-bench-base:1.0.0
 grep -rl '^FROM dbt-bench-base' tasks | xargs sed -i \
-  's#^FROM dbt-bench-base#FROM ghcr.io/snowflakedb/dbt-bench-base:1.0.0#'
+  's#^FROM dbt-bench-base#FROM ghcr.io/snowflake-labs/dbt-bench-base:1.0.0#'
 ```
 
 ## 4. Authenticate to Harbor
@@ -74,11 +74,11 @@ jq -r .api_key ~/.harbor/credentials.json          # the sk-harbor-... key, for 
 
 ```bash
 # (Optional) regenerate/refresh the manifest from the tasks/ directory:
-harbor dataset init "snowflakedb/dbt-bench" \
+harbor dataset init "Snowflake-Labs/dbt-bench" \
   --description "Agentic dbt data-engineering benchmark (DuckDB + Snowflake)" \
   --author "Snowflake <opensource@snowflake.com>"
 
-harbor publish snowflakedb/dbt-bench --public -t v1.0
+harbor publish Snowflake-Labs/dbt-bench --public -t v1.0
 ```
 
 `harbor publish` prints the canonical dataset digest (`sha256:...`). **Copy it
@@ -97,9 +97,9 @@ Then complete the one-time repo wiring from
 
 - set repo secrets: `HARBOR_API_KEY`, `ANTHROPIC_API_KEY`, `MODAL_TOKEN_ID`,
   `MODAL_TOKEN_SECRET`;
-- `gh label create lb-submission --repo snowflakedb/dbt-bench --color 0E8A16`;
+- `gh label create lb-submission --repo Snowflake-Labs/dbt-bench --color 0E8A16`;
 - enable "Allow GitHub Actions to create and approve pull requests" (org-level —
-  needs org admin, another `snowflakedb` gate).
+  needs org admin, another `Snowflake-Labs` gate).
 
 ## retail.duckdb hosting decision
 
@@ -119,10 +119,10 @@ source of record.** Rationale:
 
 ## Go-live checklist
 
-- [ ] SSO-authorized token for `snowflakedb`
+- [ ] SSO-authorized token for `Snowflake-Labs`
 - [ ] `git lfs pull` shows real `retail.duckdb` (not a pointer)
 - [ ] `docker build base-image/` succeeds locally
-- [ ] repo pushed to `github.com/snowflakedb/dbt-bench`
+- [ ] repo pushed to `github.com/Snowflake-Labs/dbt-bench`
 - [ ] base image pushed to GHCR and made public
 - [ ] `harbor publish` done; `DATASET_REF` digest pasted into `hub.py` and pushed
 - [ ] leaderboard created; secrets, label, and org Actions setting configured

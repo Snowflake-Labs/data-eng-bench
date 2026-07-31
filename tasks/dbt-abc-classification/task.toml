@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-abc-classification"
+name = "Snowflake-Labs/dbt-abc-classification"
 description = "Build ABC inventory classification using running totals, cumulative percentages, and Pareto analysis with window functions"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "abc-analysis", "pareto", "inventory", "window-functions", "running-totals", "snowflake"]

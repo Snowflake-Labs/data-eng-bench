@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-fix-inventory-model"
+name = "Snowflake-Labs/dbt-fix-inventory-model"
 description = "Fix bugs in dbt product inventory metrics model"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "bug-fix", "sql", "snowflake"]

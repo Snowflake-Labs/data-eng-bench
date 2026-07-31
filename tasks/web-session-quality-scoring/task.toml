@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/web-session-quality-scoring"
+name = "Snowflake-Labs/web-session-quality-scoring"
 description = "Build dbt models for web session quality analysis with engagement scoring, conversion probability, and behavioral analytics to optimize digital marketing spend and identify UX improvement opportunities."
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "digital-analytics", "sql", "web-analytics", "engagement-metrics", "snowflake"]

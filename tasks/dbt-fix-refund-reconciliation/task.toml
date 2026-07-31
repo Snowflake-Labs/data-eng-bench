@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-fix-refund-reconciliation"
+name = "Snowflake-Labs/dbt-fix-refund-reconciliation"
 description = "Fix bugs in return-refund reconciliation model and add refund velocity classification"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "returns", "debugging", "window-functions", "snowflake"]

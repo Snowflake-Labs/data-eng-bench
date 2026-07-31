@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/time-decay-attribution-model"
+name = "Snowflake-Labs/time-decay-attribution-model"
 description = "Implement a time decay marketing attribution model in dbt that assigns weighted credit to marketing touchpoints based on their temporal proximity to conversion events."
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["duckdb", "sql", "marketing", "attribution", "analytics", "time-series", "snowflake"]

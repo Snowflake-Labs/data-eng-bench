@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-consolidate"
+name = "Snowflake-Labs/dbt-consolidate"
 description = "Standardize and unify data using dbt"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "ads", "data-modeling", "union", "snowflake"]

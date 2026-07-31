@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-three-way-matching"
+name = "Snowflake-Labs/dbt-three-way-matching"
 description = "Implement purchase order to receipt to invoice three-way matching with variance analysis and exception handling"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "procurement", "three-way-match", "variance-analysis", "tolerance-rules", "snowflake"]

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/deferred-revenue-recognition"
+name = "Snowflake-Labs/deferred-revenue-recognition"
 description = "Build comprehensive revenue recognition schedule with prorated monthly calculations using dbt"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "analytics", "finance", "revenue-recognition", "accounting", "snowflake"]

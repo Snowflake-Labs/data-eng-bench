@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-price-elasticity"
+name = "Snowflake-Labs/dbt-price-elasticity"
 description = "Calculate price elasticity of demand using historical price and sales data"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "price-elasticity", "economics", "analytics", "window-functions", "snowflake"]

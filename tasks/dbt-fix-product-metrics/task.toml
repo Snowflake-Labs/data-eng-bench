@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-fix-product-metrics"
+name = "Snowflake-Labs/dbt-fix-product-metrics"
 description = "Fix fact table grain issue causing inflated product metrics from improper join to returns"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "sql", "fact-table", "grain", "data-warehouse", "debugging", "snowflake"]

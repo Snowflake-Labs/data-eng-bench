@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-dq-macro-enforcement"
+name = "Snowflake-Labs/dbt-dq-macro-enforcement"
 description = "Apply data quality macros to sales order line detail model"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "data-quality", "macros", "snowflake"]

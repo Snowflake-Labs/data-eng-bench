@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-monthly-channel-revenue"
+name = "Snowflake-Labs/dbt-monthly-channel-revenue"
 description = "Build dbt models analyzing monthly sales performance by order channel with MoM growth, market share, market benchmarks, and composite scoring"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "channel-analytics", "window-functions", "partitioned-calculations", "snowflake"]

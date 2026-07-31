@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-customer-order-analytics"
+name = "Snowflake-Labs/dbt-customer-order-analytics"
 description = "Build customer order analytics with tiering using dbt and DuckDB"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "customer-analytics", "data-modeling", "sql", "snowflake"]

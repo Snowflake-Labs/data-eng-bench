@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-product-performance-metrics"
+name = "Snowflake-Labs/dbt-product-performance-metrics"
 description = "Build dbt models to analyze product-level sales performance, return rates, and revenue contribution"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "product-analytics", "window-functions", "abc-analysis", "snowflake"]

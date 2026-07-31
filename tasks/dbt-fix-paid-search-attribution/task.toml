@@ -2,7 +2,7 @@
 version = "1.0"
 
 [task]
-name = "snowflakedb/dbt-fix-paid-search-attribution"
+name = "Snowflake-Labs/dbt-fix-paid-search-attribution"
 description = "Fix paid search attribution reporting models using dbt + DuckDB/Snowflake"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "marketing", "paid-search", "attribution", "debugging", "snowflake"]

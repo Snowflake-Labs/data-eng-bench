@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-customer-churn-cohorts"
+name = "Snowflake-Labs/dbt-customer-churn-cohorts"
 description = "Implement cohort analysis with retention curves, churn probability scoring, and customer lifetime value prediction"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "cohort-analysis", "retention", "churn", "clv", "window-functions", "snowflake"]

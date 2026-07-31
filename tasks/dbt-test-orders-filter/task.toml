@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-test-orders-filter"
+name = "Snowflake-Labs/dbt-test-orders-filter"
 description = "Filter test, sample, and internal orders from production sales reporting"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sales", "data-quality", "bug-fix", "snowflake"]

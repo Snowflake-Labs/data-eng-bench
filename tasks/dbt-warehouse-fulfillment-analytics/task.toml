@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-warehouse-fulfillment-analytics"
+name = "Snowflake-Labs/dbt-warehouse-fulfillment-analytics"
 description = "Build a warehouse fulfillment performance analytics model from scratch"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "analytics", "window-functions", "aggregation", "snowflake"]

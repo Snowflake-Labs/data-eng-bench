@@ -7,7 +7,7 @@ abstract: >-
   runnable hermetically on DuckDB or against Snowflake.
 authors:
   - name: "Snowflake Inc."
-repository-code: "https://github.com/snowflakedb/dbt-bench"
+repository-code: "https://github.com/Snowflake-Labs/dbt-bench"
 license: Apache-2.0
 version: "1.0.0"
 date-released: "2026-07-29"

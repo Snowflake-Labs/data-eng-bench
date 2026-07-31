@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/late-arriving-orders-reconciliation"
+name = "Snowflake-Labs/late-arriving-orders-reconciliation"
 description = "Identify orders entered in a different GL period than when placed and generate revenue adjustment entries"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["duckdb", "sql", "accounting", "revenue-recognition", "gl-periods", "reconciliation", "snowflake"]

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-fix-inventory-balance"
+name = "Snowflake-Labs/dbt-fix-inventory-balance"
 description = "Fix running total using ROWS instead of RANGE causing incorrect cumulative calculations"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "sql", "window-functions", "running-total", "data-warehouse", "debugging", "snowflake"]

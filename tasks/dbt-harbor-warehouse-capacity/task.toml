@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-harbor-warehouse-capacity"
+name = "Snowflake-Labs/dbt-harbor-warehouse-capacity"
 description = "Build a warehouse capacity planning and peak load analysis pipeline using dbt to identify bottlenecks, calculate utilization metrics, and forecast staffing needs across multiple warehouses"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "operations", "capacity-planning", "time-series", "peak-detection", "warehouse-analytics", "snowflake"]

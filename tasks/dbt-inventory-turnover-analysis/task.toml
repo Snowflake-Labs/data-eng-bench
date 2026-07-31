@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-inventory-turnover-analysis"
+name = "Snowflake-Labs/dbt-inventory-turnover-analysis"
 description = "Build an inventory turnover and days of supply analysis mart for supply chain optimization"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "inventory", "analytics", "snowflake"]

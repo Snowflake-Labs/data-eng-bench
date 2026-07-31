@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/pos-operations"
+name = "Snowflake-Labs/pos-operations"
 description = "Build a dimensional data model using dbt for point-of-sale operations analytics, including order fulfillment analysis, payment method performance, product velocity metrics, return analysis, and order pattern detection."
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "dimensional-modeling", "sql", "analytics", "retail", "pos", "snowflake"]

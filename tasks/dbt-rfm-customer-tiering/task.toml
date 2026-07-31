@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "snowflakedb/dbt-rfm-customer-tiering"
+name = "Snowflake-Labs/dbt-rfm-customer-tiering"
 description = "Implement RFM customer segmentation with dynamic tiering, tier transitions, and channel revenue attribution"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "rfm-analysis", "customer-segmentation", "tiering", "window-functions", "attribution", "snowflake"]
