@@ -67,6 +67,20 @@ COPY entrypoint.sh /entrypoint.sh
 COPY cleanup_snowflake.py /cleanup_snowflake.py
 RUN chmod +x /entrypoint.sh /cleanup_snowflake.py
 
+# Snowflake per-task clone. Harbor overrides the image ENTRYPOINT with its own
+# keepalive, so the clone can't live in entrypoint.sh; each task runs this via
+# its Harbor healthcheck (`[environment.healthcheck]`) before the agent starts.
+COPY snowflake_clone.py /snowflake_clone.py
+RUN chmod +x /snowflake_clone.py
+
+# Make the clone's SNOWFLAKE_DATABASE (written to /tmp/snowflake_env.sh by the
+# healthcheck) visible to every shell the agent/verifier spawn: BASH_ENV covers
+# non-interactive `bash -c` (how tool shells run), bash.bashrc covers
+# interactive shells. No-op until the healthcheck creates the file.
+RUN printf '%s\n' '[ -f /tmp/snowflake_env.sh ] && . /tmp/snowflake_env.sh' > /etc/dbt_bench_env.sh
+ENV BASH_ENV=/etc/dbt_bench_env.sh
+RUN printf '\n%s\n' '[ -f /tmp/snowflake_env.sh ] && . /tmp/snowflake_env.sh' >> /etc/bash.bashrc
+
 COPY wait-for-init.sh /etc/profile.d/wait-for-init.sh
 RUN chmod +x /etc/profile.d/wait-for-init.sh
 

@@ -28,3 +28,11 @@ build_timeout_sec = 3000.0
 cpus = 2
 memory_mb = 8000
 storage_mb = 10240
+
+[environment.healthcheck]
+# Harbor runs this after container start, before the agent. For DB_TYPE=snowflake
+# it creates the per-task clone (idempotent); for duckdb it is an instant no-op.
+command = "python3 /snowflake_clone.py"
+timeout_sec = 600.0
+interval_sec = 10.0
+retries = 3

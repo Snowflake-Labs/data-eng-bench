@@ -88,17 +88,27 @@ def cleanup_snowflake_clone():
                 encryption_algorithm=serialization.NoEncryption()
             )
 
-        # Use admin role for cleanup (agent role can't drop databases/roles)
-        admin_role = os.environ.get('SNOWFLAKE_ADMIN_ROLE', '')
+        # Role that owns the clone (can drop it). Falls back to SNOWFLAKE_ROLE
+        # since the clone is created by the caller's own role.
+        admin_role = (
+            os.environ.get('SNOWFLAKE_ADMIN_ROLE')
+            or os.environ.get('SNOWFLAKE_ROLE')
+            or None
+        )
 
-        conn = snowflake.connector.connect(
+        conn_kwargs = dict(
             account=os.environ['SNOWFLAKE_ACCOUNT'],
             host=os.environ.get('SNOWFLAKE_HOST') or None,
             user=os.environ['SNOWFLAKE_USER'],
-            private_key=get_private_key(),
             warehouse=os.environ['SNOWFLAKE_WAREHOUSE'],
             role=admin_role,
         )
+        # Password when available, else key-pair (matches snowflake_clone.py).
+        if os.environ.get('SNOWFLAKE_PASSWORD'):
+            conn_kwargs['password'] = os.environ['SNOWFLAKE_PASSWORD']
+        else:
+            conn_kwargs['private_key'] = get_private_key()
+        conn = snowflake.connector.connect(**conn_kwargs)
         cursor = conn.cursor()
 
         # Step 1: Revoke grants from agent role before dropping database

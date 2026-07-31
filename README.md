@@ -138,9 +138,15 @@ different connection.
 ```bash
 export SNOWFLAKE_ACCOUNT=abcd-xy12345 SNOWFLAKE_USER=YOUR_USERNAME \
        SNOWFLAKE_PASSWORD=YOUR_PASSWORD SNOWFLAKE_WAREHOUSE=COMPUTE_WH \
-       SNOWFLAKE_DATABASE=DBT_BENCH_RETAIL SNOWFLAKE_ROLE=SYSADMIN
+       SNOWFLAKE_SOURCE_DATABASE=DBT_BENCH_RETAIL SNOWFLAKE_ROLE=SYSADMIN
 harbor run --config configs/dbt-bench-snowflake.claude-code.yaml --path tasks
 ```
+
+Each task's Harbor healthcheck clones `SNOWFLAKE_SOURCE_DATABASE` into an
+isolated `retail_clone_*` database and points the agent + verifier at it, then
+drops it on completion. Password auth (above) or key-pair
+(`SNOWFLAKE_PRIVATE_KEY`, base64 PEM) both work; the role only needs
+`CREATE DATABASE` plus access to the source.
 
 A `k=3` sweep over all 103 Snowflake tasks runs roughly 6 to 9 warehouse-hours
 on a free-tier account; use the fast subset for cost-bounded runs.
