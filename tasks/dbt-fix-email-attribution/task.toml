@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-fix-email-attribution"
+name = "snowflake-labs/dbt-fix-email-attribution"
 description = "Fix an email attribution dbt model that broke due to upstream tracking changes"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "email", "marketing", "attribution", "debugging", "snowflake"]

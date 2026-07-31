@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-order-fulfillment-analytics"
+name = "snowflake-labs/dbt-order-fulfillment-analytics"
 description = "Build an order fulfillment and return analytics pipeline using dbt"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "order-management", "fulfillment-analytics", "returns-analysis", "snowflake"]

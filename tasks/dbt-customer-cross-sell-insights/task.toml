@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-customer-cross-sell-insights"
+name = "snowflake-labs/dbt-customer-cross-sell-insights"
 description = "Build advanced cross-sell insights marts with multiple models: base metrics with revenue weighting, time-based trends, and customer segmentation using dbt"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "customer", "cross-sell", "basket-analysis", "snowflake"]

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-calculate-running-balance"
+name = "snowflake-labs/dbt-calculate-running-balance"
 description = "Create a running balance model using window functions to track customer balances over time"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "window-functions", "running-total", "finance", "snowflake"]

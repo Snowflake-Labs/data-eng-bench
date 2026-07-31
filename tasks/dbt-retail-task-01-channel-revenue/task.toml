@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-retail-task-01-channel-revenue"
+name = "snowflake-labs/dbt-retail-task-01-channel-revenue"
 description = "Implement Channel Revenue & Margin Trend Model"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "time-series", "sales", "snowflake"]

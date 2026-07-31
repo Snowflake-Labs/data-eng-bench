@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-channel-attribution-analysis"
+name = "snowflake-labs/dbt-channel-attribution-analysis"
 description = "Build dbt models to analyze sales performance across channels and understand customer acquisition patterns"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "channel-analytics", "customer-acquisition", "window-functions", "snowflake"]

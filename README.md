@@ -22,7 +22,7 @@ Difficulty spread: 3 easy, 47 medium, 45 hard, 8 very hard.
 
 ## Links
 
-- Dataset: `Snowflake-Labs/dbt-bench` on the [Harbor Hub](https://hub.harborframework.com/)
+- Dataset: `snowflake-labs/dbt-bench` on the [Harbor Hub](https://hub.harborframework.com/)
 - Leaderboard: the public dbt-bench leaderboard on the Harbor Hub (see [Submitting to the leaderboard](#submitting-to-the-leaderboard))
 
 ## The benchmark
@@ -71,7 +71,7 @@ Swap the agent and model freely, or use the `codex` / `cortex-code` configs.
 Once the dataset is on the Harbor Hub you can run it without a local checkout:
 
 ```bash
-harbor run -d Snowflake-Labs/dbt-bench --agent claude-code --model anthropic/claude-opus-4-8
+harbor run -d snowflake-labs/dbt-bench --agent claude-code --model anthropic/claude-opus-4-8
 ```
 
 Run only the fast subset:
@@ -151,7 +151,7 @@ Run at least 3 trials per task, upload the results publicly, then open a
 submission PR:
 
 ```bash
-harbor run -d Snowflake-Labs/dbt-bench -a <agent> -m <provider/model> -k 3 --upload --public
+harbor run -d snowflake-labs/dbt-bench -a <agent> -m <provider/model> -k 3 --upload --public
 cd leaderboard && uv run lb submit https://hub.harborframework.com/jobs/<uuid>
 ```
 

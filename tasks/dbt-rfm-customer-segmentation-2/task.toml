@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-rfm-customer-segmentation-2"
+name = "snowflake-labs/dbt-rfm-customer-segmentation-2"
 description = "Build RFM customer segmentation using dbt and DuckDB"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "rfm", "customer-segmentation", "analytics", "snowflake"]

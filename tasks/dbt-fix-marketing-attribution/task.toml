@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-fix-marketing-attribution"
+name = "snowflake-labs/dbt-fix-marketing-attribution"
 description = "Fix the broken marketing attribution report that stopped working after GA4 migration"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "marketing", "attribution", "ga4", "debugging", "utm", "snowflake"]

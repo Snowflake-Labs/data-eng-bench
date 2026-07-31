@@ -8,7 +8,7 @@
 #     --path tasks -m anthropic/claude-opus-4-8 --ak reasoning_effort=high
 #
 # (Or against the published dataset instead of --path tasks:
-#   harbor run -d Snowflake-Labs/dbt-bench --config configs/dbt-bench-duckdb.claude-code.yaml ...)
+#   harbor run -d snowflake-labs/dbt-bench --config configs/dbt-bench-duckdb.claude-code.yaml ...)
 
 name: dbt-bench-duckdb
 

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-fix-repeat-purchase-cohort-revenue"
+name = "snowflake-labs/dbt-fix-repeat-purchase-cohort-revenue"
 description = "Fix a broken repeat purchase cohort revenue model using dbt + DuckDB/Snowflake"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "snowflake", "cohorts", "revenue", "repeat-purchase", "debugging"]

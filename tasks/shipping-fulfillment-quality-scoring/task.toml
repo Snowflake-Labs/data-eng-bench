@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/shipping-fulfillment-quality-scoring"
+name = "snowflake-labs/shipping-fulfillment-quality-scoring"
 description = "Build dbt models for shipping and fulfillment quality analysis with delivery scoring, tracking metrics, and carrier performance scorecards to optimize logistics operations and identify carrier improvement opportunities."
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "logistics", "sql", "shipping-analytics", "fulfillment-metrics", "snowflake"]

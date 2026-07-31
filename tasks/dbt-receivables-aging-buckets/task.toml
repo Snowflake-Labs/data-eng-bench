@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-receivables-aging-buckets"
+name = "snowflake-labs/dbt-receivables-aging-buckets"
 description = "Create a payments-aware receivables aging model with dedupe and as-of logic"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "finance", "receivables", "payments", "credits", "snowflake"]

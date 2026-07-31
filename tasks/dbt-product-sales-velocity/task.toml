@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-product-sales-velocity"
+name = "snowflake-labs/dbt-product-sales-velocity"
 description = "Build dbt models for velocity, trends, and scoring"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sales-velocity", "trend-analysis", "window-functions", "scoring", "snowflake"]

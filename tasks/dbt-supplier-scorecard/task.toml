@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-supplier-scorecard"
+name = "snowflake-labs/dbt-supplier-scorecard"
 description = "Build a Supplier Performance Scorecard using dbt with on-time delivery, defect rate, cost variance, and composite scoring"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "sql", "duckdb", "analytics", "data-modeling", "snowflake"]

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-hr-analytics"
+name = "snowflake-labs/dbt-hr-analytics"
 description = "Build an HR analytics and workforce planning pipeline using dbt + DuckDB"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "hr-analytics", "workforce-planning", "organizational-hierarchy", "snowflake"]

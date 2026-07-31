@@ -3,7 +3,7 @@
 # (one-time; see leaderboard/SETUP.md and PUBLISHING.md)
 
 # Dataset package selector. Use package as an org/name slug, or replace it with package_id as a UUID. Do not provide both.
-package: Snowflake-Labs/dbt-bench
+package: snowflake-labs/dbt-bench
 
 # Leaderboard identity. name is the stable lowercase slug; title is shown in the UI; description is optional; visibility is public or private.
 name: main

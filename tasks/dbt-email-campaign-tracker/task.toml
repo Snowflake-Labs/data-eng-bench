@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-email-campaign-tracker"
+name = "snowflake-labs/dbt-email-campaign-tracker"
 description = "Build multi-layer email campaign performance tracker model"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "email", "marketing", "window-functions", "macros", "snowflake"]

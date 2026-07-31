@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-product-return-analysis"
+name = "snowflake-labs/dbt-product-return-analysis"
 description = "Build a product return analysis model from scratch"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "analytics", "window-functions", "aggregation", "snowflake"]

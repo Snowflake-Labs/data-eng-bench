@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-fix-daily-cohorts"
+name = "snowflake-labs/dbt-fix-daily-cohorts"
 description = "Fix CTE filtering logic causing data loss in cohort retention analysis"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "sql", "cte", "filtering", "data-warehouse", "debugging", "snowflake"]

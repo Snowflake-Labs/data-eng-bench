@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-customer-geographic"
+name = "snowflake-labs/dbt-customer-geographic"
 description = "Build a dbt project that analyzes customer distribution and revenue by state with market performance metrics"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "sql", "duckdb", "analytics", "geographic", "snowflake"]

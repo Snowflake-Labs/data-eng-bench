@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-rfm-customer-segmentation"
+name = "snowflake-labs/dbt-rfm-customer-segmentation"
 description = "Implement RFM (Recency, Frequency, Monetary) customer segmentation using enterprise retail data"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "snowflake", "rfm", "customer-segmentation", "window-functions", "ntile"]

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-campaign-roi-analysis"
+name = "snowflake-labs/dbt-campaign-roi-analysis"
 description = "Build multi-layer marketing campaign ROI analysis model from scratch"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "marketing", "analytics", "window-functions", "macros", "snowflake"]

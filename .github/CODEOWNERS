@@ -1,4 +1,4 @@
-# Code owners for Snowflake-Labs/dbt-bench.
+# Code owners for snowflake-labs/dbt-bench.
 # Every change requires review from the owner(s) below before merge
 # (enforced when branch protection has "Require review from Code Owners" on).
 * @sfc-gh-daxu

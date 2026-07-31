@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-web-session-analytics"
+name = "snowflake-labs/dbt-web-session-analytics"
 description = "Analyze web session data to calculate quality scores and engagement metrics using window functions"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "snowflake", "web-analytics", "window-functions", "ntile"]

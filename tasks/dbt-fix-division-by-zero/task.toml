@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-fix-division-by-zero"
+name = "snowflake-labs/dbt-fix-division-by-zero"
 description = "Fix division by zero error in customer metrics model and add engagement, churn, and peer comparison metrics"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "null-handling", "snowflake"]

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-customer-lifecycle-journey"
+name = "snowflake-labs/dbt-customer-lifecycle-journey"
 description = "Build multi-layer customer lifecycle journey analysis model"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "customer", "lifecycle", "journey", "window-functions", "macros", "snowflake"]

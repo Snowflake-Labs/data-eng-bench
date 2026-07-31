@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-product-affinity"
+name = "snowflake-labs/dbt-product-affinity"
 description = "Build product affinity analytics using self-joins, association rule mining (support, confidence, lift), and market basket analysis"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "market-basket", "association-rules", "self-joins", "affinity-analysis", "snowflake"]

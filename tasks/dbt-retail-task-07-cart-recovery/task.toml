@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-retail-task-07-cart-recovery"
+name = "snowflake-labs/dbt-retail-task-07-cart-recovery"
 description = "Implement cart recovery analysis for retail db"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "cart", "recovery", "retail", "snowflake"]

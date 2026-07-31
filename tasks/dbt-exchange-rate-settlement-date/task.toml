@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-exchange-rate-settlement-date"
+name = "snowflake-labs/dbt-exchange-rate-settlement-date"
 description = "Fix fact_revenue to use settlement-date FX rates for USD conversion"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "finance", "fx", "revenue", "snowflake"]

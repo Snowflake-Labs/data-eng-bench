@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-customer-cohort-retention"
+name = "snowflake-labs/dbt-customer-cohort-retention"
 description = "Build dbt models for customer cohort retention analysis using enterprise retail data"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "cohort-analysis", "retention", "window-functions", "date-manipulation", "snowflake"]

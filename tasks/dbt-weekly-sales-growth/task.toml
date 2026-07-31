@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-weekly-sales-growth"
+name = "snowflake-labs/dbt-weekly-sales-growth"
 description = "Build dbt models to calculate weekly sales trends with week-over-week growth metrics"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sales-analytics", "window-functions", "time-series", "snowflake"]

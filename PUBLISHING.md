@@ -74,11 +74,11 @@ jq -r .api_key ~/.harbor/credentials.json          # the sk-harbor-... key, for 
 
 ```bash
 # (Optional) regenerate/refresh the manifest from the tasks/ directory:
-harbor dataset init "Snowflake-Labs/dbt-bench" \
+harbor dataset init "snowflake-labs/dbt-bench" \
   --description "Agentic dbt data-engineering benchmark (DuckDB + Snowflake)" \
   --author "Snowflake <opensource@snowflake.com>"
 
-harbor publish Snowflake-Labs/dbt-bench --public -t v1.0
+harbor publish snowflake-labs/dbt-bench --public -t v1.0
 ```
 
 `harbor publish` prints the canonical dataset digest (`sha256:...`). **Copy it
@@ -97,7 +97,7 @@ Then complete the one-time repo wiring from
 
 - set repo secrets: `HARBOR_API_KEY`, `ANTHROPIC_API_KEY`, `MODAL_TOKEN_ID`,
   `MODAL_TOKEN_SECRET`;
-- `gh label create lb-submission --repo Snowflake-Labs/dbt-bench --color 0E8A16`;
+- `gh label create lb-submission --repo snowflake-labs/dbt-bench --color 0E8A16`;
 - enable "Allow GitHub Actions to create and approve pull requests" (org-level —
   needs org admin, another `Snowflake-Labs` gate).
 

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-order-reconciliation"
+name = "snowflake-labs/dbt-order-reconciliation"
 description = "Build a multi-layer dbt project with staging, intermediate, and mart models for order financial reconciliation including subtotal and tax variance analysis"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "sql", "data-quality", "reconciliation", "intermediate-layer", "snowflake"]

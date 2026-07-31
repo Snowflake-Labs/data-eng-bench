@@ -23,7 +23,7 @@ _ANSI = re.compile(r"\x1b\[[0-9;]*m")
 # that did not run this dataset is rejected, so trials from other datasets are
 # never considered. DATASET_REF is the sha256 of the canonical dataset version;
 # checking it proves every trial ran the official, unmodified tasks.
-DATASET = "Snowflake-Labs/dbt-bench"
+DATASET = "snowflake-labs/dbt-bench"
 DATASET_REF = "sha256:REPLACE_WITH_PUBLISHED_DATASET_DIGEST"  # set at publish time; see PUBLISHING.md
 
 # Base URL for human-facing hub links (trial pages, judge jobs, the

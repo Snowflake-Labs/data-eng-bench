@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-retail-task-04-market-roi"
+name = "snowflake-labs/dbt-retail-task-04-market-roi"
 description = "Implement marketing analytics"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "marketing", "roi", "categorization", "snowflake"]

@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-inventory-analysis"
+name = "snowflake-labs/dbt-inventory-analysis"
 description = "Build a dbt project that analyzes inventory levels by warehouse with derived metrics"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "sql", "duckdb", "analytics", "inventory", "snowflake"]

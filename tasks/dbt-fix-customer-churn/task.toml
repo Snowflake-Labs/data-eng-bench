@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-fix-customer-churn"
+name = "snowflake-labs/dbt-fix-customer-churn"
 description = "Fix window function missing PARTITION BY causing incorrect customer activity calculations"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "sql", "window-functions", "lag", "data-warehouse", "debugging", "snowflake"]

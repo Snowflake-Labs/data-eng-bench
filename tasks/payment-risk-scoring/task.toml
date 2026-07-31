@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/payment-risk-scoring"
+name = "snowflake-labs/payment-risk-scoring"
 description = "Build dbt models for payment transaction risk analysis with fraud risk scoring, customer risk profiling, and behavioral analytics to identify suspicious transactions and high-risk customers."
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "fraud-detection", "sql", "risk-analytics", "payments", "snowflake"]

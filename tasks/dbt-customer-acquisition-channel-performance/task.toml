@@ -2,7 +2,7 @@
 version = "1.0.0"
 
 [task]
-name = "Snowflake-Labs/dbt-customer-acquisition-channel-performance"
+name = "snowflake-labs/dbt-customer-acquisition-channel-performance"
 description = "Evaluate marketing channels by customer quality and value using first-touch attribution, computing CLTV, repeat rates, and channel tiers"
 authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
 keywords = ["dbt", "duckdb", "snowflake", "customer-acquisition", "attribution", "marketing", "cltv"]
