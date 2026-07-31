@@ -20,3 +20,6 @@ logs/
 
 # Extracted DB copy from the image (not part of the repo)
 /retail.duckdb
+
+# local skill installs (npx skills add)
+.agents/
