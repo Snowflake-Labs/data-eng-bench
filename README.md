@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="docs/assets/snowflake_dbt_bench.png" alt="dbt-bench" width="760" />
+  <img src="docs/assets/snowflake_dbt_bench.png" alt="data-eng-bench" width="760" />
 </p>
 
 <p align="center">
-  <a href="https://hub.harborframework.com/datasets/snowflake-labs/dbt-bench"><img alt="Harbor Hub" src="https://img.shields.io/badge/Harbor%20Hub-snowflake--labs%2Fdbt--bench-2E7D32"></a>
-  <a href="https://hub.harborframework.com/datasets/snowflake-labs/dbt-bench/latest?tab=leaderboard&leaderboard=main"><img alt="Leaderboard" src="https://img.shields.io/badge/Leaderboard-live-1976D2"></a>
+  <a href="https://hub.harborframework.com/datasets/snowflake-labs/data-eng-bench"><img alt="Harbor Hub" src="https://img.shields.io/badge/Harbor%20Hub-snowflake--labs%2Fdata--eng--bench-2E7D32"></a>
+  <a href="https://hub.harborframework.com/datasets/snowflake-labs/data-eng-bench/latest?tab=leaderboard&leaderboard=main"><img alt="Leaderboard" src="https://img.shields.io/badge/Leaderboard-live-1976D2"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache--2.0-blue"></a>
   <a href="https://signup.snowflake.com/cortex-code"><img alt="Snowflake Cortex Code" src="https://img.shields.io/badge/Snowflake-Cortex%20Code-29B5E8"></a>
 </p>
 
-dbt-bench measures how well coding agents do real dbt data-engineering work on a
+data-eng-bench measures how well coding agents do real dbt data-engineering work on a
 large, realistic retail warehouse. Each task drops an agent into a containerized
 dbt project with a ticket-style instruction and a hidden verifier; the agent
 edits or creates dbt models, runs dbt, and is scored by a `pytest` verifier that
@@ -31,8 +31,8 @@ Difficulty spread: 3 easy, 47 medium, 45 hard, 8 very hard.
 
 ## Links
 
-- Dataset: [`snowflake-labs/dbt-bench` on the Harbor Hub](https://hub.harborframework.com/datasets/snowflake-labs/dbt-bench)
-- Leaderboard: [the public dbt-bench leaderboard](https://hub.harborframework.com/datasets/snowflake-labs/dbt-bench/latest?tab=leaderboard&leaderboard=main) (see [Submitting to the leaderboard](#submitting-to-the-leaderboard))
+- Dataset: [`snowflake-labs/data-eng-bench` on the Harbor Hub](https://hub.harborframework.com/datasets/snowflake-labs/data-eng-bench)
+- Leaderboard: [the public data-eng-bench leaderboard](https://hub.harborframework.com/datasets/snowflake-labs/data-eng-bench/latest?tab=leaderboard&leaderboard=main) (see [Submitting to the leaderboard](#submitting-to-the-leaderboard))
 
 ## The benchmark
 
@@ -73,20 +73,20 @@ harbor run --path tasks --task-name dbt-fix-division-by-zero \
   --agent claude-code --model anthropic/claude-opus-4-8 --env DB_TYPE=duckdb
 
 # the full suite (k=3, all 103 tasks)
-harbor run --config configs/dbt-bench-duckdb.claude-code.yaml --path tasks
+harbor run --config configs/data-eng-bench-duckdb.claude-code.yaml --path tasks
 ```
 
 Swap the agent and model freely, or use the `codex` / `cortex-code` configs.
 Once the dataset is on the Harbor Hub you can run it without a local checkout:
 
 ```bash
-harbor run -d snowflake-labs/dbt-bench --agent claude-code --model anthropic/claude-opus-4-8
+harbor run -d snowflake-labs/data-eng-bench --agent claude-code --model anthropic/claude-opus-4-8
 ```
 
 Run only the fast subset:
 
 ```bash
-harbor run --config configs/dbt-bench-duckdb.claude-code.yaml --path tasks \
+harbor run --config configs/data-eng-bench-duckdb.claude-code.yaml --path tasks \
   $(sed 's/^/--task-name /' configs/fast-30.txt)
 ```
 
@@ -139,7 +139,7 @@ different connection.
 export SNOWFLAKE_ACCOUNT=abcd-xy12345 SNOWFLAKE_USER=YOUR_USERNAME \
        SNOWFLAKE_PASSWORD=YOUR_PASSWORD SNOWFLAKE_WAREHOUSE=COMPUTE_WH \
        SNOWFLAKE_SOURCE_DATABASE=DBT_BENCH_RETAIL SNOWFLAKE_ROLE=SYSADMIN
-harbor run --config configs/dbt-bench-snowflake.claude-code.yaml --path tasks
+harbor run --config configs/data-eng-bench-snowflake.claude-code.yaml --path tasks
 ```
 
 Each task's Harbor healthcheck clones `SNOWFLAKE_SOURCE_DATABASE` into an
@@ -166,7 +166,7 @@ Run at least 3 trials per task, upload the results publicly, then open a
 submission PR:
 
 ```bash
-harbor run -d snowflake-labs/dbt-bench -a <agent> -m <provider/model> -k 3 --upload --public
+harbor run -d snowflake-labs/data-eng-bench -a <agent> -m <provider/model> -k 3 --upload --public
 cd leaderboard && uv run lb submit https://hub.harborframework.com/jobs/<uuid>
 ```
 
@@ -176,7 +176,7 @@ merges as a new leaderboard row. See
 
 ## Tasks
 
-All 103 dbt-bench tasks ship in `tasks/` (listed in `dataset.toml`), and
+All 103 data-eng-bench tasks ship in `tasks/` (listed in `dataset.toml`), and
 `configs/fast-30.txt` is a balanced 30-task subset. One task,
 `dbt-fix-timezone-sales`, is timezone-sensitive and its DuckDB verifier can be
 order-dependent; it is included for completeness, and its individual DuckDB
@@ -184,7 +184,7 @@ result should be read as advisory.
 
 ## Citation
 
-If you use dbt-bench, please cite this repository; see [CITATION.cff](CITATION.cff).
+If you use data-eng-bench, please cite this repository; see [CITATION.cff](CITATION.cff).
 
 ## License
 

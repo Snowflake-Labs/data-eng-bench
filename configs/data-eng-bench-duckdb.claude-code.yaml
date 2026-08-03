@@ -1,16 +1,16 @@
-# dbt-bench — DuckDB (hermetic) — Claude Code
+# data-eng-bench — DuckDB (hermetic) — Claude Code
 #
-# Zero Snowflake account required. Each task builds the dbt-bench base image,
+# Zero Snowflake account required. Each task builds the data-eng-bench base image,
 # which bakes in retail.duckdb; DB_TYPE=duckdb points dbt at that local file.
 #
 # Run:
-#   harbor run --config configs/dbt-bench-duckdb.claude-code.yaml \
+#   harbor run --config configs/data-eng-bench-duckdb.claude-code.yaml \
 #     --path tasks -m anthropic/claude-opus-4-8 --ak reasoning_effort=high
 #
 # (Or against the published dataset instead of --path tasks:
-#   harbor run -d snowflake-labs/dbt-bench --config configs/dbt-bench-duckdb.claude-code.yaml ...)
+#   harbor run -d snowflake-labs/data-eng-bench --config configs/data-eng-bench-duckdb.claude-code.yaml ...)
 
-name: dbt-bench-duckdb
+name: data-eng-bench-duckdb
 
 n_attempts: 3          # leaderboard requires >= 3 trials per task
 n_concurrent_trials: 4

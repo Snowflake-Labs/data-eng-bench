@@ -1,6 +1,6 @@
-# dbt-bench base image (public build).
+# data-eng-bench base image (public build).
 #
-# Builds the shared runtime that every dbt-bench task extends via
+# Builds the shared runtime that every data-eng-bench task extends via
 # `FROM dbt-bench-base`. Fully public sources only — Docker Hub for the base
 # image, public PyPI for Python packages, NodeSource for Node.js. No private
 # registries or artifact stores are referenced.

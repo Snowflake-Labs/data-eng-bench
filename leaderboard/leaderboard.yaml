@@ -3,12 +3,12 @@
 # (one-time; see leaderboard/SETUP.md and PUBLISHING.md)
 
 # Dataset package selector. Use package as an org/name slug, or replace it with package_id as a UUID. Do not provide both.
-package: snowflake-labs/dbt-bench
+package: snowflake-labs/data-eng-bench
 
 # Leaderboard identity. name is the stable lowercase slug; title is shown in the UI; description is optional; visibility is public or private.
 name: main
-title: dbt-bench
-description: The official leaderboard for dbt-bench — an agentic benchmark of 103 real-world dbt data-engineering tasks, runnable hermetically on DuckDB or against Snowflake. Submit your results to [the dbt-bench repo](https://github.com/Snowflake-Labs/dbt-bench) to join the leaderboard.
+title: data-eng-bench
+description: The official leaderboard for data-eng-bench — an agentic benchmark of 103 real-world dbt data-engineering tasks, runnable hermetically on DuckDB or against Snowflake. Submit your results to [the data-eng-bench repo](https://github.com/Snowflake-Labs/data-eng-bench) to join the leaderboard.
 visibility: public
 
 # Optional JSON-Schema-style docs for submitted leaderboard rows. metadata_schema describes each row's metadata object, and metrics_schema describes each row's metrics object. These schemas define the expected structure of rows submitted to the leaderboard and returned from leaderboard-read as rows[].metadata and rows[].metrics. The leaderboard submitter populates metadata and metrics; metadata is typically derived from trial.lock fields, while metrics are typically aggregated from trial results. Column and ranking accessors should point at fields described here. For example, metadata.agent is read from a submitted row like {metadata: {agent: ...}}.

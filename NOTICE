@@ -1,4 +1,4 @@
-dbt-bench
+data-eng-bench
 Copyright 2026 Snowflake Inc.
 
 This product is licensed under the Apache License, Version 2.0 (see LICENSE).
@@ -9,7 +9,7 @@ Provenance
 
 The benchmark tasks, dbt models, verifiers, and the `retail` dataset
 (retail.duckdb) in this repository are original works authored by Snowflake for
-the dbt-bench benchmark. The dataset is a synthetic retail data warehouse
+the data-eng-bench benchmark. The dataset is a synthetic retail data warehouse
 (orders, customers, products, SAP-style source tables); it contains no real
 customer data and no third-party proprietary data.
 

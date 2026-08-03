@@ -1,4 +1,4 @@
-# dbt-bench — Snowflake — Codex
+# data-eng-bench — Snowflake — Cortex Code
 #
 # Requires a Snowflake account with the DBT_BENCH_RETAIL database seeded once
 # (see README.md "Quickstart (Snowflake)" -> migrate_duckdb.py). Verifiers and
@@ -14,10 +14,10 @@
 #   export SNOWFLAKE_ROLE=SYSADMIN    # a role with USAGE on DBT_BENCH_RETAIL
 #
 # Run:
-#   harbor run --config configs/dbt-bench-snowflake.codex.yaml \
-#     --path tasks -m openai/gpt-5.6 --ak reasoning_effort=high
+#   harbor run --config configs/data-eng-bench-snowflake.claude-code.yaml \
+#     --path tasks -m anthropic/claude-opus-4-8 --ak reasoning_effort=high
 
-name: dbt-bench-snowflake
+name: data-eng-bench-snowflake
 
 n_attempts: 3          # leaderboard requires >= 3 trials per task
 n_concurrent_trials: 4
@@ -36,7 +36,13 @@ environment:
     - SNOWFLAKE_ROLE=${SNOWFLAKE_ROLE:-SYSADMIN}
 
 agents:
-  - name: codex
-    model_name: openai/gpt-5.6
+  - name: cortex-code
+    model_name: anthropic/claude-opus-4-8
     kwargs:
       reasoning_effort: high
+
+  # Portable fallback if your Harbor build has no native `cortex-code` agent:
+  # - name: terminus-2
+  #   model_name: anthropic/claude-opus-4-8
+  #   kwargs:
+  #     reasoning_effort: high

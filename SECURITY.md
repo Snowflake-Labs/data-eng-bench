@@ -1,6 +1,6 @@
 # Security Policy
 
-`dbt-bench` is a benchmark dataset and evaluation harness, not a production
+`data-eng-bench` is a benchmark dataset and evaluation harness, not a production
 service. It contains no Snowflake production code, credentials, or customer data.
 
 ## Reporting a Vulnerability

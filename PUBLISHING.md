@@ -1,4 +1,4 @@
-# Publishing dbt-bench (maintainer runbook)
+# Publishing data-eng-bench (maintainer runbook)
 
 Exact steps to take this repo from the staging checkout to a live, public
 Harbor dataset + leaderboard under the `Snowflake-Labs` org. Run top-to-bottom.
@@ -23,16 +23,16 @@ git commit -m "Track retail.duckdb via Git LFS"
 git lfs ls-files                                  # confirm it's an LFS object
 ```
 
-GitHub free LFS is 1 GB storage / 1 GB-month bandwidth. dbt-bench's single
+GitHub free LFS is 1 GB storage / 1 GB-month bandwidth. data-eng-bench's single
 ~489 MB object fits, but every `git lfs pull` by a runner/user burns bandwidth.
 See "retail.duckdb hosting decision" below.
 
 ## 2. Create the GitHub repo and push (needs SSO)
 
 ```bash
-gh repo create Snowflake-Labs/dbt-bench --public --source . --remote origin --push
+gh repo create Snowflake-Labs/data-eng-bench --public --source . --remote origin --push
 # or, if the repo exists:
-git remote add origin git@github.com:Snowflake-Labs/dbt-bench.git
+git remote add origin git@github.com:Snowflake-Labs/data-eng-bench.git
 git push -u origin main            # LFS objects upload automatically
 ```
 
@@ -74,11 +74,11 @@ jq -r .api_key ~/.harbor/credentials.json          # the sk-harbor-... key, for 
 
 ```bash
 # (Optional) regenerate/refresh the manifest from the tasks/ directory:
-harbor dataset init "snowflake-labs/dbt-bench" \
+harbor dataset init "snowflake-labs/data-eng-bench" \
   --description "Agentic dbt data-engineering benchmark (DuckDB + Snowflake)" \
   --author "Snowflake <opensource@snowflake.com>"
 
-harbor publish snowflake-labs/dbt-bench --public -t v1.0
+harbor publish snowflake-labs/data-eng-bench --public -t v1.0
 ```
 
 `harbor publish` prints the canonical dataset digest (`sha256:...`). **Copy it
@@ -97,7 +97,7 @@ Then complete the one-time repo wiring from
 
 - set repo secrets: `HARBOR_API_KEY`, `ANTHROPIC_API_KEY`, `MODAL_TOKEN_ID`,
   `MODAL_TOKEN_SECRET`;
-- `gh label create lb-submission --repo snowflake-labs/dbt-bench --color 0E8A16`;
+- `gh label create lb-submission --repo snowflake-labs/data-eng-bench --color 0E8A16`;
 - enable "Allow GitHub Actions to create and approve pull requests" (org-level —
   needs org admin, another `Snowflake-Labs` gate).
 
@@ -122,7 +122,7 @@ source of record.** Rationale:
 - [ ] SSO-authorized token for `Snowflake-Labs`
 - [ ] `git lfs pull` shows real `retail.duckdb` (not a pointer)
 - [ ] `docker build base-image/` succeeds locally
-- [ ] repo pushed to `github.com/Snowflake-Labs/dbt-bench`
+- [ ] repo pushed to `github.com/Snowflake-Labs/data-eng-bench`
 - [ ] base image pushed to GHCR and made public
 - [ ] `harbor publish` done; `DATASET_REF` digest pasted into `hub.py` and pushed
 - [ ] leaderboard created; secrets, label, and org Actions setting configured

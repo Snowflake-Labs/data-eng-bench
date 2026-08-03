@@ -33,7 +33,7 @@ from leaderboard.core.metrics import (
 
 # The leaderboard this repo submits to; the definition lives in
 # leaderboard/leaderboard.yaml (see SETUP.md).
-LEADERBOARD_PACKAGE = "snowflake-labs/dbt-bench"
+LEADERBOARD_PACKAGE = "snowflake-labs/data-eng-bench"
 LEADERBOARD_NAME = "main"
 
 LEADERBOARD_URL = (
