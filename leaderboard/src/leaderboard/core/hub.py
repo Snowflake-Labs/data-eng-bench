@@ -24,7 +24,7 @@ _ANSI = re.compile(r"\x1b\[[0-9;]*m")
 # never considered. DATASET_REF is the sha256 of the canonical dataset version;
 # checking it proves every trial ran the official, unmodified tasks.
 DATASET = "snowflake-labs/data-eng-bench"
-DATASET_REF = "sha256:4b5932ee20c4b0b5a0241b5b184c1d9d8e9658bda0d1cb2389e8e941046e8e0a"  # snowflake-labs/data-eng-bench@v1.0
+DATASET_REF = "sha256:de31878dba7e5a9aad85dc8276820b0a20ab593aed46ff93dfbbbdb6007ec995"  # snowflake-labs/data-eng-bench@v1.0
 
 # Base URL for human-facing hub links (trial pages, judge jobs, the
 # leaderboard). API access does not go through this -- harbor resolves its own
