@@ -41,25 +41,24 @@ above) and retry.
 
 ## 3. Build and push the base image
 
-The task `environment/Dockerfile`s do `FROM dbt-bench-base`. For a public
-dataset, publish the base image to a public registry and point the task
-Dockerfiles at the pinned tag (or keep `dbt-bench-base` as a documented local
-build — see the hosting decision).
+The task `environment/Dockerfile`s do `FROM
+ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0` (pinned repo-wide). Publish
+the base image to that public tag so `harbor run` can pull it; local dev builds
+under the same tag, so Docker resolves it without a pull.
 
 ```bash
 git lfs pull --include="base-image/database/*"    # ensure real DB, not pointer
-docker build base-image/ -t ghcr.io/snowflake-labs/dbt-bench-base:1.0.0
-docker push ghcr.io/snowflake-labs/dbt-bench-base:1.0.0
+docker build base-image/ -t ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0
+docker push ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0
 # make the GHCR package public in the org's package settings
 ```
 
-If you repoint the task Dockerfiles at the GHCR tag, do it repo-wide:
+The task Dockerfiles already point at this tag. To re-pin after a version bump,
+do it repo-wide:
 
 ```bash
-# tasks/*/environment/Dockerfile: FROM dbt-bench-base
-#                              ->  FROM ghcr.io/snowflake-labs/dbt-bench-base:1.0.0
-grep -rl '^FROM dbt-bench-base' tasks | xargs sed -i \
-  's#^FROM dbt-bench-base#FROM ghcr.io/snowflake-labs/dbt-bench-base:1.0.0#'
+grep -rl '^FROM ghcr.io/snowflake-labs/data-eng-bench-base' tasks | xargs sed -i \
+  's#:1.0.0#:<new-tag>#'
 ```
 
 ## 4. Authenticate to Harbor
@@ -107,7 +106,7 @@ Then complete the one-time repo wiring from
 source of record.** Rationale:
 
 - Task containers must have the DB locally for `DB_TYPE=duckdb`; baking it into
-  `dbt-bench-base` is the simplest correct path (no per-trial download, works
+  `data-eng-bench-base` is the simplest correct path (no per-trial download, works
   offline in the sandbox).
 - Keeping it in-repo via LFS gives a single source of truth and lets
   `migrate_duckdb.py` users grab it without pulling the whole image.

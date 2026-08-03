@@ -1,4 +1,4 @@
-FROM dbt-bench-base
+FROM ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0
 
 # Copy buggy model to BOTH backend project dirs
 COPY int_sales__orders_enriched.sql /app/dbt_models_duckdb/models/intermediate/sales/int_sales__orders_enriched.sql

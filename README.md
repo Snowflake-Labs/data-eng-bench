@@ -59,7 +59,7 @@ the workspace:
 uv tool install harbor
 git lfs pull                 # materialize base-image/database/retail.duckdb (~489 MB)
 cp .env.example .env         # then fill in the API key for your agent's model
-docker build base-image/ -t dbt-bench-base
+docker build base-image/ -t ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0
 ```
 
 ## Running (DuckDB, no account)
@@ -118,7 +118,7 @@ Snowflake tasks read from.
 
 ```bash
 # extract retail.duckdb from the built image (or use the file directly after `git lfs pull`)
-id=$(docker create dbt-bench-base)
+id=$(docker create ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0)
 docker cp "$id:/app/database/retail.duckdb" ./retail.duckdb
 docker rm "$id"
 

@@ -14,7 +14,7 @@ n_concurrent_trials: 4
 quiet: true
 
 environment:
-  type: docker         # builds each task's environment/Dockerfile (FROM dbt-bench-base)
+  type: docker         # builds each task's environment/Dockerfile (FROM ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0)
   env:
     - DB_TYPE=duckdb
 

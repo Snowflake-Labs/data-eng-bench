@@ -1,4 +1,4 @@
-FROM dbt-bench-base
+FROM ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0
 
 COPY data/create_marketing_tables.sql /app/setup/create_marketing_tables.sql
 COPY data/stg_marketing__campaigns.sql /app/dbt_models_duckdb/models/staging/marketing/stg_marketing__campaigns.sql

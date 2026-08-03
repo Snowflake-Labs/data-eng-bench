@@ -1,16 +1,16 @@
 # data-eng-bench base image (public build).
 #
 # Builds the shared runtime that every data-eng-bench task extends via
-# `FROM dbt-bench-base`. Fully public sources only — Docker Hub for the base
+# `FROM ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0`. Fully public sources only — Docker Hub for the base
 # image, public PyPI for Python packages, NodeSource for Node.js. No private
 # registries or artifact stores are referenced.
 #
 # Build (from this directory):
-#   docker build -t dbt-bench-base .
+#   docker build -t ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0 .
 #
 # Publish (maintainers, see ../PUBLISHING.md):
-#   docker build -t ghcr.io/snowflake-labs/dbt-bench-base:1.0.0 .
-#   docker push  ghcr.io/snowflake-labs/dbt-bench-base:1.0.0
+#   docker build -t ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0 .
+#   docker push  ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0
 FROM python:3.12-slim
 
 # dbt adapters, DuckDB, and the test toolchain. Versions are pinned to match
