@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="docs/assets/snowflake_dbt_bench.png" alt="data-eng-bench" width="760" />
-</p>
+
 
 <p align="center">
   <a href="https://hub.harborframework.com/datasets/snowflake-labs/data-eng-bench"><img alt="Harbor Hub" src="https://img.shields.io/badge/Harbor%20Hub-snowflake--labs%2Fdata--eng--bench-2E7D32"></a>
