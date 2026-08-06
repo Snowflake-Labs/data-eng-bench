@@ -349,6 +349,3 @@ Configure with `type: snowflake` using password authentication:
 ## Files
 - DuckDB: `/app/dbt_models_duckdb/models/intermediate/cart_recovery/` and `/app/dbt_models_duckdb/models/marts/digital/`
 - Snowflake: `/app/dbt_models_snowflake/models/intermediate/cart_recovery/` and `/app/dbt_models_snowflake/models/marts/digital/`
-
-## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

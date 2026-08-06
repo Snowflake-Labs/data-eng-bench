@@ -141,7 +141,3 @@ The model should produce these columns:
 3. Row count matches the number of returns in the source table
 4. The new tier column contains valid values distributed across multiple categories
 5. Classification distinguishes between fast and slow processors
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

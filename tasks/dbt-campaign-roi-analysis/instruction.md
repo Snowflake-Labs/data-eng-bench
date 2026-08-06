@@ -234,7 +234,3 @@ Required columns:
 - Attribution weights should sum correctly (0.5 + 0.5 = 1.0 for split attribution)
 - Ensure all numeric columns avoid infinity and NaN values
 - The staging and intermediate layers must build correctly before the mart layer runs
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

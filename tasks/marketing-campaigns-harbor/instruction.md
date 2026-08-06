@@ -441,7 +441,6 @@ Trend: Compare to previous day's rolling average value.
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `NULLIF()` to prevent division by zero
 - Use `COALESCE()` for default values
 - Use `CAST(x AS DOUBLE)` or multiply by `1.0` for division precision where needed

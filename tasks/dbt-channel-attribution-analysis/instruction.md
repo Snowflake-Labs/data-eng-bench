@@ -198,7 +198,6 @@ This ensures all models (staging, intermediate, and mart) land in the `MAIN` sch
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use CAST() for explicit type casting
 - Use DATEDIFF function for date differences (compatible with both backends)
 - Use DATE_TRUNC for date truncation

@@ -204,7 +204,6 @@ Monthly cohort retention analysis. Order by cohort_month ASC, months_since_first
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `DATEDIFF('day', start, end)` for date arithmetic (works on both backends)
 - For date formatting to YYYY-MM strings, use Jinja conditionals: `TO_VARCHAR` for Snowflake, `strftime` for DuckDB
 - Use `CAST(... AS DOUBLE)` for division operations to avoid integer division issues

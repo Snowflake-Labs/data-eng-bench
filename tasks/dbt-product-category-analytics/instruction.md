@@ -125,6 +125,5 @@ The final `fct_category_performance` table must have:
 - Profit margin should be between 0 and 1
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `trim()`, `coalesce()`, `cast()`, `round()`, `nullif()` which work on both backends
 - For Snowflake, run dbt with `--select` specifying model names explicitly

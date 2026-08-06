@@ -432,7 +432,3 @@ For `customer_cohort_analysis`:
 - For NTILE functions, include ORDER BY customer_id as tie-breaker to ensure deterministic results
 
 If your models appear in a different schema than expected, re-check your work and review how dbt handles schema naming when a custom schema is specified.
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

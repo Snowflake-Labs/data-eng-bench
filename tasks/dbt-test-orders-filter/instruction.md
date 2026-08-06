@@ -64,4 +64,3 @@ Configure with `type: snowflake` using password authentication:
 - Exclude any orders that are flagged for testing, sampling, or internal use
 - Preserve all columns from the orders table in your model (the above are the minimum required)
 - Round monetary values to 2 decimal places where applicable
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

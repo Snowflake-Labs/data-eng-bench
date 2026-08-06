@@ -179,5 +179,4 @@ Your dbt models must be **idempotent**, meaning that running the pipeline multip
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use Jinja `{% if target.type == 'snowflake' %}` for DuckDB-specific functions (strftime vs TO_CHAR, date subtraction vs DATEDIFF, etc.)

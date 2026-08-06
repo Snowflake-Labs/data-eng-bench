@@ -146,7 +146,6 @@ Apply a **cross-channel bonus** to conversions that have sessions from 3 or more
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible).
 - Use Jinja conditionals (`{% if target.type == 'duckdb' %}...{% else %}...{% endif %}`) for any syntax that differs between backends (e.g., `date_diff` vs `DATEDIFF`, boolean comparisons).
 - Handle boolean columns carefully -- Snowflake may store booleans as VARCHAR. Use `UPPER(CAST(col AS VARCHAR)) IN ('1', 'TRUE', 'T', 'Y', 'YES')` for Snowflake boolean checks.
 - Use `interval '14 days'` syntax which works on both backends.

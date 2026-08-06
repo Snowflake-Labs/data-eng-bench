@@ -46,11 +46,6 @@ Materialize `analytics.rpt_cac_payback_waterfall_fixed` with columns:
 - `cumulative_spend` and `cumulative_revenue` must be non-decreasing within each campaign.
 - Reconciliation: for each campaign, the last row's cumulative totals must equal total source values within 0.01.
 
-#### SQL Compatibility Guidelines
-- Use Jinja conditionals (`{% if target.type == 'snowflake' %}`) for database-specific syntax
-- DuckDB and Snowflake have different date/type functions -- handle both
-- The SQL should work on both DuckDB and Snowflake
-
 #### Environment notes
 - Base image includes dbt + DuckDB + `/app/dbt_transforms`.
 - Your dbt profile should write to schema `analytics`.

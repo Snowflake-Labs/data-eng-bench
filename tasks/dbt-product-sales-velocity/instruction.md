@@ -360,7 +360,3 @@ Based on performance_score:
 - For category rankings, use avg_daily_units DESC, then product_id ASC
 - For NTILE percentiles, higher percentile = higher avg_daily_units (100 = fastest)
 - When calculating half-period metrics, use integer division for midpoint calculation
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

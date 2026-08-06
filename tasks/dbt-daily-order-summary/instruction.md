@@ -72,7 +72,3 @@ Create a model named `daily_order_summary` in schema `daily_analytics` with thes
 
 - Configure the schema in `profiles.yml`, not in `dbt_project.yml`
 - The model should be materialized as a table
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

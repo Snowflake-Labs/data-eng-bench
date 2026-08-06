@@ -253,7 +253,6 @@ Your solution will be tested for:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - You must override `macros/utils/generate_schema_name.sql` to ensure custom schemas are used directly (not prefixed by dbt)
 - Start with the staging model to understand the data structure
 - Consider efficient approaches for generating product pair combinations

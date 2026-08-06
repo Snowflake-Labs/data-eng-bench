@@ -83,7 +83,3 @@ The model uses these staging tables (explore each to understand available column
 - **stg_orders__orders** - Contains order header information including timestamps and status
 - **stg_product__product_variants** - Maps variants to products
 - **stg_product__products** - Contains product information
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

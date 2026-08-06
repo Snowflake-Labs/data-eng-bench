@@ -209,6 +209,5 @@ NOTES
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use DATEDIFF for time difference calculations
 - Use CAST(... AS DOUBLE) for division to avoid integer truncation

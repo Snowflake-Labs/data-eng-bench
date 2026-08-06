@@ -99,7 +99,6 @@ Three rows showing where users drop off.
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use integer 1/0 instead of boolean true/false for cross-database compatibility
 - Ensure idempotent execution (multiple runs produce same results)
 - Use explicit type casts where needed

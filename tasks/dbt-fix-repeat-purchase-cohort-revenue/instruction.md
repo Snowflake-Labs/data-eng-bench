@@ -86,14 +86,8 @@ Implement **one** model: `models/marts/customer/rpt_repeat_purchase_cohort_reven
 - Cumulative check: for every cohort/month bucket, `cumulative_revenue` must equal the sum of all prior-or-equal bucket revenues (tolerance 0.01).
 - Idempotent and deterministic: reruns should not change totals.
 
-#### SQL Compatibility Guidelines
-- Use Jinja conditionals (`{% if target.type == 'snowflake' %}`) for database-specific syntax where needed
-- DuckDB uses `DATE_DIFF('month', start, end)` while Snowflake uses `DATEDIFF('month', start, end)`
-- DuckDB `::date` cast works, but prefer `CAST(... AS DATE)` for cross-compatibility
-- Use `adapter.get_relation()` to reference source tables from the `main` schema
-- Avoid DuckDB-specific `FILTER (WHERE ...)` syntax; use `CASE WHEN` for Snowflake compatibility
-
 #### Environment notes
+- Use `adapter.get_relation()` to reference source tables from the `main` schema
 - Check `DB_TYPE` environment variable to determine which backend is active.
 - DuckDB project dir: `/app/dbt_models_duckdb`; Snowflake project dir: `/app/dbt_models_snowflake`
 - Do not modify `/app/dbt_models_duckdb` or `/app/dbt_models_snowflake` staging models; depend on them by building first (DuckDB) or relying on pre-built (Snowflake).

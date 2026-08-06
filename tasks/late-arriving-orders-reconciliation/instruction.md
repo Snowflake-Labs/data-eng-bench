@@ -101,7 +101,6 @@ The database contains the following tables:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `DATEDIFF('day', start, end)` instead of date subtraction for cross-DB compatibility
 - Use `CAST(col AS DATE)` or `CAST(col AS TIMESTAMP)` for date type conversions
 - Handle `DB_TYPE` environment variable to determine which backend to connect to

@@ -87,7 +87,6 @@ Materialize `analytics.rpt_customer_churn_early_warning_fixed` with columns:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible).
 - Profile name must be `retail_dw_master`.
 - Your dbt profile should write to schema `analytics`.
 - Ensure idempotent execution (multiple runs produce same results).

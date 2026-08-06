@@ -645,5 +645,4 @@ One row per manager_id from dim_hr__managers.
 - Do NOT modify upstream staging models
 - Do NOT change model materialization
 - Preserve all output columns
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Do NOT use `CURRENT_DATE` for rolling window calculations (e.g., new_hires_30d, terminations_30d, tenure). Instead, use `MAX(COALESCE(termination_date, hire_date))` from the employees table as the reference date. This ensures consistent results regardless of when the models are run.

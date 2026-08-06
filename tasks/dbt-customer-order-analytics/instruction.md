@@ -104,7 +104,6 @@ The final `dim_customer_tiers` table must have these columns:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Ensure idempotent execution (multiple runs produce same results)
 - Use explicit type casts where needed
 - Handle NULL values appropriately

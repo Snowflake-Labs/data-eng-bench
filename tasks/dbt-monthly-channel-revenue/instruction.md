@@ -332,6 +332,3 @@ Configure with `type: duckdb` and the database path from `$DUCKDB_PATH`.
 ### Snowflake Profile
 Configure with `type: snowflake` using password authentication:
 - Use the environment variables for account, user, password, database, schema, warehouse, and role
-
-## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

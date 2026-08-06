@@ -214,7 +214,6 @@ For DuckDB, reference these via `main.<table_name>`. For Snowflake, these models
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible).
 - Use explicit type casts where needed. Use `CAST(x AS DOUBLE)` for division precision.
 - Handle NULL values appropriately with NULLIF and COALESCE.
 - Keep joins and aggregates deterministic; avoid fanout by deduplicating SKUs per order before pairing.

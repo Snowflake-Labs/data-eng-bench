@@ -59,5 +59,4 @@ All products should appear in the output, even those without any sales. Material
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Pay attention to the grain of your model -- joining across multiple dimensions can cause fan-out issues

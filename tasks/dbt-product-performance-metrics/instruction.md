@@ -235,4 +235,3 @@ Based on product_health_score:
 - For ranking, products with the same value should receive the same rank
 - Ensure deterministic results across multiple runs
 - The overall average unit price for price_position should be calculated across all products (not weighted by quantity)
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

@@ -390,7 +390,6 @@ dbt run --select +fulfillment_sla +carrier_performance +warehouse_performance +f
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `DATEDIFF('day', start, end)` for date differences (works on both backends)
 - Use `CAST(... AS DOUBLE)` for division to avoid integer division issues
 - Use integer 1/0 instead of boolean true/false for cross-database compatibility

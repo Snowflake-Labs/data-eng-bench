@@ -311,6 +311,5 @@ The dbt project has `target_schema='main'`. When you set `schema='staging'`, dbt
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `{{ source() }}` for raw tables and `{{ ref() }}` for model dependencies
 - Staging = views, Intermediate = views, Marts = tables

@@ -273,7 +273,6 @@ Based on combination of total_orders, days_since_last_order, and customer_lifesp
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Reference date for days_since_last_order calculation is '2024-12-31'
 - Ensure deterministic results across multiple runs
 - Use sample standard deviation (not population) for std_dev_days calculation

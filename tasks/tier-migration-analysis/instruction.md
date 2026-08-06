@@ -166,7 +166,3 @@ Churn risk scoring per customer. Order by risk_score DESC, customer_id ASC.
 - Customers with single tier record: Include in velocity (changes=1) but no avg_days
 - No orders within 30-day window: revenue = 0
 - All monetary values rounded to 2 decimal places
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

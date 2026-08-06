@@ -325,15 +325,6 @@ Note: Only include months where the customer actually placed orders. The months_
 - `clv_cohort_analysis`: table
 - `clv_monthly_trends`: table
 
-## SQL Compatibility Guidelines
-
-When writing SQL models that need to work on both DuckDB and Snowflake, use Jinja conditionals:
-- `strftime(date, format)` (DuckDB) vs `TO_CHAR(date, format)` (Snowflake)
-- `date_diff('day', a, b)` or `datediff('day', a, b)` (DuckDB) vs `DATEDIFF('day', a, b)` (Snowflake)
-- `interval '1 day' * N` (DuckDB) vs `DATEADD('day', N, date)` (Snowflake)
-- `a // b` integer division (DuckDB) vs `FLOOR(a / b)` (Snowflake)
-- Use `{% if target.type == 'snowflake' %}` for database-specific syntax
-
 ## Verification
 
 ```bash

@@ -33,7 +33,6 @@ Run `dbt deps` before running models.
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible).
 - Use `DATEDIFF('day', start_date, end_date)` for date differences (works on both backends).
 - Use `TO_VARCHAR(date, 'YYYY-MM')` for date formatting (works on both backends).
 - Avoid DuckDB-specific functions like `strftime`, `date_diff`, `CROSS JOIN LATERAL`.
