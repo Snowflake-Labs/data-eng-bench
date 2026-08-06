@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/snowflake_dbt_bench.png" alt="data-eng-bench" width="760" />
+  <img src="docs/assets/snowflake_data_eng_bench.png" alt="data-eng-bench" width="760" />
 </p>
 
 <p align="center">

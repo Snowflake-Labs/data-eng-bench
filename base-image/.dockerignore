@@ -1,0 +1,8 @@
+# Keep dbt build artifacts, caches, and local state out of the published base
+# image. Without this, a maintainer's local `target/` (which contains fully
+# resolved model SQL) would be baked into the image and distributed.
+**/target/
+**/logs/
+**/dbt_packages/
+**/__pycache__/
+**/.user.yml

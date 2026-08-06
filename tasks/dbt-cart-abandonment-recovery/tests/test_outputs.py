@@ -295,5 +295,5 @@ def test_solution():
     # (harbor.utils.pass_at_k rejects len(rewards) != 1; VerifierResult.rewards
     # is dict[str, float|int]). Emit the overall score as {"reward": ...},
     # matching reward.txt; per-component pass/fail is in the verifier stdout above.
-    Path("/logs/verifier/reward.json").write_text(json.dumps({"reward": final_score}))
+    Path("/logs/verifier/reward.json").write_text(json.dumps({"reward": final}))
     assert final == 1.0
