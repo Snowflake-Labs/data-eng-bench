@@ -155,7 +155,3 @@ Where `revenue_efficiency = MIN(attributed_revenue / campaign_days / 1000) `max 
 - Peer metrics partitioned by channel_category
 - Scores bounded appropriately
 - use `percent_rank()` and `dense_rank()` accordingly
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

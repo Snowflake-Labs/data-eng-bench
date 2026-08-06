@@ -373,7 +373,6 @@ Includes all columns from `int_reviews__enriched` in the same order, followed by
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `DATEDIFF` instead of `date_diff` for date difference calculations
 - For interval arithmetic, use `DATEADD` instead of `interval` expressions where possible
 - Handle boolean columns carefully as Snowflake may store them as VARCHAR

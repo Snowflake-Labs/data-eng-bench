@@ -107,7 +107,6 @@ Define appropriate sources for each schema.
 4. Risk scores must be non-negative integers
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `trim()`, `coalesce()`, `cast()` which work on both backends
 - For boolean flag comparisons, use a pattern that works across backends (e.g., `UPPER(CAST(flag AS VARCHAR)) IN ('TRUE', '1', 'T', 'Y', 'YES')` for Snowflake compatibility)
 - For Snowflake, run dbt with `--select` specifying model names explicitly

@@ -459,5 +459,4 @@ Create a **table** summarizing basket size transitions with these columns in exa
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible where possible)
 - Use Jinja conditionals (`{% if target.type == 'snowflake' %}`) for DuckDB-specific vs Snowflake-specific syntax

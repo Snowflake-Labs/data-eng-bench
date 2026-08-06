@@ -131,7 +131,6 @@ Configure with `type: snowflake` using password authentication:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `DATEDIFF('day', start, end)` for Snowflake and date subtraction for DuckDB when calculating day differences
 - Use integer 1/0 instead of boolean TRUE/FALSE for cross-database compatibility
 - Ensure idempotent execution (multiple runs produce same results)

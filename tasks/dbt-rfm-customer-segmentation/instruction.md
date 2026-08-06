@@ -138,7 +138,6 @@ When multiple segment conditions match, use this priority order (first match win
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Handle ties in NTILE appropriately (use deterministic sorting)
 - Round monetary values to 2 decimal places
 - Ensure idempotent execution (multiple runs should produce same results)

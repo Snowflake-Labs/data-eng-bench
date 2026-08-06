@@ -74,6 +74,5 @@ Explore the database to find tables containing price history and order/sales dat
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - For date formatting, use `strftime()` on DuckDB and `TO_VARCHAR()` on Snowflake
 - Install additional libraries as needed

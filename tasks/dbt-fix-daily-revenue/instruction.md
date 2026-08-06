@@ -39,7 +39,6 @@ Create a `profiles.yml` in the appropriate dbt project directory:
 - All tests pass
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use Jinja conditionals (`{% if target.type == 'snowflake' %}`) for database-specific syntax
 - Do NOT modify upstream staging models
 - Do NOT change model materialization

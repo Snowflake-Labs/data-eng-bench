@@ -182,7 +182,6 @@ The `rpt_attribution_fixed` model must:
 - **The `int_sessions_events_joined` model has a LEFT JOIN that creates fanout (one session -> many events)**
 - **You must use `COUNT(DISTINCT session_id)` to avoid double-counting sessions**
 - **UTM parameters are already clean in GA4 - no parsing needed**
-- **The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)**
 - **Ensure idempotent execution (multiple runs produce same results)**
 
 ## Exploration
@@ -194,7 +193,6 @@ You can explore the data using:
 - Direct SQL queries against the database to understand the schema
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `CAST(... AS DATE)` instead of `DATE(...)` function
 - Use `DATEDIFF` for date differences
 - Use `COALESCE` for NULL handling

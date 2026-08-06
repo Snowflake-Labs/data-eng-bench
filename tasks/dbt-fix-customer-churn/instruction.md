@@ -57,5 +57,4 @@ Configure with `type: snowflake` using password authentication:
 
 ## Guidelines
 
-- The SQL must work on both DuckDB and Snowflake. Use Jinja conditionals where syntax differs.
 - Ensure deterministic ordering when multiple orders share the same date

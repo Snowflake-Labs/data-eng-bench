@@ -265,5 +265,4 @@ Configure with `type: snowflake` using password authentication:
 - Use the environment variables for account, user, password, database, schema, warehouse, and role
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use the most recent date in the employee data (e.g., MAX(COALESCE(TERMINATION_DATE, HIRE_DATE)) from the EMPLOYEES table) as the reference date for all time-based calculations such as tenure and compensation filtering (do NOT use CURRENT_DATE — the data may not extend to the present day)

@@ -130,6 +130,5 @@ Build `attribution_confidence` that calculates confidence in attribution:
 `campaign_id`, `channel`, `sample_factor`, `recency_score`, `consistency_score`, `confidence_score`
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Do NOT modify source data
 - Preserve all output columns as specified

@@ -191,7 +191,6 @@ Your solution will be tested for:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Start by exploring the database to understand available tables and their relationships
 - Warehouse location data may not have explicit capacity values - infer capacity from location counts
 - Handle edge cases: days with no orders should not cause division by zero

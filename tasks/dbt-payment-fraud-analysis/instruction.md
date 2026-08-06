@@ -63,6 +63,3 @@ Configure with `type: snowflake` using password authentication:
 **fraud_risk_summary**: `risk_level`, `order_count`, `total_payment_amount`, `avg_fraud_score`, `failed_payment_count`, `pct_of_total_orders`
 
 **payment_anomalies** (at least 1 flag): `payment_id`, `order_id`, `customer_id`, `payment_method`, `amount`, `processed_at`, `fraud_score`, `risk_level`, `anomaly_flags` (comma-separated), `anomaly_count`
-
-## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

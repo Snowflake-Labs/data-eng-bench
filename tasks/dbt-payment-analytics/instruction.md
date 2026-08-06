@@ -147,7 +147,3 @@ Where:
 - Peer metrics partitioned by provider_type
 - Scores bounded appropriately
 - use `percent_rank()` and `dense_rank()` accordingly
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

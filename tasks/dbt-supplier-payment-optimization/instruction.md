@@ -300,6 +300,3 @@ Configure with `type: duckdb` and the database path from `$DUCKDB_PATH`.
 Configure with `type: snowflake` using password authentication:
 - Use the environment variables for account, user, password, database, schema, warehouse, and role
 - Set the profile's `schema:` to `$SNOWFLAKE_SCHEMA` — do NOT leave it blank. A blank or omitted schema makes Snowflake silently default to `PUBLIC`, so your models get built in the wrong schema and the verifier cannot find them.
-
-## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

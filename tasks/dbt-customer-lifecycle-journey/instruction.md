@@ -173,7 +173,3 @@ The mart model columns:
 - velocity_percentile, engagement_percentile, value_percentile, consistency_percentile
 - lifecycle_health_tier, customer_lifecycle_index, churn_risk_score
 - segment_velocity_rank, segment_peer_count, above_segment_avg_velocity, segment_percentile
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

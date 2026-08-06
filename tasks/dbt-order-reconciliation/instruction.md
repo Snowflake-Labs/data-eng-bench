@@ -151,4 +151,3 @@ GUIDELINES
 - Ensure proper JOIN types to handle data quality issues (orphan order lines exist)
 - Division by zero should return 0
 - Percentage calculations should be rounded appropriately
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

@@ -116,7 +116,6 @@ Visitor-level segmentation:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Handle ties in NTILE appropriately (use deterministic sorting)
 - Ensure idempotent execution (multiple runs should produce same results)
 - Install any additional libraries as needed

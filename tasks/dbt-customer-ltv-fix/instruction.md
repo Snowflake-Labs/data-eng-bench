@@ -48,14 +48,6 @@ Assign customers to segments based on their corrected `lifetime_value`:
 - `'Low Value'` - lifetime_value > 0 and < 100
 - `'No Value'` - lifetime_value = 0 or NULL
 
-## SQL Compatibility Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
-- Use Jinja conditionals (`{% if target.type == 'snowflake' %}`) for database-specific syntax
-- For Snowflake: use `CAST(column AS DATE)` instead of `column::date`
-- For Snowflake: use `TO_CHAR()` instead of `strftime()`
-- For Snowflake: use `DATEDIFF()` instead of `date_diff()`
-- For Snowflake: use `DATEADD()` instead of interval arithmetic
-
 ## Notes
 
 - Round decimal values to 2 decimal places

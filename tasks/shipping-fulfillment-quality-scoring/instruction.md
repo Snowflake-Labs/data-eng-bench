@@ -275,7 +275,6 @@ Round to 2 decimals.
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use DATEDIFF for date difference calculations
 - Use CAST AS DOUBLE for division precision when needed
 - Avoid DuckDB-specific syntax like `::numeric` casts; use standard CAST instead

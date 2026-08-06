@@ -182,4 +182,3 @@ The model should produce these columns:
 - Do NOT modify upstream staging models
 - Do NOT change model materialization
 - Preserve all output columns
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

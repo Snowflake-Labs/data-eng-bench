@@ -68,7 +68,6 @@ Create a dbt project at `/app/dbt_transforms`. The staging layer models are alre
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `CAST(x AS DOUBLE)` instead of `::DOUBLE` for type casting
 - Use `CAST(x AS INTEGER)` instead of `::INTEGER`
 - Use `CAST(x AS DATE)` for date conversions

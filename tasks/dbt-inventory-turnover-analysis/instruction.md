@@ -100,7 +100,6 @@ Materialize `analytics.rpt_inventory_turnover_analysis` with columns:
 #### Environment notes
 - Base image includes dbt + DuckDB + Snowflake support + reference dbt project.
 - Your dbt profile should write to schema `analytics`.
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible).
 - Use Jinja conditionals (`{% if target.type == 'snowflake' %}`) for database-specific syntax.
 
 #### Guidelines

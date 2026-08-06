@@ -184,7 +184,6 @@ Columns: order_id, order_source, order_type, ordered_at, order_date (DATE from o
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use Jinja conditionals (`{% if target.type == 'snowflake' %}`) where syntax diverges between backends
 - Boolean columns should use integer representation (1/0) for cross-database compatibility
 - Use DATEDIFF for date arithmetic, TRY_CAST for safe type conversions

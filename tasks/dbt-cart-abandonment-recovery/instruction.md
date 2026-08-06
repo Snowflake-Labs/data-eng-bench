@@ -149,6 +149,3 @@ The mart model should output these columns:
 - Engagement level = page_views * duration_seconds / 60
 - Window functions need tiebreaker columns for deterministic results
 - Note: `int_sales__orders_enriched.customer_id` uses different case than other tables
-
-## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

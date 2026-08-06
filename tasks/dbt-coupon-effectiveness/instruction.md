@@ -319,5 +319,4 @@ dbt run --select +coupon_effectiveness +coupon_summary +coupon_trends
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use conditional logic for database-specific syntax where necessary

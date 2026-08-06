@@ -299,7 +299,6 @@ Your implementation should handle the full range of values present in the source
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use CAST() for type conversions instead of :: syntax
 - Use standard date functions that work on both databases
 - Handle NULL values appropriately with COALESCE

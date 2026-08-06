@@ -111,7 +111,6 @@ One row per cohort with lifetime aggregate metrics:
 - Round decimal values to 2 decimal places
 - Retention rates should be on a 0-100 percentage scale
 - `cohort_size` must be consistent for the same cohort across all tables
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible where possible)
 - For date formatting functions that differ between backends, use Jinja conditionals:
   - DuckDB: `strftime('%Y-%m', date_col)`
   - Snowflake: `TO_CHAR(date_col, 'YYYY-MM')`

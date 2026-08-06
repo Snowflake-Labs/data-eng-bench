@@ -94,6 +94,5 @@ Configure with `type: snowflake` using password authentication:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use CAST() instead of :: for type casting
 - Use DATEDIFF function for date differences (compatible with both)

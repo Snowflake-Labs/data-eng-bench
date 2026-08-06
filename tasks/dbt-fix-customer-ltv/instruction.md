@@ -58,7 +58,3 @@ Find and fix the `dim_customers` model in the mart layer. Investigate the data l
 - Do NOT modify upstream staging models
 - Do NOT change model materialization type
 - Do NOT remove or rename existing columns
-
-## Guidelines
-
-- The SQL must work on both DuckDB and Snowflake. Use Jinja conditionals (`{% if target.type == 'snowflake' %}`) where syntax differs between backends. **Important**: Boolean columns like `is_cancelled` may be stored differently across backends. DuckDB uses native booleans, but Snowflake may store them as VARCHAR. Use Jinja conditionals to handle this difference -- don't assume `= false` works everywhere.

@@ -247,5 +247,4 @@ dbt run --select +abc_classification +abc_summary +abc_category_breakdown
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use TO_CHAR for date formatting (works on both) instead of strftime (DuckDB only)

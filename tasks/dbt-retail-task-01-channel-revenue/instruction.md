@@ -92,7 +92,6 @@ Configure with `type: snowflake` using password authentication:
 - Expose channel information that is required
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `nullif()` for safe division
 - Use `date_trunc('month', ...)` for month grouping
 - Use `current_timestamp` for `dbt_updated_at`

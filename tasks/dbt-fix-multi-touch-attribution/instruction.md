@@ -122,10 +122,8 @@ For each (attribution_date, channel, medium, campaign): count distinct `session_
 - Run reference models first: `dbt run --select stg_ga__sessions stg_ga__events int_sessions_events_joined` in the dbt project directory (DuckDB: `/app/dbt_models_duckdb`, Snowflake: `/app/dbt_models_snowflake`).
 - Prefer relations in the `main` schema for staged data.
 - Round revenue to 2 decimals and conversion_rate to 4 decimals.
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible).
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - For date arithmetic, use `DATEDIFF('day', start, end)` which works on both backends
 - Avoid DuckDB-specific syntax like `::DATE` casts or date subtraction operators

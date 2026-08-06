@@ -149,7 +149,6 @@ The solution must pass all 10 test cases that validate:
 10. Conversion count accuracy
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Do NOT modify upstream staging models
 - Do NOT change model materialization
 

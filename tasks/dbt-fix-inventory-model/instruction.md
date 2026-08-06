@@ -93,5 +93,4 @@ The model should include all existing columns plus:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Do NOT use `CURRENT_DATE` for rolling window calculations (e.g., the 365-day transaction filter, days_since_last_pick, days_since_last_receipt). Instead, use `MAX(transaction_date)` from the inventory transactions table as the reference date. This ensures consistent results regardless of when the model is run.

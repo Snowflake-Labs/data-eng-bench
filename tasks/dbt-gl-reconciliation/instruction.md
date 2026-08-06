@@ -111,5 +111,4 @@ The `account_subtype` column indicates if an account is a CONTRA account.
 **period_summary**: `period_id`, `period_name`, `fiscal_year`, `fiscal_quarter`, `fiscal_month`, `start_date`, `end_date`, `period_status`, `total_debits`, `total_credits`, `net_activity`, `transaction_count`, `prior_period_net_activity`, `activity_change`
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use standard SQL functions that are supported by both databases

@@ -38,13 +38,6 @@ Create a `profiles.yml` for the dbt project:
 - For DuckDB: Configure with `type: duckdb` and `path` pointing to the database file. Profile name: `retail_dw_master`.
 - For Snowflake: Configure with `type: snowflake` and use the environment variables for connection settings (password authentication). Profile name: `retail_dw_master`.
 
-#### SQL Compatibility Guidelines
-- Use Jinja conditionals (`{% if target.type == 'snowflake' %}`) for database-specific syntax
-- DuckDB `<date> - INTERVAL '90 days'` vs Snowflake `DATEADD(day, -90, <date>)`
-- DuckDB `strftime()` vs Snowflake `TO_CHAR()`
-- DuckDB `date_diff()` vs Snowflake `DATEDIFF()`
-- Use ANSI SQL where possible to minimize branching
-
 #### Environment
 - Base image already includes dbt, DuckDB/Snowflake connectors, and the reference project at `/app/dbt_transforms`.
 - For DuckDB: Database file at `/app/database/retail.duckdb`.

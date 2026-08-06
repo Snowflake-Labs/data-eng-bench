@@ -132,7 +132,6 @@ Use these exact model names:
 - **Marts**: `fct_supplier_metrics`, `fct_supplier_scorecard`
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `DATEDIFF('day', date2, date1)` for date difference calculations
 - Use `cast()`, `coalesce()`, `round()`, `nullif()` which work on both backends
 - For Snowflake, run dbt with `--select` specifying model names explicitly

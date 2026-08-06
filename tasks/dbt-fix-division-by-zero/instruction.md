@@ -163,7 +163,6 @@ Add columns that compare each customer to their peers:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake
 - Use Jinja conditionals (`{% if target.type == 'duckdb' %}...{% else %}...{% endif %}`) for syntax that differs between backends
 - Key differences: DuckDB uses `date_diff()` and `INTERVAL '30' day`; Snowflake uses `DATEDIFF()` and `DATEADD()`
 - `PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY col) OVER ()` works in DuckDB but NOT in Snowflake; use a subquery or `MEDIAN()` for Snowflake

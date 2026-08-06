@@ -128,6 +128,5 @@ Create a **table** with growth metrics, containing these columns in exact order:
 7. **Idempotency**: Multiple dbt runs must produce identical results
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use CAST() instead of :: for type casting
 - Ensure all window functions have explicit ORDER BY for deterministic results

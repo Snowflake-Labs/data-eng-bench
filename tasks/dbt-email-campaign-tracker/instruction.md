@@ -135,7 +135,3 @@ Bound to 0-100 using LEAST/GREATEST.
 ## Expected Output
 
 All metrics, percentiles, tiers, effectiveness index, segment peers
-
-## Guidelines
-
-- The SQL must work on both DuckDB and Snowflake. Use Jinja conditionals where syntax differs between backends.

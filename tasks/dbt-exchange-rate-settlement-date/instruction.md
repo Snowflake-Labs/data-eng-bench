@@ -85,4 +85,3 @@ Maintain the existing grain of the revenue fact output while incorporating settl
 - Do NOT modify upstream staging models
 - Do NOT change model materialization
 - Preserve all output columns
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

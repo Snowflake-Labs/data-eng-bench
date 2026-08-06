@@ -129,7 +129,6 @@ Add a YAML file with:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `DATEADD('day', N, date_col)` instead of `date_col + interval 'N day'` for date arithmetic
 - Use `NULLIF` for all division operations to avoid division by zero
 - **Division precision**: On Snowflake, dividing INTEGER or NUMBER columns truncates decimal precision. Always CAST numerators to FLOAT (e.g., `CAST(clicks AS FLOAT) / NULLIF(impressions, 0)`) to ensure sufficient decimal precision for ratio metrics like CTR and conversion_rate.

@@ -382,6 +382,5 @@ Configure with `type: snowflake` using password authentication:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Do NOT modify upstream staging models
 - Do NOT change model materialization

@@ -100,7 +100,3 @@ The model must produce exactly these columns:
 - Order details for order type
 
 Find the appropriate dbt source references by examining the existing source definitions in the project.
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

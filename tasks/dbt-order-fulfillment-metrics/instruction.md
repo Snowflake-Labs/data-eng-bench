@@ -139,7 +139,6 @@ The final `fct_fulfillment_by_order_type` table must have:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Ensure idempotent execution (multiple runs produce same results)
 - Use explicit type casts where needed
 - Handle NULL values appropriately

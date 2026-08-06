@@ -98,6 +98,5 @@ For the `int__ads_unified.sql`, add `dbt_utils.unique_combination_of_columns` te
 Verify the pipeline with `dbt test` command.
 
 ## Guidelines
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use `qualify` clause for deduplication (supported by both DuckDB and Snowflake)
 - Use `row_number()` window function for deduplication

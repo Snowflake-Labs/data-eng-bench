@@ -188,5 +188,4 @@ Aggregated daily summary using quality-filtered data.
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use MAX(order_date) from the sales data as the reference date for time-elapsed calculations like days_since_order (do NOT use CURRENT_DATE — the data may not extend to the present day)

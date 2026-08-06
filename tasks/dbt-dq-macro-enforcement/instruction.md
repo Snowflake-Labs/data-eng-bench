@@ -187,4 +187,3 @@ Replace them in the final select with:
 - Do NOT modify upstream staging models
 - Do NOT change model materialization
 - Preserve all output columns
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

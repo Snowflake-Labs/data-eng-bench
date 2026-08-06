@@ -111,4 +111,3 @@ Install additional libraries as needed.
 ## Guidelines
 - Do NOT modify upstream staging models
 - Do NOT change model materialization
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

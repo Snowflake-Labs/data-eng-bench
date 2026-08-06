@@ -108,7 +108,6 @@ Use these exact model names:
 
 ## Guidelines
 
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
 - Use Jinja `{% if target.type == 'snowflake' %}` for any database-specific syntax differences
 
 Install additional libraries as needed.

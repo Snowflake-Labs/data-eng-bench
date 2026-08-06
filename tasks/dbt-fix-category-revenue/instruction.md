@@ -64,7 +64,3 @@ The model references several staging tables. Explore the database schema and the
 - Do NOT modify upstream staging models
 - Do NOT change model materialization
 - Preserve all output columns
-
-## Guidelines
-
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)

@@ -83,4 +83,3 @@ Round all monetary values to 2 decimal places. Materialize as a table.
 ## Guidelines
 
 - Do NOT set schema in dbt_project.yml
-- The SQL syntax should work on both DuckDB and Snowflake (ANSI SQL compatible)
