@@ -154,10 +154,10 @@ period_bounds AS (
     COALESCE(MAX(fo.fulfilled_date), rd.max_date) AS period_end,
     {% if target.type == 'snowflake' %}
     COALESCE(MIN(fo.fulfilled_date), DATEADD(day, -180, rd.max_date)) AS period_start,
-    COALESCE(DATEDIFF(day, MIN(fo.fulfilled_date), MAX(fo.fulfilled_date)) + 1, 180) AS period_days
+    LEAST(COALESCE(DATEDIFF(day, MIN(fo.fulfilled_date), MAX(fo.fulfilled_date)) + 1, 180), 180) AS period_days
     {% else %}
     COALESCE(MIN(fo.fulfilled_date), rd.max_date - INTERVAL 180 DAY) AS period_start,
-    COALESCE(CAST(MAX(fo.fulfilled_date) - MIN(fo.fulfilled_date) AS INTEGER) + 1, 180) AS period_days
+    LEAST(COALESCE(CAST(MAX(fo.fulfilled_date) - MIN(fo.fulfilled_date) AS INTEGER) + 1, 180), 180) AS period_days
     {% endif %}
   FROM fulfilled_orders fo
   CROSS JOIN ref_date rd

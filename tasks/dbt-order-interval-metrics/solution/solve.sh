@@ -426,7 +426,7 @@ with_final_scores as (
             when days_since_last_order >= 120 then 'Churned'
             when total_orders <= 2 and customer_lifespan_days < 60 then 'New'
             when total_orders >= 3 and customer_lifespan_days < 180 and days_since_last_order < 60 then 'Growing'
-            when customer_lifespan_days >= 180 and days_since_last_order < 90 then 'Mature'
+            when customer_lifespan_days >= 180 and days_since_last_order < 60 then 'Mature'
             when customer_lifespan_days >= 90 and days_since_last_order >= 60 and days_since_last_order < 120 then 'Declining'
             else 'New'
         end as lifecycle_stage

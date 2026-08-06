@@ -340,6 +340,7 @@ FROM monthly_units_ordered muo
 FULL OUTER JOIN return_metrics_base rmb
     ON muo.month_start = rmb.month_start
     AND muo.product_id = rmb.product_id
+    AND muo.sku = rmb.sku
 LEFT JOIN return_rate_percentiles rrp
     ON COALESCE(muo.month_start, rmb.month_start) = rrp.month_start
     AND COALESCE(muo.product_id, rmb.product_id) = rrp.product_id
