@@ -1,0 +1,10 @@
+[project]
+name = "final-project-data-eng-bench"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.13.13"
+dependencies = [
+    "strands-agents==1.51.0",
+    "strands-agents-tools==0.8.6",
+]
