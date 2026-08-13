@@ -1,0 +1,133 @@
+name: Publish base image
+
+# Manually-triggered, approval-gated publish of the data-eng-bench base image
+# to GHCR (ghcr.io/snowflake-labs/data-eng-bench-base).
+#
+# Auth: the workflow's built-in GITHUB_TOKEN (packages: write) — a short-lived
+# token scoped to this run. No personal access token is created or stored.
+#
+# Approval: the `build` and `merge` jobs are gated behind a single `approve`
+# job bound to the `publish-base-image` GitHub Environment. Configure required
+# reviewers on that environment (Settings -> Environments) so a publish waits
+# for a human approval before anything is pushed.
+#
+# Multi-arch: linux/amd64 and linux/arm64 are each built natively (no QEMU
+# emulation) because the image runs `dbt run` at build time, which is slow and
+# can crash under emulation. Per-arch images are pushed by digest, then a
+# manifest list is assembled in the merge job.
+#
+# Prerequisite (one-time): the GHCR package must grant this repository Write
+# access (package -> Settings -> Manage Actions access -> add data-eng-bench
+# with Write), otherwise the push 403s.
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Image version tag (e.g. 1.0.0)"
+        required: true
+        default: "1.0.0"
+      push_latest:
+        description: "Also tag and push :latest"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE: ghcr.io/snowflake-labs/data-eng-bench-base
+
+jobs:
+  # Single human-approval gate for the whole run. Required reviewers live on the
+  # `publish-base-image` environment; approving this unblocks build + merge.
+  approve:
+    runs-on: ubuntu-latest
+    environment: publish-base-image
+    steps:
+      - run: echo "Publish approved for ${IMAGE}:${{ inputs.version }} (latest=${{ inputs.push_latest }})"
+
+  build:
+    needs: approve
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: linux/amd64
+            runner: ubuntu-latest
+          - platform: linux/arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - name: Checkout (with LFS for retail.duckdb)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push by digest
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: base-image
+          platforms: ${{ matrix.platform }}
+          provenance: false
+          outputs: type=image,name=${{ env.IMAGE }},push-by-digest=true,name-canonical=true,push=true
+
+      - name: Export digest
+        run: |
+          mkdir -p /tmp/digests
+          digest="${{ steps.build.outputs.digest }}"
+          touch "/tmp/digests/${digest#sha256:}"
+
+      - name: Upload digest
+        uses: actions/upload-artifact@v4
+        with:
+          name: digest-${{ matrix.platform == 'linux/amd64' && 'amd64' || 'arm64' }}
+          path: /tmp/digests/*
+          if-no-files-found: error
+          retention-days: 1
+
+  merge:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download digests
+        uses: actions/download-artifact@v4
+        with:
+          path: /tmp/digests
+          pattern: digest-*
+          merge-multiple: true
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create and push manifest list
+        working-directory: /tmp/digests
+        run: |
+          tags="-t ${IMAGE}:${{ inputs.version }}"
+          if [ "${{ inputs.push_latest }}" = "true" ]; then
+            tags="${tags} -t ${IMAGE}:latest"
+          fi
+          docker buildx imagetools create ${tags} \
+            $(printf "${IMAGE}@sha256:%s " *)
+
+      - name: Inspect published manifest
+        run: docker buildx imagetools inspect "${IMAGE}:${{ inputs.version }}"
