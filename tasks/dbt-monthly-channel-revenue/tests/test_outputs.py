@@ -84,7 +84,7 @@ def get_db_connection():
         if password:
             conn = snowflake.connector.connect(
                 account=os.environ['SNOWFLAKE_ACCOUNT'],
-                host=os.environ.get('SNOWFLAKE_HOST') or None,
+                **({'host': os.environ['SNOWFLAKE_HOST']} if os.environ.get('SNOWFLAKE_HOST') else {}),
                 user=os.environ['SNOWFLAKE_USER'],
                 password=password,
                 database=os.environ['SNOWFLAKE_DATABASE'],
@@ -95,11 +95,11 @@ def get_db_connection():
         # Fall back to private key auth
         conn = snowflake.connector.connect(
             account=os.environ['SNOWFLAKE_ACCOUNT'],
-            host=os.environ.get('SNOWFLAKE_HOST') or None,
+            **({'host': os.environ['SNOWFLAKE_HOST']} if os.environ.get('SNOWFLAKE_HOST') else {}),
             user=os.environ['SNOWFLAKE_USER'],
             private_key=get_private_key(),
             database=os.environ['SNOWFLAKE_DATABASE'],
-            schema='channel_analytics',
+            schema='main',
             warehouse=os.environ['SNOWFLAKE_WAREHOUSE'],
             role=os.environ.get('SNOWFLAKE_ROLE', None)
         )

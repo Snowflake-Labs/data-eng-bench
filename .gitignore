@@ -23,3 +23,5 @@ logs/
 
 # local skill installs (npx skills add)
 .agents/
+.claude/
+skills-lock.json
