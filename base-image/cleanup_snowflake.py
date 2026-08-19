@@ -98,11 +98,16 @@ def cleanup_snowflake_clone():
 
         conn_kwargs = dict(
             account=os.environ['SNOWFLAKE_ACCOUNT'],
-            host=os.environ.get('SNOWFLAKE_HOST') or None,
             user=os.environ['SNOWFLAKE_USER'],
             warehouse=os.environ['SNOWFLAKE_WAREHOUSE'],
             role=admin_role,
         )
+        # Include host only when explicitly set. Passing host=None makes the
+        # connector fail to derive it from an org-dash account
+        # ('NoneType' has no attribute 'lower'), which silently aborted cleanup
+        # and leaked clone databases. Matches snowflake_clone.py.
+        if os.environ.get('SNOWFLAKE_HOST'):
+            conn_kwargs['host'] = os.environ['SNOWFLAKE_HOST']
         # Password when available, else key-pair (matches snowflake_clone.py).
         if os.environ.get('SNOWFLAKE_PASSWORD'):
             conn_kwargs['password'] = os.environ['SNOWFLAKE_PASSWORD']

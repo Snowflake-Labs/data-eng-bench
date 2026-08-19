@@ -143,10 +143,18 @@ harbor run --config configs/data-eng-bench-snowflake.claude-code.yaml --path tas
 ```
 
 Each task's Harbor healthcheck clones `SNOWFLAKE_SOURCE_DATABASE` into an
-isolated `retail_clone_*` database and points the agent + verifier at it, then
-drops it on completion. Password auth (above) or key-pair
-(`SNOWFLAKE_PRIVATE_KEY`, base64 PEM) both work; the role only needs
-`CREATE DATABASE` plus access to the source.
+isolated `retail_clone_*` database and points the agent + verifier at it; the
+role only needs `CREATE DATABASE` plus access to the source. The clone and
+verifier accept password auth (above) or key-pair (`SNOWFLAKE_PRIVATE_KEY`,
+base64 PEM). Note the bundled reference solutions (`solution/solve.sh`)
+authenticate dbt with key-pair, so reproducing the oracle / leaderboard on
+Snowflake requires `SNOWFLAKE_PRIVATE_KEY`.
+
+Each task drops its clone at the end of the verifier phase. A run that fails
+*before* verification (e.g. a clone timeout) can leave a `retail_clone_*`
+behind, since Harbor tasks have no always-run teardown hook. Reclaim strays
+with `base-image/sweep_snowflake_clones.py` (drops `retail_clone_*` older than
+a `--older-than-hours` cutoff; supports `--dry-run`).
 
 A `k=3` sweep over all 103 Snowflake tasks runs roughly 6 to 9 warehouse-hours
 on a free-tier account; use the fast subset for cost-bounded runs.
