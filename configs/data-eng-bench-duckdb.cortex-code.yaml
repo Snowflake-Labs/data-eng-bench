@@ -28,8 +28,11 @@ agents:
     kwargs:
       reasoning_effort: high
       # benchmark integrity: Cortex Code keeps web_search / web_fetch available in
-      # every agent mode, and Harbor's cortex-code agent has no way to switch them
-      # off yet (harbor-framework/harbor#2787). Uncomment once that ships; until
+      # every agent mode, including code mode. Harbor's cortex-code agent gained
+      # disallowed_tools in harbor-framework/harbor#2787, which is MERGED but not
+      # in a release yet -- v0.21.0 does not have it, and Harbor drops an unknown
+      # kwarg silently, so uncommenting before the next release would read as
+      # protection while changing nothing. Uncomment once a release ships; until
       # then use --allow-agent-host to keep the agent off the open internet.
       # disallowed_tools: web_search web_fetch
 
