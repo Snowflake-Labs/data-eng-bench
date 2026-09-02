@@ -162,13 +162,15 @@ The bundled configs disable web tools where the agent supports it:
 |---|---|
 | `claude-code` | off &mdash; `disallowed_tools: WebSearch,WebFetch` |
 | `codex` | off &mdash; `web_search: disabled` |
-| `cortex-code` | **on** &mdash; see below |
+| `cortex-code` | off &mdash; `disallowed_tools: web_search web_fetch` (requires Harbor >= 0.22.0) |
 | `terminus-2` (the commented fallback) | none exist |
 
 Cortex Code keeps `web_search` and `web_fetch` available in every agent mode,
-including code mode, and Harbor's `cortex-code` agent has no option to switch
-them off ([harbor#2787](https://github.com/harbor-framework/harbor/pull/2787)
-adds one). Until that ships, isolate `cortex-code` runs at the network layer.
+including code mode. Harbor's `cortex-code` agent only gained the option to
+switch them off in [harbor#2787](https://github.com/harbor-framework/harbor/pull/2787),
+which shipped in Harbor 0.22.0. On an older Harbor the kwarg is dropped
+silently rather than rejected, so if you're not on 0.22.0+, isolate
+`cortex-code` runs at the network layer instead (below).
 
 For any agent, Harbor's network allowlist is the stricter control, and the only
 one that does not depend on agent support:
