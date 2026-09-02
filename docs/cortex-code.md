@@ -7,8 +7,8 @@ gotchas that hit first-time runs regardless of agent. For the base setup
 the main [README](../README.md) — this page only covers what's different or
 missing there.
 
-Verified against Harbor 0.21.0 (latest published is 0.22.0 as of writing) and
-Cortex Code v1.1.66. Re-check the commands below if either has moved on since.
+Verified against Harbor 0.22.0 and Cortex Code v1.1.66. Re-check the commands
+below if either has moved on since.
 
 ---
 
@@ -21,6 +21,7 @@ Harbor. These account for nearly every first-run failure.
 | Trap | Instead |
 |---|---|
 | **Harbor 0.20.x has no `cortex-code` agent.** It landed after the 0.20.0 release. | Require **harbor >= 0.21.0**. Check `harbor --version`. |
+| **`disallowed_tools` / `cli_mode` are silently ignored below 0.22.0.** The agent exists on 0.21.0, but those two kwargs landed later ([harbor#2787](https://github.com/harbor-framework/harbor/pull/2787), [#2774](https://github.com/harbor-framework/harbor/pull/2774)) and an unrecognized kwarg is dropped, not rejected — see [Keeping results honest](#keeping-results-honest). | Require **harbor >= 0.22.0** if you use either. |
 | **`--task-name` does not exist.** Harbor exits with "No such option". | **`-i`** / `--include-task-name` (accepts globs). |
 | **`--env DB_TYPE=duckdb` fails.** `--env`/`-e` selects the environment *type* (docker, modal, …), not variables. | Use a shipped **`--config`**, which sets `environment.env` for you. |
 | **Cortex Code needs Snowflake credentials even on DuckDB.** The DuckDB variant is hermetic for the *data*, but the agent still authenticates to Snowflake to reach its models. Without them the run dies immediately. | **`--ae SNOWFLAKE_ACCOUNT=… --ae SNOWFLAKE_USER=… --ae SNOWFLAKE_PAT=…`** |
@@ -93,8 +94,8 @@ and `web_fetch` available in **every** agent mode, including code mode, so
 they have to be switched off explicitly — unlike `claude-code`, whose bundled
 config already disables web tools via `disallowed_tools`.
 
-Harbor's `cortex-code` agent supports this via `disallowed_tools`, but **only
-on Harbor main, not the latest release**:
+Harbor's `cortex-code` agent supports this via `disallowed_tools`, added in
+Harbor 0.22.0:
 
 ```yaml
 agent:
@@ -103,12 +104,10 @@ agent:
     disallowed_tools: web_search web_fetch
 ```
 
-It merged after Harbor 0.21.0, so `uv tool install harbor` does not have it
-yet. Either install from main (`uv tool install
-git+https://github.com/harbor-framework/harbor`) or rely on the network
-allowlist below. Setting `disallowed_tools` on a release without it is worse
-than useless: Harbor drops an unrecognized kwarg **silently**, so the config
-reads as protected while web access stays on.
+Require **harbor >= 0.22.0** for this to take effect. On an older release,
+Harbor drops an unrecognized kwarg **silently**, so the config reads as
+protected while web access stays on — if you're stuck below 0.22.0, rely on
+the network allowlist below instead.
 
 Space-separated, not comma-separated, if you pass this as a string on the raw
 CLI — the flag parses as an array and nothing splits on commas there, so
@@ -207,18 +206,17 @@ Cortex Code's `--mode code` narrows the agent to a file-and-shell tool
 surface, dropping the Snowflake data suite, teams, cron, goals, and MCP tools.
 On a dbt benchmark that is a meaningfully different configuration to measure.
 
-**Merged, not released.** Harbor's `cortex-code` agent gained `cli_mode` after
-0.21.0:
+**Requires Harbor >= 0.22.0.** Harbor's `cortex-code` agent gained `cli_mode`
+in that release:
 
 ```yaml
 kwargs:
   cli_mode: code
 ```
 
-Same caveat as `disallowed_tools` above — install Harbor from main to get it;
-on a release without it, it's silently ignored. The CLI flag itself works in
-headless runs, so Option B above can use `--mode code` today regardless of
-Harbor version.
+Same version floor as `disallowed_tools` above — on an older release it's
+silently ignored. The CLI flag itself works in headless runs, so Option B
+above can use `--mode code` today regardless of Harbor version.
 
 Note code mode does **not** remove `web_search` / `web_fetch` — it drops the
 Snowflake data suite, teams, cron, goals, and MCP tools, but keeps both web
