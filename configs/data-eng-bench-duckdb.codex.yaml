@@ -23,3 +23,4 @@ agents:
     model_name: openai/gpt-5.6
     kwargs:
       reasoning_effort: high
+      web_search: disabled   # benchmark integrity: no web solution lookup during agent.run()

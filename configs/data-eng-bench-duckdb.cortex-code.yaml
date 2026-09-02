@@ -27,6 +27,13 @@ agents:
     model_name: anthropic/claude-opus-4-8
     kwargs:
       reasoning_effort: high
+      # benchmark integrity: Cortex Code keeps web_search / web_fetch available in
+      # every agent mode, including code mode. Requires Harbor >= 0.22.0, which
+      # is where harbor-framework/harbor#2787 (adding disallowed_tools to the
+      # cortex-code agent) shipped. On an older Harbor, an unrecognised kwarg is
+      # dropped silently rather than rejected -- confirm this took effect with
+      # `harbor run --print-config` after upgrading.
+      disallowed_tools: web_search web_fetch
 
   # Portable fallback if your Harbor build has no native `cortex-code` agent:
   # - name: terminus-2

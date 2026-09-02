@@ -165,12 +165,36 @@ on a free-tier account; use the fast subset for cost-bounded runs.
 
 ## Benchmark integrity
 
-Agents should not be able to look up reference solutions during a run. The
-bundled `claude-code` configs disable web tools
-(`disallowed_tools: WebSearch,WebFetch`); disable the equivalent browsing tools
-for other agents. For stricter isolation, run under Harbor's network allowlist
-with `--allow-agent-host`: the DuckDB variant needs only your model API host,
-and the Snowflake variant also needs `<account>.snowflakecomputing.com`.
+Agents should not be able to look up reference solutions during a run. This
+matters more now that the tasks and their reference solutions are public.
+
+The bundled configs disable web tools where the agent supports it:
+
+| Config | Web tools |
+|---|---|
+| `claude-code` | off &mdash; `disallowed_tools: WebSearch,WebFetch` |
+| `codex` | off &mdash; `web_search: disabled` |
+| `cortex-code` | off &mdash; `disallowed_tools: web_search web_fetch` (requires Harbor >= 0.22.0) |
+| `terminus-2` (the commented fallback) | none exist |
+
+Cortex Code keeps `web_search` and `web_fetch` available in every agent mode,
+including code mode. Harbor's `cortex-code` agent only gained the option to
+switch them off in [harbor#2787](https://github.com/harbor-framework/harbor/pull/2787),
+which shipped in Harbor 0.22.0. On an older Harbor the kwarg is dropped
+silently rather than rejected, so if you're not on 0.22.0+, isolate
+`cortex-code` runs at the network layer instead (below).
+
+For any agent, Harbor's network allowlist is the stricter control, and the only
+one that does not depend on agent support:
+
+```bash
+harbor run ... --allow-agent-host <model-api-host>
+```
+
+The DuckDB variant needs only your model API host; the Snowflake variant also
+needs `<account>.snowflakecomputing.com`. If you add a config for another agent,
+disable its browsing tools too &mdash; and check that the setting took effect, since
+an unrecognised kwarg is dropped silently rather than rejected.
 
 ## Submitting to the leaderboard
 
