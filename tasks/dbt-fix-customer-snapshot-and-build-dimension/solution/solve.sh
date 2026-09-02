@@ -107,7 +107,7 @@ clone_db = os.environ['SNOWFLAKE_DATABASE']
 
 conn = snowflake.connector.connect(
     account=os.environ['SNOWFLAKE_ACCOUNT'],
-    host=os.environ.get('SNOWFLAKE_HOST') or None,
+    **({'host': os.environ['SNOWFLAKE_HOST']} if os.environ.get('SNOWFLAKE_HOST') else {}),
     user=os.environ['SNOWFLAKE_USER'],
     private_key=get_private_key(),
     warehouse=os.environ['SNOWFLAKE_WAREHOUSE'],

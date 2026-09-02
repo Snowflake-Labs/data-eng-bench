@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tmux \
     curl \
     git \
+    procps \
     && rm -rf /var/lib/apt/lists/*
 
 # Node.js 22 — required by CLI coding agents that run inside the container

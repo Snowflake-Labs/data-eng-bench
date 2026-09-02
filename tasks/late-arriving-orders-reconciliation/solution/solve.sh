@@ -44,7 +44,7 @@ def get_connection():
 
         conn = snowflake.connector.connect(
             account=os.environ['SNOWFLAKE_ACCOUNT'],
-            host=os.environ.get('SNOWFLAKE_HOST') or None,
+            **({'host': os.environ['SNOWFLAKE_HOST']} if os.environ.get('SNOWFLAKE_HOST') else {}),
             user=os.environ['SNOWFLAKE_USER'],
             private_key=pkb,
             database=os.environ['SNOWFLAKE_DATABASE'],

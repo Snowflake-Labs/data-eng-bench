@@ -25,15 +25,18 @@ quiet: true
 
 environment:
   type: docker
+  # Only DB_TYPE is set here. The SNOWFLAKE_* credentials are intentionally NOT
+  # listed: each task's environment/docker-compose.yaml already forwards
+  # ${SNOWFLAKE_*} from the host environment, so exporting them in your shell
+  # (see header) is enough — they flow straight through to the container.
+  #
+  # Do NOT re-add them here. Stock Harbor stores run-config env verbatim (it does
+  # not resolve ${VAR} templates in environment.env), so a line like
+  # `SNOWFLAKE_PASSWORD=${SNOWFLAKE_PASSWORD}` injects the literal string
+  # "${SNOWFLAKE_PASSWORD}" into the compose env and clobbers the real exported
+  # value, breaking Snowflake auth.
   env:
     - DB_TYPE=snowflake
-    - SNOWFLAKE_ACCOUNT=${SNOWFLAKE_ACCOUNT}
-    - SNOWFLAKE_USER=${SNOWFLAKE_USER}
-    - SNOWFLAKE_PASSWORD=${SNOWFLAKE_PASSWORD}
-    - SNOWFLAKE_WAREHOUSE=${SNOWFLAKE_WAREHOUSE:-COMPUTE_WH}
-    - SNOWFLAKE_SOURCE_DATABASE=${SNOWFLAKE_SOURCE_DATABASE:-DBT_BENCH_RETAIL}
-    - SNOWFLAKE_SCHEMA=${SNOWFLAKE_SCHEMA:-main}
-    - SNOWFLAKE_ROLE=${SNOWFLAKE_ROLE:-SYSADMIN}
 
 agents:
   - name: cortex-code

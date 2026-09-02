@@ -33,6 +33,7 @@ Difficulty spread: 3 easy, 47 medium, 45 hard, 8 very hard.
 
 - Dataset: [`snowflake-labs/data-eng-bench` on the Harbor Hub](https://hub.harborframework.com/datasets/snowflake-labs/data-eng-bench)
 - Leaderboard: [the public data-eng-bench leaderboard](https://hub.harborframework.com/datasets/snowflake-labs/data-eng-bench/latest?tab=leaderboard&leaderboard=main) (see [Submitting to the leaderboard](#submitting-to-the-leaderboard))
+- Running with Cortex Code: [docs/cortex-code.md](docs/cortex-code.md) (credentials, benchmark-integrity notes, running without Harbor)
 
 ## The benchmark
 
@@ -52,8 +53,8 @@ balanced 30-task subset for quick or cost-bounded runs is listed in
 ## Getting started
 
 Prerequisites: [uv](https://docs.astral.sh/uv/), Docker, and
-[Git LFS](https://git-lfs.com/). Install Harbor (tested with 0.20.x) and prepare
-the workspace:
+[Git LFS](https://git-lfs.com/). Install Harbor (0.21.0 or newer — some flags
+below were renamed after 0.20.x) and prepare the workspace:
 
 ```bash
 uv tool install harbor
@@ -69,15 +70,18 @@ no Snowflake account and no network data access are needed.
 
 ```bash
 # one task, to check your setup
-harbor run --path tasks --task-name dbt-fix-division-by-zero \
-  --agent claude-code --model anthropic/claude-opus-4-8 --env DB_TYPE=duckdb
+harbor run --config configs/data-eng-bench-duckdb.claude-code.yaml --path tasks \
+  -i dbt-fix-division-by-zero
 
 # the full suite (k=3, all 103 tasks)
 harbor run --config configs/data-eng-bench-duckdb.claude-code.yaml --path tasks
 ```
 
-Swap the agent and model freely, or use the `codex` / `cortex-code` configs.
-Once the dataset is on the Harbor Hub you can run it without a local checkout:
+Swap the agent and model freely, or use the `codex` / `cortex-code` configs
+(for `cortex-code`, see [docs/cortex-code.md](docs/cortex-code.md) first —
+it needs extra credentials even on DuckDB, and a few flags below changed
+between Harbor versions). Once the dataset is on the Harbor Hub you can run
+it without a local checkout:
 
 ```bash
 harbor run -d snowflake-labs/data-eng-bench --agent claude-code --model anthropic/claude-opus-4-8
@@ -87,7 +91,7 @@ Run only the fast subset:
 
 ```bash
 harbor run --config configs/data-eng-bench-duckdb.claude-code.yaml --path tasks \
-  $(sed 's/^/--task-name /' configs/fast-30.txt)
+  $(sed 's/^/-i /' configs/fast-30.txt)
 ```
 
 A `k=3` sweep over all 103 DuckDB tasks is dominated by agent token cost and
@@ -143,10 +147,18 @@ harbor run --config configs/data-eng-bench-snowflake.claude-code.yaml --path tas
 ```
 
 Each task's Harbor healthcheck clones `SNOWFLAKE_SOURCE_DATABASE` into an
-isolated `retail_clone_*` database and points the agent + verifier at it, then
-drops it on completion. Password auth (above) or key-pair
-(`SNOWFLAKE_PRIVATE_KEY`, base64 PEM) both work; the role only needs
-`CREATE DATABASE` plus access to the source.
+isolated `retail_clone_*` database and points the agent + verifier at it; the
+role only needs `CREATE DATABASE` plus access to the source. The clone and
+verifier accept password auth (above) or key-pair (`SNOWFLAKE_PRIVATE_KEY`,
+base64 PEM). Note the bundled reference solutions (`solution/solve.sh`)
+authenticate dbt with key-pair, so reproducing the oracle / leaderboard on
+Snowflake requires `SNOWFLAKE_PRIVATE_KEY`.
+
+Each task drops its clone at the end of the verifier phase. A run that fails
+*before* verification (e.g. a clone timeout) can leave a `retail_clone_*`
+behind, since Harbor tasks have no always-run teardown hook. Reclaim strays
+with `base-image/sweep_snowflake_clones.py` (drops `retail_clone_*` older than
+a `--older-than-hours` cutoff; supports `--dry-run`).
 
 A `k=3` sweep over all 103 Snowflake tasks runs roughly 6 to 9 warehouse-hours
 on a free-tier account; use the fast subset for cost-bounded runs.
