@@ -35,6 +35,12 @@
       "display_url": "https://cursor.com/docs/cli/overview",
       "display_org": "Cursor",
       "org_url": "https://cursor.com"
+    },
+    "jitto-build": {
+      "display_name": "Jitto Build",
+      "display_url": "https://jamlabs.com",
+      "display_org": "JamLabs",
+      "org_url": "https://jamlabs.com"
     }
   },
   "models": {
@@ -121,6 +127,12 @@
       "display_url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
       "display_org": "OpenAI",
       "org_url": "https://openai.com"
+    },
+    "anthropic/claude-opus-5-5": {
+      "display_name": "Opus 5.5",
+      "display_url": "https://www.anthropic.com/claude",
+      "display_org": "Anthropic",
+      "org_url": "https://www.anthropic.com"
     }
   }
 }
