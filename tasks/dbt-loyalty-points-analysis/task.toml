@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-loyalty-points-analysis"
+name = "anonymous/dbt-loyalty-points-analysis"
 description = "Build loyalty points analytics with dbt analyzing program engagement and metrics"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "loyalty-analytics", "data-modeling", "sql", "multi-table-joins", "snowflake"]
 
 [metadata]

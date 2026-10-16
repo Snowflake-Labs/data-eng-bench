@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-customer-retention-risk"
+name = "anonymous/dbt-customer-retention-risk"
 description = "Build customer retention risk model from scratch with RFM metrics and segment peer comparison"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "customers", "retention", "window-functions", "rfm", "snowflake"]
 
 [metadata]

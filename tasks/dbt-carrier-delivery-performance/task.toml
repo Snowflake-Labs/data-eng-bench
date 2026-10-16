@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-carrier-delivery-performance"
+name = "anonymous/dbt-carrier-delivery-performance"
 description = "Fix buggy carrier performance model and add delivery speed classification"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "shipments", "debugging", "window-functions", "snowflake"]
 
 [metadata]

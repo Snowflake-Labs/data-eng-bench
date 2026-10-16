@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-coupon-effectiveness"
+name = "anonymous/dbt-coupon-effectiveness"
 description = "Build coupon effectiveness analytics with multi-table joins, conditional aggregations, NULL handling, and promotion performance metrics"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "coupons", "promotions", "marketing", "multi-table-joins", "conditional-aggregation", "snowflake"]
 
 [metadata]

@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-gl-reconciliation"
+name = "anonymous/dbt-gl-reconciliation"
 description = "Implement GL reconciliation with trial balance, out-of-balance detection, unusual balance identification, and period-over-period activity analysis"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "gl-reconciliation", "trial-balance", "finance", "accounting", "period-analysis", "snowflake"]
 
 [metadata]

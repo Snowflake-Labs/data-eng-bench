@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-sales-funnel-analysis"
+name = "anonymous/dbt-sales-funnel-analysis"
 description = "Build a sales funnel analysis pipeline with conversion rates and drop-off analysis"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "funnel-analysis", "conversion-rates", "analytics", "snowflake"]
 
 [metadata]

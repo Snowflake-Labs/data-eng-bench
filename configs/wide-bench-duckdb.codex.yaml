@@ -1,20 +1,20 @@
-# data-eng-bench — DuckDB (hermetic) — Codex
+# wide-bench — DuckDB (hermetic) — Codex
 #
-# Zero Snowflake account required. Each task builds the data-eng-bench base image,
+# Zero Snowflake account required. Each task builds the wide-bench base image,
 # which bakes in retail.duckdb; DB_TYPE=duckdb points dbt at that local file.
 #
 # Run:
-#   harbor run --config configs/data-eng-bench-duckdb.codex.yaml \
+#   harbor run --config configs/wide-bench-duckdb.codex.yaml \
 #     --path tasks -m openai/gpt-5.6 --ak reasoning_effort=high
 
-name: data-eng-bench-duckdb
+name: wide-bench-duckdb
 
-n_attempts: 3          # leaderboard requires >= 3 trials per task
+n_attempts: 3          # 3 trials per task
 n_concurrent_trials: 4
 quiet: true
 
 environment:
-  type: docker         # builds each task's environment/Dockerfile (FROM ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0)
+  type: docker         # builds each task's environment/Dockerfile (FROM wide-bench-base:1.0.0)
   env:
     - DB_TYPE=duckdb
 

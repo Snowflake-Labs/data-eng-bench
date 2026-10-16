@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/cohort-retention-matrix"
+name = "anonymous/cohort-retention-matrix"
 description = "Build comprehensive cohort retention matrix with revenue tracking using dbt"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "analytics", "cohort", "retention", "ltv", "marketing", "snowflake"]
 
 [metadata]

@@ -1,7 +1,7 @@
-# data-eng-bench — Snowflake — Claude Code
+# wide-bench — Snowflake — Claude Code
 #
 # Requires a Snowflake account with the DBT_BENCH_RETAIL database seeded once
-# (see README.md "Quickstart (Snowflake)" -> migrate_duckdb.py). Verifiers and
+# (see README.md "Running (Snowflake)" -> migrate_duckdb.py). Verifiers and
 # the agent connect to Snowflake via the env vars below; DB_TYPE=snowflake
 # switches dbt to the dbt-snowflake adapter.
 #
@@ -14,12 +14,12 @@
 #   export SNOWFLAKE_ROLE=SYSADMIN    # a role with USAGE on DBT_BENCH_RETAIL
 #
 # Run:
-#   harbor run --config configs/data-eng-bench-snowflake.claude-code.yaml \
+#   harbor run --config configs/wide-bench-snowflake.claude-code.yaml \
 #     --path tasks -m anthropic/claude-opus-4-8 --ak reasoning_effort=high
 
-name: data-eng-bench-snowflake
+name: wide-bench-snowflake
 
-n_attempts: 3          # leaderboard requires >= 3 trials per task
+n_attempts: 3          # 3 trials per task
 n_concurrent_trials: 4
 quiet: true
 

@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-fix-timezone-sales"
+name = "anonymous/dbt-fix-timezone-sales"
 description = "Fix timezone handling bug in sales aggregation causing incorrect daily sales totals"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "debugging", "sql", "timezone", "data-quality", "snowflake"]
 
 [metadata]

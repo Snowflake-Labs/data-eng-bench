@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-fix-inventory-model"
+name = "anonymous/dbt-fix-inventory-model"
 description = "Fix bugs in dbt product inventory metrics model"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "bug-fix", "sql", "snowflake"]
 
 [metadata]

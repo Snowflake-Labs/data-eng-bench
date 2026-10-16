@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/workforce-analytics"
+name = "anonymous/workforce-analytics"
 description = "Build a dimensional data model using dbt and DuckDB for workforce analytics, including employee management, compensation analysis, payroll reporting, time tracking, employee lifecycle events, and organizational insights."
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "dimensional-modeling", "sql", "analytics", "workforce", "snowflake"]
 
 [metadata]

@@ -1,5 +1,5 @@
-data-eng-bench
-Copyright 2026 Snowflake Inc.
+wide-bench
+Copyright 2026 Anonymous Authors
 
 This product is licensed under the Apache License, Version 2.0 (see LICENSE).
 
@@ -8,13 +8,12 @@ Provenance
 ------------------------------------------------------------------------------
 
 The benchmark tasks, dbt models, verifiers, and the `retail` dataset
-(retail.duckdb) in this repository are original works authored by Snowflake for
-the data-eng-bench benchmark. The dataset is a synthetic retail data warehouse
+(retail.duckdb) in this repository are original works authored for
+the WIDE-Bench benchmark. The dataset is a synthetic retail data warehouse
 (orders, customers, products, SAP-style source tables); it contains no real
 customer data and no third-party proprietary data.
 
-The repository layout, the `leaderboard/` tooling, and the
-`.github/workflows/leaderboard-*.yml` workflows are adapted from the
+The repository layout is adapted from the
 Harbor Terminal-Bench 2.1 reference repository
 (https://github.com/harbor-framework/terminal-bench-2-1), also Apache-2.0.
 

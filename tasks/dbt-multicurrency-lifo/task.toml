@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-multicurrency-lifo"
+name = "anonymous/dbt-multicurrency-lifo"
 description = "Implement LIFO inventory costing with multi-currency support, exchange rate conversion, weighted-average fallback costing, inventory shortfall tracking, and turnover metrics using dbt"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "lifo", "inventory", "currency", "exchange-rates", "sql", "data-modeling", "costing", "turnover", "snowflake"]
 
 [metadata]

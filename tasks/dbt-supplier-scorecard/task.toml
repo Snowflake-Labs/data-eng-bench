@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-supplier-scorecard"
+name = "anonymous/dbt-supplier-scorecard"
 description = "Build a Supplier Performance Scorecard using dbt with on-time delivery, defect rate, cost variance, and composite scoring"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "sql", "duckdb", "analytics", "data-modeling", "snowflake"]
 
 [metadata]

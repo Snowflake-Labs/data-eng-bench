@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-order-reconciliation"
+name = "anonymous/dbt-order-reconciliation"
 description = "Build a multi-layer dbt project with staging, intermediate, and mart models for order financial reconciliation including subtotal and tax variance analysis"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "data-quality", "reconciliation", "intermediate-layer", "snowflake"]
 
 [metadata]

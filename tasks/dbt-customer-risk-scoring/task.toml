@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-customer-risk-scoring"
+name = "anonymous/dbt-customer-risk-scoring"
 description = "Build a customer risk scoring model based on payment behavior, returns, and chargebacks"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "sql", "duckdb", "risk-scoring", "customer-analytics", "snowflake"]
 
 [metadata]

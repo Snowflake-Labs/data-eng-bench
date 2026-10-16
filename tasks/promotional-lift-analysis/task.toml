@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/promotional-lift-analysis"
+name = "anonymous/promotional-lift-analysis"
 description = "Create dbt models to analyze marketing promotion effectiveness by comparing redemption-driven sales against historical product performance"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "marketing", "analytics", "promotions", "lift-analysis", "roi", "snowflake"]
 
 [metadata]

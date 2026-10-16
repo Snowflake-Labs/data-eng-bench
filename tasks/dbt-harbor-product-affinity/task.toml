@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-harbor-product-affinity"
+name = "anonymous/dbt-harbor-product-affinity"
 description = "Build a product affinity and market basket analysis pipeline using dbt to calculate association rules (support, confidence, lift) and identify top product bundles for merchandising"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "market-basket", "association-rules", "product-recommendations", "snowflake"]
 
 [metadata]

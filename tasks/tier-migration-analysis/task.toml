@@ -2,9 +2,9 @@
 version = "1.0"
 
 [task]
-name = "snowflake-labs/tier-migration-analysis"
+name = "anonymous/tier-migration-analysis"
 description = "Analyze customer tier migrations between time periods to understand loyalty program movement patterns"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["duckdb", "sql", "customer", "segmentation", "analytics", "migration", "snowflake"]
 
 [metadata]

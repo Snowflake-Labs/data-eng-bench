@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-customer-order-analytics"
+name = "anonymous/dbt-customer-order-analytics"
 description = "Build customer order analytics with tiering using dbt and DuckDB"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "customer-analytics", "data-modeling", "sql", "snowflake"]
 
 [metadata]

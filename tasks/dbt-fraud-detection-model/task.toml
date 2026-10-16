@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-fraud-detection-model"
+name = "anonymous/dbt-fraud-detection-model"
 description = "Build a fraud detection model using multiple risk criteria including high value, bulk orders, velocity, and address mismatch"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "fraud-detection", "window-functions", "business-logic", "snowflake"]
 
 [metadata]
