@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/marketing-campaigns-harbor"
+name = "anonymous/marketing-campaigns-harbor"
 description = "Build a dimensional data model using dbt for marketing analytics, including RFM customer segmentation, campaign performance metrics, anomaly detection, and channel efficiency calculations."
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "dimensional-modeling", "sql", "analytics", "snowflake"]
 
 [metadata]

@@ -2,9 +2,9 @@
 version = "1.0"
 
 [task]
-name = "snowflake-labs/dbt-customer-ltv-fix"
+name = "anonymous/dbt-customer-ltv-fix"
 description = "Investigate and fix customer lifetime value calculation by identifying invalid orders"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "ltv", "data-quality", "bug-fix", "snowflake"]
 
 [metadata]

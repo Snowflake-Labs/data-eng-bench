@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-dq-macro-enforcement"
+name = "anonymous/dbt-dq-macro-enforcement"
 description = "Apply data quality macros to sales order line detail model"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "data-quality", "macros", "snowflake"]
 
 [metadata]

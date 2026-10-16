@@ -2,9 +2,9 @@
 version = "1.0"
 
 [task]
-name = "snowflake-labs/dbt-fix-multi-touch-attribution"
+name = "anonymous/dbt-fix-multi-touch-attribution"
 description = "Fix a multi-touch marketing attribution mart using dbt + DuckDB/Snowflake"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "marketing", "attribution", "multi-touch", "debugging", "snowflake"]
 
 [metadata]

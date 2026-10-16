@@ -2,9 +2,9 @@
 version = "1.0"
 
 [task]
-name = "snowflake-labs/dbt-fix-cac-payback-waterfall"
+name = "anonymous/dbt-fix-cac-payback-waterfall"
 description = "Fix a CAC payback waterfall report model using dbt + DuckDB, producing analytics.rpt_cac_payback_waterfall_fixed"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "marketing", "cac", "payback", "waterfall", "snowflake"]
 
 [metadata]

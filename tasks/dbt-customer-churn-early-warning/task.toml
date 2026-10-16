@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-customer-churn-early-warning"
+name = "anonymous/dbt-customer-churn-early-warning"
 description = "Build a weekly customer churn early-warning mart using dbt and DuckDB"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "churn", "analytics", "customer", "snowflake"]
 
 [metadata]

@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-inventory-stockout-risk"
+name = "anonymous/dbt-inventory-stockout-risk"
 description = "Build a dbt mart that predicts near-term stockout risk by SKU and warehouse using the enterprise retail warehouse."
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "inventory", "operations", "stockout-risk", "snowflake"]
 
 [metadata]

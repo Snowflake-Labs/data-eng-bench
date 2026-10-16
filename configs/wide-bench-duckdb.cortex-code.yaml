@@ -1,4 +1,4 @@
-# data-eng-bench — DuckDB (hermetic) — Cortex Code
+# wide-bench — DuckDB (hermetic) — Cortex Code
 #
 # Zero Snowflake account required for the DATABASE (retail.duckdb is baked into
 # the image). Cortex Code is Snowflake's coding agent; point the harness at a
@@ -8,17 +8,17 @@
 # identical either way.
 #
 # Run:
-#   harbor run --config configs/data-eng-bench-duckdb.cortex-code.yaml \
+#   harbor run --config configs/wide-bench-duckdb.cortex-code.yaml \
 #     --path tasks -m anthropic/claude-opus-4-8 --ak reasoning_effort=high
 
-name: data-eng-bench-duckdb
+name: wide-bench-duckdb
 
-n_attempts: 3          # leaderboard requires >= 3 trials per task
+n_attempts: 3          # 3 trials per task
 n_concurrent_trials: 4
 quiet: true
 
 environment:
-  type: docker         # builds each task's environment/Dockerfile (FROM ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0)
+  type: docker         # builds each task's environment/Dockerfile (FROM wide-bench-base:1.0.0)
   env:
     - DB_TYPE=duckdb
 

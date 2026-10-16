@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-customer-cltv-forecasting"
+name = "anonymous/dbt-customer-cltv-forecasting"
 description = "Build advanced customer lifetime value forecast with segmentation, RFM scoring, churn probability, and multiple forecasting methodologies"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "customer-analytics", "cltv", "forecasting", "segmentation", "churn-analysis", "snowflake"]
 
 [metadata]

@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-order-interval-metrics"
+name = "anonymous/dbt-order-interval-metrics"
 description = "Build dbt models to analyze time intervals between consecutive customer orders and classify ordering patterns"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "customer-analytics", "window-functions", "time-series", "snowflake"]
 
 [metadata]

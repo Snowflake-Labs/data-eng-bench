@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-customer-lifecycle-journey"
+name = "anonymous/dbt-customer-lifecycle-journey"
 description = "Build multi-layer customer lifecycle journey analysis model"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "customer", "lifecycle", "journey", "window-functions", "macros", "snowflake"]
 
 [metadata]

@@ -1,4 +1,4 @@
-FROM ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0
+FROM wide-bench-base:1.0.0
 
 # Base image includes:
 # - DuckDB database at /app/database/retail.duckdb

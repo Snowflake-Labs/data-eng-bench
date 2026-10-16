@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-fix-category-revenue"
+name = "anonymous/dbt-fix-category-revenue"
 description = "Fix revenue inflation in category performance report caused by product-variant join fan-out"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "sql", "aggregation", "data-warehouse", "debugging", "snowflake"]
 
 [metadata]

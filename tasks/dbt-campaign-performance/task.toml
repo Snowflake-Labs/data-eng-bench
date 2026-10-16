@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-campaign-performance"
+name = "anonymous/dbt-campaign-performance"
 description = "Build a marketing campaign performance analytics model from scratch"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "analytics", "window-functions", "marketing", "snowflake"]
 
 [metadata]

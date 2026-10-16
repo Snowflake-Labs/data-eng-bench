@@ -1,16 +1,12 @@
-# data-eng-bench base image (public build).
+# wide-bench base image (public build).
 #
-# Builds the shared runtime that every data-eng-bench task extends via
-# `FROM ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0`. Fully public sources only — Docker Hub for the base
+# Builds the shared runtime that every wide-bench task extends via
+# `FROM wide-bench-base:1.0.0`. Fully public sources only — Docker Hub for the base
 # image, public PyPI for Python packages, NodeSource for Node.js. No private
 # registries or artifact stores are referenced.
 #
 # Build (from this directory):
-#   docker build -t ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0 .
-#
-# Publish (maintainers, see ../PUBLISHING.md):
-#   docker build -t ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0 .
-#   docker push  ghcr.io/snowflake-labs/data-eng-bench-base:1.0.0
+#   docker build -t wide-bench-base:1.0.0 .
 FROM python:3.12-slim
 
 # dbt adapters, DuckDB, and the test toolchain. Versions are pinned to match
@@ -44,8 +40,8 @@ COPY dbt_models_duckdb /app/dbt_models_duckdb
 # Copy Snowflake dbt project.
 COPY dbt_models_snowflake /app/dbt_models_snowflake
 
-# Bake in the full DuckDB database with all source tables. Tracked via Git LFS
-# in the repo; `git lfs pull` must run before building (see ../PUBLISHING.md).
+# Bake in the full DuckDB database with all source tables. Download
+# retail.duckdb before building (see ../README.md).
 # Required for DB_TYPE=duckdb runs (the hermetic, zero-account default).
 COPY database/retail.duckdb /app/database/retail.duckdb
 
@@ -86,7 +82,7 @@ COPY wait-for-init.sh /etc/profile.d/wait-for-init.sh
 RUN chmod +x /etc/profile.d/wait-for-init.sh
 
 # Default backend is DuckDB (hermetic). Set DB_TYPE=snowflake to run against a
-# Snowflake account (see ../README.md "Quickstart (Snowflake)").
+# Snowflake account (see ../README.md "Running (Snowflake)").
 ENV DB_TYPE=duckdb
 ENV DUCKDB_PATH=/app/database/retail.duckdb
 ENV DBT_PROJECT_DIR_DUCKDB=/app/dbt_models_duckdb

@@ -1,7 +1,7 @@
-# data-eng-bench — Snowflake — Codex
+# wide-bench — Snowflake — Cortex Code
 #
 # Requires a Snowflake account with the DBT_BENCH_RETAIL database seeded once
-# (see README.md "Quickstart (Snowflake)" -> migrate_duckdb.py). Verifiers and
+# (see README.md "Running (Snowflake)" -> migrate_duckdb.py). Verifiers and
 # the agent connect to Snowflake via the env vars below; DB_TYPE=snowflake
 # switches dbt to the dbt-snowflake adapter.
 #
@@ -14,12 +14,12 @@
 #   export SNOWFLAKE_ROLE=SYSADMIN    # a role with USAGE on DBT_BENCH_RETAIL
 #
 # Run:
-#   harbor run --config configs/data-eng-bench-snowflake.codex.yaml \
-#     --path tasks -m openai/gpt-5.6 --ak reasoning_effort=high
+#   harbor run --config configs/wide-bench-snowflake.claude-code.yaml \
+#     --path tasks -m anthropic/claude-opus-4-8 --ak reasoning_effort=high
 
-name: data-eng-bench-snowflake
+name: wide-bench-snowflake
 
-n_attempts: 3          # leaderboard requires >= 3 trials per task
+n_attempts: 3          # 3 trials per task
 n_concurrent_trials: 4
 quiet: true
 
@@ -39,8 +39,20 @@ environment:
     - DB_TYPE=snowflake
 
 agents:
-  - name: codex
-    model_name: openai/gpt-5.6
+  - name: cortex-code
+    model_name: anthropic/claude-opus-4-8
     kwargs:
       reasoning_effort: high
-      web_search: disabled   # benchmark integrity: no web solution lookup during agent.run()
+      # benchmark integrity: Cortex Code keeps web_search / web_fetch available in
+      # every agent mode, including code mode. Requires Harbor >= 0.22.0, which
+      # is where harbor-framework/harbor#2787 (adding disallowed_tools to the
+      # cortex-code agent) shipped. On an older Harbor, an unrecognised kwarg is
+      # dropped silently rather than rejected -- confirm this took effect with
+      # `harbor run --print-config` after upgrading.
+      disallowed_tools: web_search web_fetch
+
+  # Portable fallback if your Harbor build has no native `cortex-code` agent:
+  # - name: terminus-2
+  #   model_name: anthropic/claude-opus-4-8
+  #   kwargs:
+  #     reasoning_effort: high

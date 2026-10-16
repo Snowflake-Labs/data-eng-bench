@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-hr-analytics"
+name = "anonymous/dbt-hr-analytics"
 description = "Build an HR analytics and workforce planning pipeline using dbt + DuckDB"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "hr-analytics", "workforce-planning", "organizational-hierarchy", "snowflake"]
 
 [metadata]

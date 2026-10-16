@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-warehouse-fulfillment-analytics"
+name = "anonymous/dbt-warehouse-fulfillment-analytics"
 description = "Build a warehouse fulfillment performance analytics model from scratch"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "analytics", "window-functions", "aggregation", "snowflake"]
 
 [metadata]

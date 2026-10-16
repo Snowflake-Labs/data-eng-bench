@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-incremental-late-arriving-sales"
+name = "anonymous/dbt-incremental-late-arriving-sales"
 description = "Build incremental sales pipeline with SCD Type 2 versioning, revenue waterfall reconciliation, channel-specific latency analysis, and completeness estimation"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "snowflake", "incremental", "late-arriving-data", "scd-type-2", "revenue-reconciliation", "analytics"]
 
 [metadata]

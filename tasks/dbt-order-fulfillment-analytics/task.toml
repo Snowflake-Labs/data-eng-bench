@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-order-fulfillment-analytics"
+name = "anonymous/dbt-order-fulfillment-analytics"
 description = "Build an order fulfillment and return analytics pipeline using dbt"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "sql", "order-management", "fulfillment-analytics", "returns-analysis", "snowflake"]
 
 [metadata]

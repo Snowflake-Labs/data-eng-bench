@@ -1,7 +1,7 @@
-# Running data-eng-bench with Cortex Code
+# Running WIDE-Bench with Cortex Code
 
 Notes specific to running this benchmark with
-[Cortex Code](https://signup.snowflake.com/cortex-code), plus a set of Harbor
+Cortex Code, plus a set of Harbor
 gotchas that hit first-time runs regardless of agent. For the base setup
 (installing Harbor, building the image, the DuckDB/Snowflake variants), see
 the main [README](../README.md) — this page only covers what's different or
@@ -53,22 +53,22 @@ Score one task, then scale up, using `-i`/`--include-task-name` rather than
 the retired `--task-name`:
 
 ```bash
-harbor run --config configs/data-eng-bench-duckdb.cortex-code.yaml --path tasks \
-  -i dbt-fix-division-by-zero \
+harbor run --config configs/wide-bench-duckdb.cortex-code.yaml --path tasks \
+  -i dbt-fix-refund-reconciliation \
   --n-attempts 1 \
   --ae SNOWFLAKE_ACCOUNT="$SNOWFLAKE_ACCOUNT" \
   --ae SNOWFLAKE_USER="$SNOWFLAKE_USER" \
   --ae SNOWFLAKE_PAT="$SNOWFLAKE_PAT"
 
 # 30-task subset — good for cost-bounded runs and CI
-harbor run --config configs/data-eng-bench-duckdb.cortex-code.yaml --path tasks \
+harbor run --config configs/wide-bench-duckdb.cortex-code.yaml --path tasks \
   $(sed 's|^|-i |' configs/fast-30.txt) \
   --ae SNOWFLAKE_ACCOUNT="$SNOWFLAKE_ACCOUNT" \
   --ae SNOWFLAKE_USER="$SNOWFLAKE_USER" \
   --ae SNOWFLAKE_PAT="$SNOWFLAKE_PAT"
 
 # all 103 tasks, at the config's k=3
-harbor run --config configs/data-eng-bench-duckdb.cortex-code.yaml --path tasks \
+harbor run --config configs/wide-bench-duckdb.cortex-code.yaml --path tasks \
   --ae SNOWFLAKE_ACCOUNT="$SNOWFLAKE_ACCOUNT" \
   --ae SNOWFLAKE_USER="$SNOWFLAKE_USER" \
   --ae SNOWFLAKE_PAT="$SNOWFLAKE_PAT"
@@ -82,7 +82,7 @@ harbor run --config configs/data-eng-bench-duckdb.cortex-code.yaml --path tasks 
 For the Snowflake variant, follow the README's
 [Running (Snowflake)](../README.md#running-snowflake) section for the data
 load and dbt credentials, then add the same `--ae SNOWFLAKE_*` flags above to
-`configs/data-eng-bench-snowflake.cortex-code.yaml`. The `--ae` credentials
+`configs/wide-bench-snowflake.cortex-code.yaml`. The `--ae` credentials
 authenticate the *agent*; the exported `SNOWFLAKE_*` variables from the README
 configure the *container and verifier*. Both are needed.
 
@@ -143,8 +143,8 @@ at `/logs/verifier`. Do the same yourself. The instruction and reference
 solution are **not** baked into the image, so mount those too.
 
 ```bash
-T=dbt-fix-division-by-zero
-docker build -t deb-$T tasks/$T/environment/
+T=dbt-fix-refund-reconciliation
+docker build -t wb-$T tasks/$T/environment/
 mkdir -p /tmp/$T/logs
 
 docker run -d --name $T -e DB_TYPE=duckdb \
@@ -152,7 +152,7 @@ docker run -d --name $T -e DB_TYPE=duckdb \
   -v "$PWD/tasks/$T/solution:/solution:ro" \
   -v "$PWD/tasks/$T/instruction.md:/instruction.md:ro" \
   -v "/tmp/$T/logs:/logs/verifier" \
-  deb-$T sh -c 'sleep infinity'
+  wb-$T sh -c 'sleep infinity'
 
 cat tasks/$T/instruction.md          # the ticket — this is the prompt
 docker exec -it $T bash              # edit the dbt project, run dbt
@@ -194,8 +194,7 @@ run` and write one. Add `--mode code` if your build supports it (see
 - **Parallelism.** Harbor runs many trials concurrently; by hand you get one.
 - **The Snowflake healthcheck.** Per-task database cloning and cleanup won't
   run, so Snowflake trials will collide on shared state.
-- **Trajectory capture and token accounting**, and therefore any leaderboard
-  submission.
+- **Trajectory capture and token accounting.**
 - **Network isolation** via the agent host allowlist.
 
 ---

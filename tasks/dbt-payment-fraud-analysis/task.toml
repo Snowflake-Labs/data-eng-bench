@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-payment-fraud-analysis"
+name = "anonymous/dbt-payment-fraud-analysis"
 description = "Implement payment method analysis and fraud detection with anomaly pattern recognition"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "fraud-detection", "payment-analytics", "anomaly-detection", "snowflake"]
 
 [metadata]

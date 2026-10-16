@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-basket-composition-analysis"
+name = "anonymous/dbt-basket-composition-analysis"
 description = "Build dbt models to analyze order basket composition, size patterns, and value distribution"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "basket-analysis", "order-analytics", "window-functions", "snowflake"]
 
 [metadata]

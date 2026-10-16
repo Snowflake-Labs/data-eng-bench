@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/dbt-session-attribution"
+name = "anonymous/dbt-session-attribution"
 description = "Implement sessionization and time-decay multi-touch attribution in a single dbt model"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "attribution", "sessionization", "window-functions", "snowflake"]
 
 [metadata]

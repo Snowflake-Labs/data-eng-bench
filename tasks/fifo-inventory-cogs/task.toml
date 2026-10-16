@@ -2,9 +2,9 @@
 version = "1.0.0"
 
 [task]
-name = "snowflake-labs/fifo-inventory-cogs"
+name = "anonymous/fifo-inventory-cogs"
 description = "Implement FIFO inventory valuation with pure SQL dbt models using window functions and range-based joins"
-authors = [{ name = "Snowflake Inc.", email = "opensource@snowflake.com" }]
+authors = [{ name = "Anonymous Authors", email = "anonymous@example.com" }]
 keywords = ["dbt", "duckdb", "fifo", "inventory", "cogs", "window-functions", "sql", "snowflake"]
 
 [metadata]
