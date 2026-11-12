@@ -1,0 +1,46 @@
+{
+  "source_jobs": [
+    "https://hub.harborframework.com/jobs/25ff6e7a-0599-4e46-a3a4-895a2061b5d4",
+    "https://hub.harborframework.com/jobs/ea38e2de-20e3-4c67-a301-cc9a9cc0e1c3",
+    "https://hub.harborframework.com/jobs/d944c515-459b-4a60-b103-7bca1d2f3db3",
+    "https://hub.harborframework.com/jobs/7f4329f0-4d29-4fbc-a337-eb1754ae768e",
+    "https://hub.harborframework.com/jobs/1841283f-947a-4d3e-89a6-ea8b53c8c49a",
+    "https://hub.harborframework.com/jobs/782ba1ec-a313-43dd-b04d-624bdc71ca5b",
+    "https://hub.harborframework.com/jobs/b2acdc90-2aca-41a8-b590-c1e27a99ca4d",
+    "https://hub.harborframework.com/jobs/f9793306-407d-4d8e-827a-b0103e70bcf2",
+    "https://hub.harborframework.com/jobs/1ac7edd0-9a2b-4d46-97d4-50cba20a9871",
+    "https://hub.harborframework.com/jobs/08332e55-149e-4471-8bba-0f013925fe23",
+    "https://hub.harborframework.com/jobs/deb1c2e8-241a-4167-987c-321d63481480",
+    "https://hub.harborframework.com/jobs/1306f1f5-55a6-4088-8942-8a23cb2a9c0d",
+    "https://hub.harborframework.com/jobs/0f9747c1-023b-432a-8910-81bb2ddfa04d"
+  ],
+  "source_filter": {
+    "agent": "jitto-build",
+    "agent_version": "2.1.280",
+    "model_name": "anthropic/claude-opus-5-5",
+    "reasoning_effort": "high"
+  },
+  "metadata": {
+    "agent_display": {
+      "url": "https://jamlabs.com",
+      "label": "Jitto Build"
+    },
+    "agent_org": {
+      "url": "https://jamlabs.com",
+      "label": "JamLabs"
+    },
+    "model_display": {
+      "url": "https://www.anthropic.com/claude",
+      "label": "Opus 5.5"
+    },
+    "model_org": {
+      "url": "https://www.anthropic.com",
+      "label": "Anthropic"
+    },
+    "date": "2026-09-29",
+    "display_date": "Sep 29, 2026",
+    "reasoning_effort": "high"
+  },
+  "metrics": null,
+  "disqualified_trials": []
+}
