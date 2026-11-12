@@ -19,7 +19,7 @@ tags = ["dbt", "sql", "duckdb", "fulfillment", "operations", "snowflake"]
 timeout_sec = 3000.0
 
 [agent]
-timeout_sec = 4000.0
+timeout_sec = 10800.0
 
 [environment]
 build_timeout_sec = 3000.0

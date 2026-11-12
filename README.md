@@ -50,6 +50,23 @@ on Snowflake isolates a Snowflake-specific gap rather than a modeling error. A
 balanced 30-task subset for quick or cost-bounded runs is listed in
 `configs/fast-30.txt`.
 
+## Agent time budget
+
+The standard agent execution limit is 10,800 seconds (three hours) for both
+DuckDB and Snowflake. Agents may finish earlier. The existing
+`marketing-campaigns-harbor` allowance remains 20,000 seconds.
+
+This is an elapsed agent-phase budget, including model calls, tool execution,
+and any build, self-check, review, and repair work performed within that phase.
+The verifier has a separate 3,000-second limit. Environment build and
+healthcheck limits are unchanged.
+
+Leaderboard runs must use the canonical task budget with default multipliers
+and no per-run timeout overrides. Adopting this budget requires a new published
+canonical dataset revision and matching leaderboard pin. Results should
+identify the dataset revision and time budget; earlier results retain their
+original execution settings.
+
 ## Getting started
 
 Prerequisites: [uv](https://docs.astral.sh/uv/), Docker, and
