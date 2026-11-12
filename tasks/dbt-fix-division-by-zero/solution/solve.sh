@@ -109,7 +109,7 @@ customer_orders as (
     cross join ref_date ref
     where status != 'CANCELLED'
       and customer_id is not null
-    group by customer_id
+    group by customer_id, ref.ref_date
 ),
 
 customer_metrics as (
