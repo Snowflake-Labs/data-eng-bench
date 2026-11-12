@@ -127,7 +127,7 @@ def _get_schema():
 
 SCHEMA = _get_schema()
 
-SOURCE_SCHEMA = SCHEMA
+SOURCE_SCHEMA = 'main'
 
 
 def run_cmd(cmd, cwd="/app/dbt_project"):
