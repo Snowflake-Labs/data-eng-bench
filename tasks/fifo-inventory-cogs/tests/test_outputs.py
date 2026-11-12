@@ -825,3 +825,12 @@ class TestExpectedValues:
         result = execute_scalar(conn, db_type, f"SELECT COUNT(*) FROM {SCHEMA}.int_fifo_allocation WHERE CAST(is_fully_fulfilled AS INTEGER) = 0")
         expected_count = int(expected['PICK_ALLOC_INSUFFICIENT_COUNT'])
         assert int(result) == expected_count, f"Insufficient count {result} != expected {expected_count}"
+
+
+def test_receipt_conservation(db_connection):
+    conn, db_type = db_connection
+    allocated = execute_scalar(conn, db_type, f"SELECT SUM(allocated_qty) FROM {SCHEMA}.int_fifo_allocation")
+    received = execute_scalar(conn, db_type, f"SELECT SUM(receipt_qty) FROM {SCHEMA}.int_receipt_layers")
+    assert allocated <= received
+    phantom = execute_scalar(conn, db_type, f"SELECT COUNT(*) FROM {SCHEMA}.int_fifo_allocation WHERE receipt_id IS NULL AND allocated_qty > 0")
+    assert phantom == 0

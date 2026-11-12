@@ -280,10 +280,10 @@ allocations as (
         p.consumption_end,
         r.cumulative_qty_before,
         r.cumulative_qty_after,
-        greatest(0,
+        case when r.receipt_id is null then 0 else greatest(0,
             least(r.cumulative_qty_after, p.consumption_end) -
             greatest(r.cumulative_qty_before, p.consumption_start)
-        ) as allocated_qty,
+        ) end as allocated_qty,
         a.total_available as total_available_before_pick
     from pick_consumption p
     left join receipt_layers r
