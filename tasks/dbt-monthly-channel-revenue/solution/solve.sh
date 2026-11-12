@@ -636,7 +636,7 @@ with_consecutive_count as (
             else row_number() over (
                 partition by channel, growth_group
                 order by month_start
-            )
+            ) - 1
         end as consecutive_growth_months
     from with_growth_streak
 ),
