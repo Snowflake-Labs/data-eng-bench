@@ -101,7 +101,7 @@ orders as (
         cast(ORDERED_AT as date) as order_date,
         status
     from {{ ref('stg_orders__orders') }}
-    where status NOT IN ('cancelled', 'refunded')
+    where status NOT IN ('CANCELLED', 'REFUNDED')
 ),
 
 product_variants as (

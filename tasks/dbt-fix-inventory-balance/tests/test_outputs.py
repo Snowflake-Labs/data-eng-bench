@@ -226,7 +226,7 @@ def test_final_cumulative_matches_total(db_conn):
             INNER JOIN main.stg_product__product_variants pv ON p.product_id = pv.product_id
             INNER JOIN main.stg_orders__order_lines ol ON pv.variant_id = ol.variant_id
             INNER JOIN main.stg_orders__orders o ON ol.order_id = o.order_id
-            WHERE o.status NOT IN ('cancelled', 'refunded')
+            WHERE o.status NOT IN ('CANCELLED', 'REFUNDED')
             GROUP BY p.product_id
         ),
         final_cumulative AS (
@@ -295,7 +295,7 @@ def test_all_order_lines_present(db_conn):
         FROM main.stg_orders__order_lines ol
         INNER JOIN main.stg_product__product_variants pv ON ol.variant_id = pv.variant_id
         INNER JOIN main.stg_orders__orders o ON ol.order_id = o.order_id
-        WHERE o.status NOT IN ('cancelled', 'refunded')
+        WHERE o.status NOT IN ('CANCELLED', 'REFUNDED')
     """))
 
     report_count = int(execute_scalar(conn, db_type, """
@@ -369,7 +369,7 @@ def test_cancelled_orders_excluded(db_conn):
         SELECT COUNT(*)
         FROM main.stg_orders__order_lines ol
         INNER JOIN main.stg_orders__orders o ON ol.order_id = o.order_id
-        WHERE o.status IN ('cancelled', 'refunded')
+        WHERE o.status IN ('CANCELLED', 'REFUNDED')
     """))
 
     # Count how many of these appear in the model (should be 0)
@@ -381,7 +381,7 @@ def test_cancelled_orders_excluded(db_conn):
             FROM main.stg_orders__order_lines ol2
             WHERE ol2.order_id = o.order_id
         )
-        WHERE o.status IN ('cancelled', 'refunded')
+        WHERE o.status IN ('CANCELLED', 'REFUNDED')
     """))
 
     assert in_model_count == 0, f"Found {in_model_count} order lines from cancelled/refunded orders (should exclude {excluded_count} total)"
