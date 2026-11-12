@@ -609,11 +609,10 @@ class TestPhase4SourceValidation:
         for row in metrics_rows:
             supplier_id = row[0]
             supplier_code = row[1]
-            actual_total = int(row[4])
-            actual_on_time = int(row[5])
-            actual_rate = float(row[6])
-
             if supplier_id in expected_delivery:
+                actual_total = int(row[4])
+                actual_on_time = int(row[5])
+                actual_rate = float(row[6])
                 expected = expected_delivery[supplier_id]
                 exp_total = int(expected['total_pos'])
                 exp_on_time = int(expected['on_time_pos'])
@@ -635,11 +634,10 @@ class TestPhase4SourceValidation:
         for row in metrics_rows:
             supplier_id = row[0]
             supplier_code = row[1]
-            actual_received = float(row[8])
-            actual_accepted = float(row[9])
-            actual_rate = float(row[11])
-
             if supplier_id in expected_quality:
+                actual_received = float(row[8])
+                actual_accepted = float(row[9])
+                actual_rate = float(row[11])
                 expected = expected_quality[supplier_id]
                 exp_received = expected['total_received']
                 exp_accepted = expected['total_accepted']
@@ -661,11 +659,10 @@ class TestPhase4SourceValidation:
         for row in metrics_rows:
             supplier_id = row[0]
             supplier_code = row[1]
-            actual_po_value = float(row[13])
-            actual_invoice_value = float(row[14])
-            actual_variance_pct = float(row[16]) if row[16] is not None else 0.0
-
             if supplier_id in expected_cost:
+                actual_po_value = float(row[13])
+                actual_invoice_value = float(row[14])
+                actual_variance_pct = float(row[16]) if row[16] is not None else 0.0
                 expected = expected_cost[supplier_id]
                 exp_po_value = expected['total_po_value']
                 exp_invoice_value = expected['total_invoice_value']
