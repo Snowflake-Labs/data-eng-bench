@@ -1,0 +1,36 @@
+{
+  "source_jobs": [
+    "https://hub.harborframework.com/jobs/c48c4770-5f30-4895-8562-777e04fe5ea4",
+    "https://hub.harborframework.com/jobs/cbf09bac-f91b-4137-a93e-86d3b921f3cc",
+    "https://hub.harborframework.com/jobs/43974998-79e4-4eef-80f0-1fb69c3aa7cd"
+  ],
+  "source_filter": {
+    "agent": "data-agent",
+    "agent_version": "ea740b5f529929d80ffa129c6911014487a5fbbb",
+    "model_name": "deepseek/deepseek-flash",
+    "reasoning_effort": null
+  },
+  "metadata": {
+    "agent_display": {
+      "url": "https://github.com/kevinWangSheng/data-agent",
+      "label": "data-agent"
+    },
+    "agent_org": {
+      "url": "https://github.com/kevinWangSheng",
+      "label": "kevinWangSheng"
+    },
+    "model_display": {
+      "url": "https://api-docs.deepseek.com",
+      "label": "deepseek-flash"
+    },
+    "model_org": {
+      "url": "https://www.deepseek.com",
+      "label": "DeepSeek"
+    },
+    "date": "2026-11-12",
+    "display_date": "Nov 12, 2026",
+    "reasoning_effort": "none"
+  },
+  "metrics": null,
+  "disqualified_trials": []
+}
