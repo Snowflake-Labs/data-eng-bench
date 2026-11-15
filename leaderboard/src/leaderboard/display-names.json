@@ -41,6 +41,12 @@
       "display_url": "https://jamlabs.com",
       "display_org": "JamLabs",
       "org_url": "https://jamlabs.com"
+    },
+    "data-agent": {
+      "display_name": "data-agent",
+      "display_url": "https://github.com/kevinWangSheng/data-agent",
+      "display_org": "kevinWangSheng",
+      "org_url": "https://github.com/kevinWangSheng"
     }
   },
   "models": {
@@ -133,6 +139,12 @@
       "display_url": "https://www.anthropic.com/claude",
       "display_org": "Anthropic",
       "org_url": "https://www.anthropic.com"
+    },
+    "deepseek/deepseek-flash": {
+      "display_name": "deepseek-flash",
+      "display_url": "https://api-docs.deepseek.com",
+      "display_org": "DeepSeek",
+      "org_url": "https://www.deepseek.com"
     }
   }
 }
