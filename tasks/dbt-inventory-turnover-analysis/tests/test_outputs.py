@@ -371,14 +371,14 @@ def test_turnover_days_supply_relationship(conn):
 
 
 def test_sales_reconciliation_sample(conn):
-    """For top SKUs by current_quantity_on_hand, total_units_sold matches source aggregation."""
+    """Reconcile sales, prioritizing stocked SKUs without skipping zero-stock output."""
     c, db_type = conn
     sample = execute_query(c, db_type, """
         SELECT sku, warehouse_id
         FROM analytics.rpt_inventory_turnover_analysis
-        WHERE current_quantity_on_hand > 0
         GROUP BY sku, warehouse_id
-        ORDER BY MAX(current_quantity_on_hand) DESC
+        ORDER BY MAX(current_quantity_on_hand) DESC,
+                 MAX(total_units_sold) DESC, sku, warehouse_id
         LIMIT 20
     """)
     if not sample:
@@ -418,7 +418,7 @@ def test_sales_reconciliation_sample(conn):
                     AND COALESCE(o.shipped_at, o.delivered_at) IS NOT NULL
                 ),
                 windowed_orders AS (
-                  SELECT o.order_id
+                  SELECT o.order_id, o.warehouse_id
                   FROM main.stg_orders__orders o
                   CROSS JOIN ref_date rd
                   WHERE o.fulfillment_status = 'FULFILLED'
@@ -430,9 +430,8 @@ def test_sales_reconciliation_sample(conn):
                 FROM main.stg_orders__order_lines ol
                 JOIN windowed_orders wo ON ol.order_id = wo.order_id
                 JOIN main.stg_product__product_variants pv ON ol.variant_id = pv.variant_id
-                JOIN main.stg_inventory__inventory_levels il ON pv.variant_id = il.variant_id
                 WHERE pv.sku = %s
-                  AND il.warehouse_id = %s
+                  AND wo.warehouse_id = %s
             """, [sku, warehouse_id])
         else:
             src_sold = execute_scalar(c, db_type, """
@@ -443,7 +442,7 @@ def test_sales_reconciliation_sample(conn):
                     AND COALESCE(o.shipped_at, o.delivered_at) IS NOT NULL
                 ),
                 windowed_orders AS (
-                  SELECT o.order_id
+                  SELECT o.order_id, o.warehouse_id
                   FROM main.stg_orders__orders o
                   CROSS JOIN ref_date rd
                   WHERE o.fulfillment_status = 'FULFILLED'
@@ -455,9 +454,8 @@ def test_sales_reconciliation_sample(conn):
                 FROM main.stg_orders__order_lines ol
                 JOIN windowed_orders wo ON ol.order_id = wo.order_id
                 JOIN main.stg_product__product_variants pv ON ol.variant_id = pv.variant_id
-                JOIN main.stg_inventory__inventory_levels il ON pv.variant_id = il.variant_id
                 WHERE pv.sku = ?
-                  AND il.warehouse_id = ?
+                  AND wo.warehouse_id = ?
             """, [sku, warehouse_id])
 
         # Allow small tolerance for aggregation differences

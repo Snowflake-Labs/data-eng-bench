@@ -137,6 +137,7 @@ WITH ref_date AS (
 fulfilled_orders AS (
   SELECT
     o.order_id,
+    o.warehouse_id,
     CAST(COALESCE(o.shipped_at, o.delivered_at) AS DATE) AS fulfilled_date
   FROM {{ o_rel }} o
   CROSS JOIN ref_date rd
@@ -165,7 +166,7 @@ period_bounds AS (
 ),
 
 windowed_orders AS (
-  SELECT fo.order_id, fo.fulfilled_date
+  SELECT fo.order_id, fo.warehouse_id, fo.fulfilled_date
   FROM fulfilled_orders fo
   CROSS JOIN period_bounds pb
   {% if target.type == 'snowflake' %}
@@ -179,14 +180,13 @@ windowed_orders AS (
 sales_by_sku_warehouse AS (
   SELECT
     pv.sku,
-    il.warehouse_id,
+    wo.warehouse_id,
     SUM(COALESCE(ol.quantity_ordered, 0)) AS total_units_sold
   FROM {{ ol_rel }} ol
   JOIN windowed_orders wo ON ol.order_id = wo.order_id
   JOIN {{ pv_rel }} pv ON ol.variant_id = pv.variant_id
-  JOIN {{ inv_rel }} il ON pv.variant_id = il.variant_id
   WHERE pv.sku IS NOT NULL
-    AND il.warehouse_id IS NOT NULL
+    AND wo.warehouse_id IS NOT NULL
   GROUP BY 1, 2
 ),
 
